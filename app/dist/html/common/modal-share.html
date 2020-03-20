@@ -1,0 +1,23 @@
+<!-- [전달사항] 모달을 표사하려면 .modal에 .-modal-opened를 붙여주세요. -->
+<div class="modal modal-share">
+  <div class="modal-dim"></div>
+  <div class="modal-container">
+    <div class="modal-body">
+      <div class="modal-title">공유하기</div>
+      <div class="modal-content">
+        <p class="modal-text-small">
+          이거 참 멋진 상품이군요!<br />
+          링크를 복사해서 여기저기 공유할 수 있어요.
+        </p>
+      </div>
+      <!-- [전달사항] .btn-copy-link를 클릭하면 .share-container에 .-copied 클래스를 붙였다가 제거합니다. (animation.js 참고) -->
+      <div class="share-container">
+        <input type="text" class="share-link" value="https://hyodu.com/product/190123-mother-father-love-123456789"
+          readonly />
+        <p class="share-copied"><span class="text">복사 완료!</span></p>
+        <button class="btn-full btn-copy-link">링크 주소 복사</button>
+      </div>
+      <button class="btn-modal-close"><span class="blind">닫기</span></button>
+    </div>
+  </div>
+</div>

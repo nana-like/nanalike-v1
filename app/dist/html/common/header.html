@@ -1,0 +1,76 @@
+<!-- 
+    [전달사항]
+
+    (1)
+    로그인했을 때는 .header에 .-login를 붙여주세요. 
+    로그인 전이거나 로그아웃 시에는 .-login을 제거해주세요.
+
+    (2)
+    모바일에서 .burger 클릭 이벤트로 버거메뉴를 여닫을 경우 .header에 .-opend를 토글해주세요.
+    모바일에서 버거메뉴를 여닫을 때, body에 .-scroll-disabled를 토글해주세요.
+
+    (3)
+    데스크탑에서 .btn-mail 클릭 이벤트로 작은 메뉴를 여닫을 경우 .header에 .-user-opened를 토글해주세요.
+
+    (4)
+    header와 관련된 임의 스크립트를 header.js에 작성했습니다.
+
+
+  -->
+<header class="header ">
+  <div class="header-container">
+    <h1 class="logo header-logo">
+      <a href="/" class="logo-link"><span class="blind">효두</span></a>
+    </h1>
+    <a aria-label="메뉴 여닫기 버튼" class="burger">
+      <div aria-label="hidden" class="burger-line-wrap">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </div>
+    </a>
+  </div>
+  <!-- [전달사항] 윈도너비가 1060 미만(=모바일 사이즈)일 때, nav에게 .-trans 클래스가 붙어야 합니다. 1060 이상이면 .-trans를 제거해 주세요. (header.js 참고) -->
+  <nav class="nav">
+    <h2 class="nav-title">
+      <div class="logo nav-logo" aria-label="hidden"></div>
+      <span class="blind">네비게이션</span>
+    </h2>
+    <!-- [전달사항] .scroll-container 값은 윈도너비가 1060 미만(=모바일 사이즈)일 때 유동적으로 값이 바뀝니다. (header.js 참고) -->
+    <div class="scroll-container">
+      <div class="nav-account">
+        <div class="nav-account-container">
+          <button class="btn-mail">nana@thevitolabs.com</button>
+          <!-- 
+            [전달사항]
+            사용자 레벨에 따라 .btn-level에 고유의 클래스 네임을 붙여주세요.
+            레벨 1 = .-lv1
+            레벨 2 = .-lv2
+            레벨 3 = .-lv3
+            레벨 4 = .-lv4
+            레벨 5 = .-lv5
+          -->
+          <button href="" class="btn-level -lv4">Lv.4</button>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="menu-item"><a href="" class="menu-link">스토어</a></li>
+        <li class="menu-item"><a href="" class="menu-link">서비스 소개</a></li>
+      </ul>
+      <ul class="nav-user">
+        <li class="user-item"><a href="" class="user-link">회원정보 수정</a></li>
+        <li class="user-item"><a href="" class="user-link">배송지 관리</a></li>
+        <li class="user-item"><a href="" class="user-link">구매 내역</a></li>
+        <li class="user-item"><a href="" class="user-link">쿠폰 사용 내역</a></li>
+        <li class="user-item"><a href="" class="user-link">포인트 내역</a></li>
+        <li class="user-item"><a href="" class="user-link">문의하기</a></li>
+        <li class="user-item item-logout"><a href="" class="user-link">로그아웃</a></li>
+      </ul>
+      <div class="nav-btn-wrap">
+        <button class="nav-btn btn-line">회원가입</button>
+        <button class="nav-btn btn-line-on">로그인</button>
+      </div>
+    </div>
+  </nav>
+  <div class="dim header-dim"></div>
+</header>

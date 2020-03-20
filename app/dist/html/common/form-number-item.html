@@ -1,0 +1,16 @@
+<div class="form-number-item">
+  <label for="@@inputID" class="form-label">
+    <span class="form-label-text">@@label</span>
+    <span class="form-label-guide">@@guide</span>
+  </label>
+  <!-- [전달사항] 여기에서도 .form-input에 .-error를 붙일 수 있습니다. 필요하신 경우 사용하시면 될 것 같습니다. -->
+  <div class="number-control">
+    <button class="btn-number-control -down"><span class="blind">수량 줄이기</span></button>
+    <input id="@@inputID" name="@@inputID" type="number" minlength="@@length.min" maxlength="@@length.max"
+      placeholder="@@placeholder" class="form-input form-input-number "
+      value="@@value" readonly />
+    <button class="btn-number-control -up"><span class="blind">수량 늘리기</span></button>
+  </div>
+  <p class="form-error">Msg</p>
+  <small class="form-number-info">한 번에 최대 999개까지 구매할 수 있어요.</small>
+</div>
