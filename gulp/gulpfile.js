@@ -159,7 +159,7 @@ gulp.task("watch", function () {
     ["sass"]);
   gulp.watch(
     paths.html, {
-      interval: 300
+      interval: 100
     },
     ["fileinclude", "reload"]
   );
@@ -178,6 +178,6 @@ gulp.task("watch", function () {
 });
 
 
-gulp.task("default", gulp.series(["fileinclude", "imagemin", "sass", "browserSync", "watch"]), async function () {
+gulp.task("default", ["fileinclude", "imagemin", "sass", "browserSync", "watch"], function () {
   console.log(" ~~~ 👩‍🔧 걸프가 열심히 일하고 있습니다 👨‍🔧 ~~~ ");
 });
