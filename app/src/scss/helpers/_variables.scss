@@ -1,0 +1,78 @@
+// ---
+// variables (global)
+// ---
+
+// -------
+// color
+// -------
+$c-black: #101010;
+$c-gray-dark: #343434;
+$c-gray: #4b4b4b;
+$c-gray-normal: #5f5f5f;
+$c-gray-light: #909090;
+$c-line: #e6e6e6;
+
+$c-white-dark: #f6f6f6;
+$c-white-light: #fcfcfc;
+
+$c-pink-hot: #ff5461;
+$c-pink: #fa6b76;
+$c-error: #ff1515;
+
+//각 레벨별 컬러
+$c-lv: (1: #909090,
+  2: #e8ae00,
+  3: #47787a,
+  4: #ff8132,
+  5: #ff5461);
+
+// 각 레벨별 뱃지 컬러 및 이미지
+$c-badge: (1: (bg: #9e9e9e,
+    img: "badge/badge-lv-1.png"
+  ),
+  2: (bg: #f9c34b,
+    img: "badge/badge-lv-2.png"
+  ),
+  3: (bg: #47787a,
+    img: "badge/badge-lv-3.png"
+  ),
+  4: (bg: #fdb365,
+    img: "badge/badge-lv-4.png"
+  ),
+  5: (bg: #ff8393,
+    img: "badge/badge-lv-5.png"
+  ));
+
+// -------
+// * z-index
+// -------
+$z-header: 200; //헤더
+$z-header-dim: 210; //헤더 Dim (모바일 전용)
+$z-header-nav: 220; //헤더 네비게이션
+$z-burger: 300; //버거 아이콘
+$z-modal: 500; //모달
+$z-loading: 100; //로딩 이미지
+$z-fixed-bar: 50; //결제 화면의 하단 고정 바
+
+$z-header-account-lt: 100;
+$z-header-user-lt: 200;
+
+// -------
+// * path
+// -------
+$path-image: "../images/";
+
+// -------
+// * font-weight
+// -------
+$fw-m: 500;
+$fw-r: 400;
+
+// -------
+// * layout
+// -------
+$min-width: 320px;
+$max-width: 1600px;
+$max-width-laptop-lg: 980px;
+$max-width-laptop-md: 640px;
+$max-width-mobile: 460px;

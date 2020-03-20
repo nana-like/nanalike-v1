@@ -1,0 +1,548 @@
+// ---
+// common
+// ---
+
+.blind {
+  // 👆 SEO용 텍스트 숨기기
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.logo {
+  // 👆 범용 로고
+  @include bgi("logo/logo");
+  background-size: 100%;
+}
+
+.scroll-container {
+  // 👆 스크롤 영역 지정할 때 사용
+  overflow-y: auto;
+}
+
+.-scroll-disabled {
+  // 👆 스크롤 막을 때 사용
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.text-small {
+  // 👆 서비스 이용약관 등의 작은 안내문에 사용
+  font-size: 11px;
+  line-height: 1.64;
+  letter-spacing: -0.17px;
+  color: $c-gray-light;
+  margin-top: 30px;
+
+  //laptop
+  @include res--laptop {
+    font-size: 13px;
+    line-height: 1.69;
+    letter-spacing: 0.1px;
+  }
+
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  a:focus,
+  a:hover {
+    color: $c-gray-dark;
+  }
+}
+
+.hide-laptop {
+  // 👆 랩탑에서 숨기는 요소
+  display: block;
+
+  //laptop
+  @include res--laptop {
+    display: none;
+  }
+}
+
+.show-laptop {
+  // 👆 랩탑에서만 보여주는 요소
+  display: none;
+
+  //laptop
+  @include res--laptop {
+    display: block;
+  }
+}
+
+.get-exp {
+  // 👆 리뷰 등록 완료 화면에서 경험치 보여줌
+  color: $c-pink-hot;
+  font-size: 15px;
+  font-weight: $fw-m;
+  text-align: center;
+  line-height: 1.47;
+  margin-top: 15px;
+
+  @include res--laptop {
+    font-size: 17px;
+  }
+}
+
+.datetime {
+  // 👆 날짜스탬프
+  font-size: 11px;
+  font-weight: $fw-r;
+  line-height: 1.55;
+  letter-spacing: 0.2px;
+  color: #a7a7a7;
+
+  //laptop
+  @include res--laptop {
+    font-size: 13px;
+  }
+}
+
+
+.list-empty {
+  // 👆 empty 화면 공용 텍스트
+  text-align: center;
+  padding: 0 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: $fw-r;
+  color: #5f5f5f;
+
+  @include res--laptop {
+    font-size: 14px;
+  }
+
+  .btn-line {
+    margin: 20px auto 0;
+  }
+}
+
+.jumbotron {
+  // 👆 page-layout 밖에 위치하는, 중요한 내용을 보여주는 컴포넌트
+
+  padding: 20px;
+  background-color: #f3f3f3;
+
+  @include res--laptop {
+    padding: 25px;
+  }
+
+  &-title {
+    max-width: $max-width-mobile;
+    margin: 0 auto 10px;
+    font-size: 14px;
+    font-weight: $fw-m;
+    letter-spacing: -0.3px;
+    color: #131313;
+
+    @include res--laptop {
+      font-size: 15px;
+      max-width: $max-width-laptop-md;
+      margin-bottom: 13px;
+    }
+
+  }
+
+  &-container {
+    max-width: $max-width-mobile;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+
+    @include res--laptop {
+      max-width: $max-width-laptop-md;
+    }
+  }
+
+  &.-large {
+    .jumbotron-title {
+      max-width: $max-width-laptop-md;
+    }
+
+    .jumbotron-container {
+      max-width: $max-width-laptop-md;
+    }
+
+    @include res--laptop {
+      .jumbotron-title {
+        max-width: $max-width-laptop-lg;
+      }
+
+      .jumbotron-container {
+        max-width: $max-width-laptop-lg;
+      }
+    }
+  }
+
+}
+
+
+.product-info {
+  // 👆 결제, 리뷰 화면 등에서 상품 정보부
+  $_padding_m: 25px;
+  $_padding_l: 28px;
+
+
+  @include flexbox();
+  margin-bottom: 20px;
+  padding: $_padding_m $_padding_m 0;
+
+  @include res--laptop {
+    margin-bottom: 25px;
+    padding: $_padding_l $_padding_l 0;
+  }
+
+  &-thumbnail {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    @include flex-shrink(0);
+    background-color: #fafafa;
+    overflow: hidden;
+
+    @include res--laptop {
+      width: 160px;
+      height: 160px;
+      margin-right: 25px;
+    }
+
+    a {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+  &-image {
+    display: block;
+    // width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+
+  &-details {
+    @include flex-grow(1);
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: $c-black;
+    line-height: 1.43;
+    font-weight: $fw-m;
+
+    @include res--laptop {
+      font-size: 17px;
+    }
+  }
+
+  &-content {
+    font-size: 12px;
+    line-height: 1.55;
+    color: $c-gray-normal;
+    font-weight: $fw-r;
+
+    @include res--laptop {
+      font-size: 13px;
+    }
+
+  }
+
+}
+
+
+
+.not-found {
+  // 👆 404 페이지용
+
+  .not-found-code {
+    // 👆 코드 표시부
+    @include flexbox();
+    @include justify-content(center);
+    width: 100%;
+    padding-top: 98px;
+    text-align: center;
+    position: relative;
+    font-size: 112px;
+    font-weight: $fw-m;
+    color: #fa6b76;
+
+    @include res--laptop {
+      font-size: 128px;
+      padding-top: 150px;
+    }
+
+    i {
+      position: relative;
+      display: block;
+      line-height: 1.4;
+    }
+
+    i:last-child {
+      top: 8px;
+      transform: rotate(180deg);
+    }
+
+    &:before {
+      // 👆 효둥이 이미지
+      z-index: 1;
+      position: absolute;
+      top: 56px;
+      left: 50%;
+      display: block;
+      content: '';
+      width: 53px;
+      height: 107px;
+      transform: translateX(-50%);
+      margin-left: -6px;
+      @include bgi("char/char-dog-confused");
+      background-size: 100%;
+
+      @include res--laptop {
+        top: 80px;
+        width: 74px;
+        height: 150px;
+        margin-left: -8px;
+      }
+    }
+
+  }
+
+  .not-found-text {
+    font-size: 15px;
+    font-weight: $fw-r;
+    text-align: center;
+    color: $c-black;
+
+    @include res--laptop {
+      font-size: 17px;
+    }
+  }
+}
+
+
+.welcome {
+  // 👆 회원가입 환영해요오오오 부분
+
+  &-message {
+    max-width: $max-width-mobile;
+    margin: 0 auto;
+
+    @include res--laptop {
+      max-width: $max-width-laptop-md;
+    }
+
+  }
+
+  &-title {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+
+    @include res--laptop {
+      margin-top: 10px;
+      margin-bottom: 45px;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      display: block;
+      width: 123px;
+      height: 65px;
+      background-size: 100%;
+      content: '';
+
+      @include res--laptop {
+        width: 182px;
+        height: 96px;
+      }
+    }
+
+    &:before {
+      top: -60px;
+      left: -2px;
+      @include bgi("deco/welcome-deco-left");
+
+      @include res--laptop {
+        top: -80px;
+      }
+    }
+
+    &:after {
+      bottom: -30px;
+      right: 0;
+      @include bgi("deco/welcome-deco-right");
+
+      @include res--laptop {
+        bottom: -20px;
+      }
+    }
+  }
+
+  &-title-text {
+    display: inline-block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: $fw-m;
+    line-height: 1.5;
+    color: $c-black;
+    max-width: 250px;
+
+    @include res--laptop {
+      font-size: 22px;
+    }
+  }
+
+  &-guide {
+    @include flexbox();
+    @include justify-content(center);
+  }
+
+  &-text {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: $fw-r;
+    line-height: 1.57;
+    color: #343434;
+    max-width: 160px;
+    word-break: keep-all;
+
+    p:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    @include res--laptop {
+      font-size: 15px;
+      text-align: right;
+      max-width: 270px;
+      margin-right: 60px;
+      margin-top: 60px;
+    }
+  }
+
+  &-image {
+    width: 120px;
+    height: 262px;
+    background-size: 100%;
+    @include bgi("char/char-girl");
+
+    @include res--laptop {
+      width: 138px;
+      height: 300px;
+      margin-right: 40px;
+    }
+  }
+
+  .page-sub {
+    margin-top: 60px;
+    max-width: calc(100% - 80px);
+
+    .page-sub-line {
+      margin: 45px auto;
+
+      @include res--laptop {
+        margin: 50px auto;
+      }
+    }
+  }
+}
+
+
+.emphasize {
+  // 👆 붉은 색으로 강조하고 싶은 부분
+  color: #ff5461;
+}
+
+.-popIn {
+  // 👆 팝인!
+  -webkit-animation-name: popIn;
+  animation-name: popIn;
+  animation-duration: 1s;
+}
+
+
+
+.loading {
+  // 👆 로딩 화면
+  z-index: $z-loading;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(250, 250, 250, 0.6);
+
+}
+
+.loading-image {
+  // 👆 로딩 화면 내 이미지
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include bgi("logo/logo-circle");
+  background-size: 100%;
+  animation: pulsate 0.8s infinite;
+
+  width: 100px;
+  height: 104px;
+  margin-top: -50px;
+  margin-left: -52px;
+
+  @include res--laptop {
+    width: 120px;
+    height: 124px;
+    margin-top: -60px;
+    margin-left: -62px;
+  }
+}
+
+.-need-loading {
+  // 👆 특정 영역 내에서 로딩을 보여주고 싶을 때 사용
+  position: relative;
+}
+
+.loading-small {
+  // 👆 특정 영역 내에서만 자리 잡는 로딩 화면
+  z-index: $z-loading;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(250, 250, 250, 0.75);
+
+  .loading-image {
+    width: 86px;
+    height: 90px;
+    margin-top: -43px;
+    margin-left: -45px;
+
+    @include res--laptop {
+      width: 100px;
+      height: 104px;
+      margin-top: -50px;
+      margin-left: -52px;
+    }
+  }
+}

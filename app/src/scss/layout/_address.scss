@@ -1,0 +1,39 @@
+// ---
+// layout - address
+// ---
+
+.address-list {
+  // 👆 주소 칩이 있는 목록
+
+  background-color: #f3f3f3;
+  padding: 20px 20px 12px 20px;
+  margin-bottom: 40px;
+
+  @include res--laptop {
+    max-width: 980px;
+    padding: 30px 30px 20px 30px;
+    margin: 0 auto 45px;
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 15px;
+    font-weight: $fw-m;
+    color: #131313;
+
+    @include res--laptop {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-container {
+    max-width: $max-width-mobile;
+    margin: 0 auto;
+
+    @include res--laptop {
+      max-width: 100%;
+    }
+  }
+}

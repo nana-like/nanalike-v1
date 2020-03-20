@@ -1,0 +1,255 @@
+// ---
+// modal
+// ---
+
+.modal {
+  // 👆 모달 요소
+  z-index: $z-modal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transition-property: opacity, visibility;
+  transition-delay: 100ms;
+
+  .share-copied {
+    // 사파리, 파폭에서 메시지만 늦게 사라지는 현상 제거
+    display: none;
+  }
+}
+
+.modal-dim {
+  // 👆 모달 딤
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modal-container {
+  // 👆 모달 내 요소들을 정렬하는 컨테이너 
+  width: 100%;
+  height: 100%;
+  @include center();
+}
+
+.modal-body {
+  // 👆 흰색의 모달 바탕
+  position: relative;
+  width: calc(100vw - 40px);
+  max-width: 400px;
+  min-height: 188px;
+  padding: 55px 30px 25px;
+  background-color: #ffff;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px 0 rgba(15, 15, 15, 0.2);
+  border: 1px solid #c7c7c7;
+
+  animation: slideOutDown 0.3s;
+  animation-fill-mode: forwards;
+
+  //laptop
+  @include res--laptop {
+    padding: 60px 35px 30px;
+  }
+
+  .btn-modal-okay {
+    margin: 30px auto 0;
+
+    //laptop
+    @include res--laptop {
+      margin-top: 35px;
+    }
+
+  }
+
+  .btn-modal-close {
+    // 👆 모달 닫기 버튼
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    background-size: 16px 14px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    background-image: icon(cancle, "d5d5d5");
+
+    @include res--laptop {
+      background-size: 16px 16px;
+    }
+
+    &:hover {
+      background-image: icon(cancle, "898989");
+    }
+  }
+}
+
+.modal-title {
+  // 👆 모달에 나타나는 타이틀
+  font-size: 22px;
+  font-weight: $fw-m;
+  line-height: 1.5;
+  color: $c-black;
+  text-align: center;
+  padding-bottom: 18px;
+  margin-top: -15px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid #d5d5d5;
+
+  //laptop
+  @include res--laptop {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+}
+
+.modal-content {
+  // 👆 모달의 실질 콘텐츠 영역
+  overflow-y: auto;
+  padding-right: 4px;
+  max-height: calc(100vh - 400px);
+
+  //laptop
+  @include res--laptop {
+    max-height: 250px;
+  }
+
+  .modal-text {
+    // 👆 모달의 일반적인 텍스트
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: $fw-r;
+    color: $c-gray-dark;
+
+    //laptop
+    @include res--laptop {
+      font-size: 15px;
+    }
+  }
+
+  .modal-text-small {
+    // 👆 타이틀과 함께 나타나는 작은 텍스트
+    font-size: 14px; //기존 12px!
+    line-height: 1.5;
+    font-weight: $fw-r;
+    color: $c-gray-dark;
+
+  }
+}
+
+
+
+.modal-large {
+  // 👆 큰~ 모달
+
+  .modal-body {
+
+    @include res--laptop {
+      max-width: $max-width-laptop-md;
+    }
+
+  }
+}
+
+
+
+.modal-share {
+  // 👆 공유하기용 모달
+
+  .share-container {
+    position: relative;
+    margin-top: 20px;
+
+    .share-link {
+      width: 100%;
+      height: 34px;
+      padding: 8px 14px;
+      letter-spacing: -0.18px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+      border-radius: 2px;
+      border: 1px solid #d0d0d0;
+      background-color: #fff;
+      color: $c-gray-dark;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .share-copied {
+      position: absolute;
+      overflow: hidden;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 34px;
+      font-size: 12px;
+      letter-spacing: -0.2px;
+      border-radius: 2px;
+      font-weight: $fw-m;
+      line-height: 33px;
+      text-align: center;
+      background-color: #f7f7f7;
+      border: 1px solid #d0d0d0;
+      transition: opacity 0.2s;
+      visibility: hidden;
+      @include pointer-none;
+      @include select-none;
+
+      .text {
+        display: block;
+        opacity: 0;
+        transform: translateZ(0);
+      }
+    }
+
+
+    .btn-full {
+      width: 100%;
+      margin-bottom: 14px;
+    }
+
+    &.-copied {
+      // 🙌 복사버튼을 누른 순간 애니메이션 보여줌
+
+      .share-copied {
+        visibility: visible;
+        animation: show-copied 1700ms;
+      }
+
+      .share-copied .text {
+        animation: show-skew 1700ms;
+        opacity: 1;
+        transition: opacity 0.4s;
+      }
+    }
+  }
+
+  .modal-text-small {
+    text-align: center;
+  }
+}
+
+
+.modal.-modal-opened {
+  // 🙌 모달 열렸을 때
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+
+  .share-copied {
+    display: block;
+  }
+
+  .modal-body {
+    animation: slideInUp 0.3s 50ms;
+    animation-fill-mode: backwards;
+  }
+}

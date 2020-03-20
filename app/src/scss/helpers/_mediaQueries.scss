@@ -1,0 +1,56 @@
+// ---
+// mediaQueries
+// ---
+
+
+// Break Point
+$desktop: 1600px;
+$laptop-lg: 1200px;
+$laptop: 1060px; //사용
+$tablet: 768px; //사용
+$mobile: 540px;
+$mobile-sm: 375px;
+
+// ---------- * ----------
+
+// Desktop
+@mixin res--desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Laptop LG
+@mixin res--laptopLG {
+  @media screen and (min-width: #{$laptop-lg}) {
+    @content;
+  }
+}
+
+// Laptop
+@mixin res--laptop {
+  @media screen and (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+// Tablet
+@mixin res--tablet {
+  @media screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+// Mobile
+@mixin res--mobile {
+  @media screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+// Mobile SM
+@mixin res--mobileSM {
+  @media screen and (min-width: #{$mobile-sm}) {
+    @content;
+  }
+}

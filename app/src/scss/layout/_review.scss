@@ -1,0 +1,332 @@
+// ---
+// layout - review
+// ---
+
+.review {
+  // 👆 리뷰 전체를 감싸는 부모
+
+  &-container {
+    max-width: $max-width-mobile;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @include res--tablet {
+      max-width: $max-width-laptop-md;
+      padding: 0 0px;
+    }
+
+    @include res--laptop {
+      max-width: $max-width-laptop-lg;
+      // padding: 0 40px;
+    }
+  }
+}
+
+.review-background {
+  // 👆 배경으로 보여줄 상품 이미지
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+
+  &-image {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    max-width: 1920px;
+
+    @include res--laptop {
+      height: 350px;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+.review-summary {
+  // 👆 상품에 대한 이름/전체별점/리뷰 수 등
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  margin-top: -30px;
+
+  @include res--laptop {
+    margin-top: -45px;
+  }
+
+  &-container {
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    border-radius: 4px;
+    font-weight: $fw-r;
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 18px;
+    color: $c-black;
+    font-weight: $fw-m;
+
+    @include res--laptop {
+      font-size: 20px;
+      margin-bottom: 22px;
+    }
+  }
+
+  &-total {
+    // 👆 총 몇 명이 평가했는지 나타냄
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.67;
+    color: $c-black;
+
+    @include res--laptop {
+      margin-top: 8px;
+      font-size: 15px;
+    }
+  }
+}
+
+.review-filter {
+  // 👆 리뷰 필터 영역
+  margin-top: 24px;
+
+  @include res--laptop {
+    margin-top: 34px;
+  }
+
+  .radio-circle-wrap {
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-wrap(nowrap);
+    width: 100%;
+    height: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+
+    @include res--laptop {
+      @include justify-content(space-between);
+    }
+  }
+
+  .radio-circle,
+  .btn-circle {
+    min-width: 98px;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.review-list {
+  // 👆 리뷰 리스트 영역
+  margin-top: 32px;
+  border-top: 1px solid #e6e6e6;
+
+  .btn-load-more {
+    margin: 55px auto 0;
+  }
+}
+
+.review-item {
+  // 👆 개별 리뷰 아이템
+  padding: 35px 0;
+  color: $c-black;
+  font-weight: $fw-r;
+  border-bottom: 1px solid #e6e6e6;
+
+  &-name {
+    font-size: 15px;
+    font-weight: $fw-m;
+    letter-spacing: -0.26px;
+  }
+
+  &-ratings {
+    margin-top: 4px;
+
+    @include res--laptop {
+      margin-top: 8px;
+    }
+  }
+
+  &-content {
+    margin: 12px auto 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #454545;
+    min-height: 40px;
+
+    @include res--laptop {
+      margin-top: 22px;
+      color: #343434;
+      line-height: 1.6;
+    }
+  }
+
+  &-datetime {
+    margin-top: 15px;
+
+    @include res--laptop {
+      font-size: 12px;
+    }
+  }
+}
+
+.ratings {
+  // 👆 별점 영역
+  @include flexbox();
+  @include align-items(center);
+
+  &-star {
+    $_size_sm: 13px;
+    $_size_lg: 14px;
+
+    position: relative;
+    display: block;
+    width: $_size_sm * 5;
+    height: $_size_sm;
+    margin-left: -2px;
+    background-repeat: repeat-x;
+    background-image: icon(star, "dbdbdb");
+
+    @include res--laptop {
+      width: $_size_lg * 5;
+      height: $_size_lg;
+    }
+
+    &-icon {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-size: $_size_sm;
+      background-repeat: repeat-x;
+      background-image: icon(star, "404040");
+      content: "";
+
+      @include res--laptop {
+        background-size: $_size_lg;
+      }
+    }
+  }
+
+  &-number {
+    // 👆 평균 별점을 나타내는 숫자
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: $fw-m;
+    color: $c-gray-dark;
+    line-height: 1.4;
+
+    @include res--laptop {
+      font-size: 15px;
+      line-height: 1;
+    }
+  }
+}
+
+.review-summary-ratings .ratings {
+  // 🙌 써머리 부분의 별점인 경우
+
+  &-star {
+    $_size_sm: 16px;
+    $_size_lg: 18px;
+
+    width: $_size_sm * 5;
+    height: $_size_sm;
+
+    @include res--laptop {
+      width: $_size_lg * 5;
+      height: $_size_lg;
+    }
+
+    &-icon {
+      background-size: $_size_sm;
+      background-image: icon(star, "FA6B76");
+
+      @include res--laptop {
+        background-size: $_size_lg;
+      }
+    }
+  }
+}
+
+.review .list-empty {
+  // 🙌 리뷰가 하나도 없는 경우
+  padding-bottom: 20px;
+
+  &:before {
+    // 👆 아들 이미지
+    opacity: 0.85;
+    display: block;
+    content: "";
+    width: 270px;
+    height: 255px;
+    @include bgi("char/char-boy");
+    background-size: 100%;
+    margin: 60px auto 35px;
+
+    @include res--laptop {
+      width: 320px;
+      height: 302px;
+    }
+  }
+}
+
+.review-form {
+  // 👆 리뷰 작성(수정) 폼 전체
+
+  margin-top: 35px;
+
+  @include res--laptop {
+    margin-top: 40px;
+  }
+
+  .select-star {
+    margin-left: -2px;
+  }
+}
+
+.select-star {
+  // 👆 리뷰 작성(수정) 화면에서 별 선택 영역
+
+  width: 100%;
+  margin: 0 auto 40px;
+
+  &-container {
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &-icon {
+    // 👆 각 별 아이콘 (클릭 시 활성화)
+    width: 40px;
+    height: 40px;
+    background-image: icon(star, "e0e0e0");
+  }
+
+  &-icon.-star-active {
+    // 🙌 활성화된 별
+    background-image: icon(star, "FA6B76");
+  }
+}

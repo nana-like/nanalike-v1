@@ -1,0 +1,539 @@
+// ---
+// layout - level
+// ---
+
+.user-level {
+  // 👆 유저 레벨 영역 전체
+
+  $_userLevelposition: (1: (width: 1%,
+        minM: 10px,
+        minL: 14px),
+      2: (width: 26%,
+        minM: 76px,
+        minL: 104px),
+      3: (width: 50%,
+        minM: 140px,
+        minL: 140px),
+      4: (width: 74%,
+        minM: 250px,
+        minL: 250px),
+      5: (width: 100%,
+        minM: 100%,
+        minL: 100%));
+
+  &.-user-lv-5 {
+    // 🙌 만렙(레벨5)일 때 특별처리
+
+    .user-exp-current {
+      // 👆 현재 경험치 퍼센트 숨기기
+      display: none;
+    }
+
+    .user-position-progress-bar {
+      // 👆 프로그레스 바 색상 변경
+      background-color: #ff8393;
+    }
+
+    .user-position-progress-bar:before {
+      // 👆 별 색상 변경
+      left: 98.2%;
+      background-image: icon(star, "FF5461");
+    }
+
+    .bar-level .bar-level-list:last-child {
+      // 👆 레벨 5 색상 변경
+      color: #ff5461;
+    }
+  }
+
+  @each $key,
+  $value in $_userLevelposition {
+    &.-user-lv-#{$key} {
+      // 🙌 레벨 별 progress bar 너비값 변경
+
+      .user-position-progress-bar {
+        width: map-get($value, width);
+        min-width: map-get($value, minM);
+
+        @include res--laptop {
+          min-width: map-get($value, minL);
+        }
+      }
+
+      .bar-level-list:nth-child(-n + #{$key}) {
+        color: #4b4b4b;
+      }
+    }
+  }
+}
+
+@each $key,
+$value in $c-badge {
+  .user-level.-user-lv-#{$key} {
+    // 🙌 레벨 별 뱃지 부분의 이미지와 배경색 변경
+
+    .user-badge {
+      background-color: map-get($value, bg);
+    }
+
+    .user-badge-image {
+      background-image: url(#{$path-image}#{map-get($value, img)
+    }
+
+    );
+    background-size: 105px 105px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    @include res--laptop {
+      background-size: 145px 145px;
+    }
+  }
+}
+
+.level-guide .level-guide-list-item:nth-child(#{$key}) {
+  // 🙌 레벨 별 뱃지 부분의 이미지와 배경색 변경
+
+  .level-guide-badge {
+    background-image: url(#{$path-image}#{map-get($value, img)
+  }
+
+  );
+  background-size: 85px 85px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: map-get($value, bg);
+
+  @include res--laptop {
+    background-size: 135px 135px;
+  }
+}
+}
+}
+
+.user-summary {
+  // 👆 .user-level에서 유저 뱃지, 이름, 타이틀 정보부 (상단)
+
+  .jumbotron-container {
+    @include flexbox();
+    padding: 20px;
+
+    @include res--laptop {
+      padding: 30px;
+    }
+  }
+
+  .user-badge {
+    // 👆 사용자 뱃지 (상위 클래스로 이미지와 배경색 변경)
+    @include flex-grow(1);
+    flex-basis: 110px;
+    min-width: 90px;
+    max-width: 210px;
+    height: 148px;
+    background-color: #f0f0f0;
+    margin-right: 20px;
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      animation: popIn 0.6s 0.1s;
+      animation-fill-mode: backwards;
+    }
+
+    @include res--laptop {
+      min-width: 236px;
+      height: 165px;
+      margin-right: 30px;
+    }
+  }
+
+  .user-info {
+    // 👆 뱃지 옆의 정보 부분
+    @include flex-grow(1);
+    font-weight: $fw-m;
+    min-width: 120px;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+  }
+
+  .user-status {
+    // 👆 유저 텍스트 정보
+
+    &-level {
+      font-weight: inherit;
+      font-size: 16px;
+      color: $c-pink-hot;
+
+      @include res--laptop {
+        font-size: 17px;
+      }
+    }
+
+    &-title {
+      margin: 2px 0 1px;
+      font-weight: inherit;
+      font-size: 13px;
+      color: $c-gray-normal;
+      letter-spacing: -0.2px;
+
+      @include res--laptop {
+        font-size: 14px;
+      }
+    }
+
+    &-name {
+      font-weight: inherit;
+      font-size: 19px;
+      color: $c-black;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+
+      @include res--laptop {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .user-exp {
+    // 👆 유저 경험치 바 부분
+
+    &-current {
+      font-weight: $fw-m;
+      font-size: 13px;
+      color: $c-pink-hot;
+    }
+
+    &-progress {
+      overflow: hidden;
+      margin: 4px 0 2px;
+      width: 100%;
+      height: 10px;
+      border-radius: 2px;
+      background-color: #efefef;
+
+      @include res--laptop {
+        height: 12px;
+      }
+    }
+
+    &-progress-bar {
+      width: 0%;
+      height: 100%;
+      background-image: linear-gradient(to right, #f48d6c, #ff5461);
+      border-radius: 2px;
+      animation: progress 1.3s;
+      animation-fill-mode: backwards;
+    }
+
+    &-total {
+      font-weight: $fw-r;
+      color: $c-gray-light;
+    }
+  }
+}
+
+.user-position {
+  // 👆 .user-level에서 다음 레벨까지의 경험치 보여주는 부분 (하단)
+  background-color: #fff;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    background-color: #f3f3f3;
+  }
+
+  &-container {
+    overflow: hidden;
+    padding: 55px 0px 35px;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin: 0 auto;
+
+    @include res--laptop {
+      padding: 75px 0px 60px;
+    }
+  }
+
+  &-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #e6e6e6;
+
+    @include res--laptop {
+      height: 8px;
+    }
+
+    &-bar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: $c-gray-light;
+      // animation: progress 1s 0.5s;
+      animation-fill-mode: backwards;
+
+      &:before {
+        opacity: 0;
+        position: absolute;
+        top: -18px;
+        left: 100%;
+        display: block;
+        width: 14px;
+        height: 13px;
+        margin-left: -7px;
+        background-size: 100%;
+        background-image: icon(star, "343434");
+        content: "";
+        animation: flip 2s 1s;
+        animation-fill-mode: forwards;
+
+        @include res--laptop {
+          width: 16px;
+          height: 15px;
+          top: -22px;
+          margin-left: -8px;
+        }
+      }
+    }
+  }
+
+  .bar-level {
+    @include flexbox();
+    @include justify-content(space-between);
+    @include align-items(center);
+    color: #cecece;
+    font-weight: $fw-r;
+    font-size: 11px;
+    letter-spacing: -0.2px;
+
+    @include res--laptop {
+      margin-top: 2px;
+      font-size: 13px;
+    }
+  }
+
+  &-guide {
+    margin-top: 22px;
+    font-size: 13px;
+    font-weight: $fw-m;
+    text-align: center;
+
+    @include res--laptop {
+      font-size: 16px;
+    }
+  }
+}
+
+.level-guide {
+  // 👆 효두의 레벨 및 혜택 안내 부분
+
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 0px;
+  background-color: #fff;
+
+  @include res--laptop {
+    max-width: 980px;
+    padding: 80px 0;
+  }
+
+  &-title {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    font-weight: $fw-m;
+    color: $c-black;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #d5d5d5;
+
+    @include res--laptop {
+      font-size: 18px;
+    }
+  }
+
+  &-list {
+    @include res--laptop {
+      margin-top: 39px;
+      @include flexbox();
+      @include flex-wrap(wrap);
+    }
+  }
+
+  &-list-item {
+    // 👆 각 레벨 하나씩
+    @include flexbox();
+    @include align-items(flex-start);
+    padding: 25px 8px;
+    border-bottom: 1px solid #d5d5d5;
+
+    @include res--laptop {
+      padding: 0;
+      width: 300px;
+      margin-right: 39px;
+      @include flex-direction(column);
+      border-bottom: 0;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-child(-n + 3) {
+        margin-bottom: 58px;
+      }
+    }
+  }
+
+  &-badge {
+    // 👆 각 레벨별 뱃지 이미지
+    flex-basis: 30%;
+    min-width: 90px;
+    max-width: 200px;
+    height: 106px;
+    background: #4f8386;
+    margin-right: 36px;
+
+    @include res--tablet {
+      margin-right: 40px;
+    }
+
+    @include res--laptop {
+      margin-right: 0;
+      max-width: 100%;
+      width: 300px;
+      min-height: 160px;
+      flex-basis: initial;
+    }
+  }
+
+  &-info {
+    // 👆 각 레벨별 텍스트부
+    font-weight: $fw-m;
+    flex-basis: 70%;
+    min-width: 120px;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+
+    @include res--tablet {
+      @include justify-content(flex-start);
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+    }
+
+    @include res--laptop {
+      @include flex-direction(column);
+      flex-basis: initial;
+      width: 100%;
+      margin-top: 28px;
+    }
+  }
+
+  &-info-container {
+    // 타이틀+텍스트를 묶는 요소 (혜택+혜택정보)
+    margin-bottom: 20px;
+
+    @include res--tablet {
+      flex-basis: 50%;
+      max-width: 250px;
+    }
+
+    @include res--laptop {
+      @include flexbox();
+      flex-basis: initial;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      margin-right: 0;
+    }
+
+    .guide-title {
+      font-size: 14px;
+      font-weight: $fw-r;
+      color: #909090;
+      margin-bottom: 2px;
+      line-height: 1.43;
+
+      @include res--laptop {
+        margin-right: 35px;
+        font-size: 15px;
+      }
+    }
+
+    .guide-details {
+      font-size: 13px;
+      font-weight: $fw-m;
+      color: #4b4b4b;
+
+      @include res--laptop {
+        font-size: 15px;
+      }
+    }
+
+    .guide-details-item {
+      position: relative;
+      padding-left: 10px;
+      line-height: 1.55;
+      word-break: keep-all;
+      margin-bottom: 4px;
+
+      &:before {
+        @include listBullet();
+      }
+    }
+  }
+}
+
+.small-notice {
+  // 👆 레벨 안내사항처럼 작은 안내 표시부
+  width: 100%;
+  background-color: #f7f7f7;
+
+  &-container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 35px 22px;
+
+    @include res--laptop {
+      max-width: 980px;
+      padding: 40px 0;
+    }
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 18px;
+    font-size: 16px;
+    font-weight: $fw-m;
+    color: $c-black;
+  }
+
+  &-list {
+    font-size: 12px;
+    font-weight: $fw-r;
+    color: #4b4b4b;
+
+    @include res--laptop {
+      font-size: 13px;
+    }
+  }
+
+  &-list-item {
+    position: relative;
+    padding-left: 10px;
+    line-height: 1.6;
+    margin-top: 4px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:before {
+      @include listBullet;
+    }
+  }
+}

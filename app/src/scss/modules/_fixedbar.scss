@@ -1,0 +1,164 @@
+// ---
+// modules - fixedbar
+// ---
+
+.fixed-bar {
+  // 👆 결제 화면 아래의 고정된 바
+  $_btn_height: 38px; //이 바 안에서 사용되는 버튼의 높이
+
+  z-index: $z-fixed-bar;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 58px;
+  border-top: 1px solid #d5d5d5;
+  background-color: #fff;
+  box-shadow: 0 -3px 10px 0 rgba(100, 100, 100, 0.1);
+
+  @include res--laptop {
+    height: 66px;
+    box-shadow: 0 -3px 10px 0 rgba(157, 157, 157, 0.1);
+  }
+
+  &-container {
+    height: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 20px;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    @include res--laptop {
+      padding: 0 40px;
+    }
+  }
+
+  &-utils {
+    @include flexbox();
+    @include align-items(center);
+
+    .btn-icon {
+      &:first-child {
+        margin-right: 14px;
+
+        @include res--laptop {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+
+  .btn-purchase {
+    max-width: $max-width-mobile;
+    height: $_btn_height;
+
+    @include res--laptop {
+      width: 280px;
+      height: 46px;
+    }
+  }
+
+  .btn-purchase-next {
+    max-width: $max-width-mobile;
+
+    @include res--laptop {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
+  .btn-purchase-checkout {
+    width: 100%;
+    height: 100%;
+    @include flexbox();
+    @include justify-content(flex-end);
+    @include align-items(center);
+  }
+
+  .btn-purchase-secondary {
+    flex-basis: 110px;
+    @include flex-grow(1);
+    height: $_btn_height;
+    margin-right: 8px;
+    text-align: center;
+    font-weight: $fw-m;
+    font-size: 13px;
+    color: $c-gray-normal;
+    border: 1px solid #909090;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+
+    @include res--laptop {
+      font-size: 14px;
+      max-width: 220px;
+    }
+  }
+
+  .btn-purchase-primary {
+    position: relative;
+    flex-basis: 207px;
+    height: $_btn_height;
+    @include flex-grow(2);
+    font-weight: $fw-m;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    background-color: #fa6b76;
+    border: 1px solid #fa6b76;
+    border-radius: 3px;
+
+    &.-pay-credit {
+      padding-left: 20px;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 1px;
+        margin-left: -32px;
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-image: icon(creditcard, "ffffff");
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:hover {
+      background-color: #FF5461;
+    }
+
+    @include res--laptop {
+      font-size: 14px;
+      max-width: 360px;
+
+      &:before {
+        width: 22px;
+        height: 22px;
+        margin-left: -35px;
+      }
+    }
+  }
+
+  .btn-icon.-icon-heart {
+
+
+    // -webkit-animation-name: buzz;
+    // animation-name: buzz;
+    // -webkit-animation-duration: 0.15s;
+    // animation-duration: 0.15s;
+    // -webkit-animation-timing-function: linear;
+    // animation-timing-function: linear;
+    // -webkit-animation-iteration-count: infinite;
+    // animation-iteration-count: infinite;
+  }
+}

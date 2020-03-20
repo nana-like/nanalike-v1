@@ -1,0 +1,306 @@
+// ---
+// animation
+// ---
+
+
+@keyframes shake {
+  // 👆 에러용 애니메이션 (쉐킷!)
+
+  $_shake_size: 3;
+
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  15%,
+  45%,
+  75% {
+    -webkit-transform: translate3d(-#{$_shake_size}px, 0, 0);
+    transform: translate3d(-#{$_shake_size}px, 0, 0);
+  }
+
+  30%,
+  60%,
+  90% {
+    -webkit-transform: translate3d(#{$_shake_size}px, 0, 0);
+    transform: translate3d(#{$_shake_size}px, 0, 0);
+  }
+}
+
+
+@keyframes show-skew {
+  // 👆 텍스트가 아래에서 위로 기울어지듯 올라가는 모션
+
+  $_skew_size: 10;
+
+  0% {
+    transform: skewY(#{$_skew_size}deg) translateY(110%) translateZ(0);
+    transform-origin: left center;
+  }
+
+  30% {
+    transform: skewY(0) translateY(0) translateZ(0);
+    transform-origin: left center;
+  }
+
+  70% {
+    transform: skewY(0) translateY(0) translateZ(0);
+    transform-origin: left center;
+  }
+
+  100% {
+    transform: skewY(#{$_skew_size}deg) translateY(-200%) translateZ(0);
+    transform-origin: left center;
+  }
+}
+
+
+@keyframes show-copied {
+  // 👆 공유하기 모달에서 '복사 완료' 문구 표시
+
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulsate {
+  // 👆 로딩 아이콘 pulse하는 모션
+
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+
+  50% {
+    -webkit-transform: scale3d(0.93, 0.93, 0.93);
+    transform: scale3d(0.93, 0.93, 0.93)
+  }
+
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+}
+
+@keyframes popIn {
+  // 👆 튀어나오는 느낌 (하트 아이콘에서 사용)
+
+  0% {
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+    opacity: 0
+  }
+
+  20% {
+    opacity: 1
+  }
+
+  40% {
+    -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+    -webkit-transform: scale3d(1.08, 1.08, 1.08);
+    transform: scale3d(1.08, 1.08, 1.08)
+  }
+
+  60% {
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+
+  80% {
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03)
+  }
+
+  100% {
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1)
+  }
+}
+
+@keyframes progress {
+  // 👆 진행 바가 쭈우욱- 늘어나는 모션
+
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flip {
+  // 👆 뒤집어지는 효과
+
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(-360deg);
+    transform: perspective(400px) rotateY(-360deg);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(-180deg);
+    transform: perspective(400px) rotateY(-180deg);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0deg);
+    transform: perspective(400px) rotateY(0deg);
+    -webkit-animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035)
+  }
+}
+
+
+@keyframes slideInUp {
+  // 👆 모달 등장 모션
+
+  from {
+    -webkit-transform: translate3d(0, 8%, 0);
+    transform: translate3d(0, 8%, 0);
+    visibility: visible;
+    -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+}
+
+@keyframes slideOutDown {
+  // 👆 모달 사라지는 모션
+
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, 10%, 0);
+    transform: translate3d(0, 10%, 0);
+  }
+}
+
+@keyframes bounceToRight {
+  // 👆 오른쪽으로 바운스바운스
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+
+  40% {
+    transform: translateX(5px);
+  }
+
+  60% {
+    transform: translateX(2px);
+  }
+}
+
+
+
+
+// 여기서부터 미사용 애니메이션
+/*
+
+@keyframes buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+@keyframes jello {
+
+  from,
+  11.1%,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  22.2% {
+    -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+
+  33.3% {
+    -webkit-transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+
+  44.4% {
+    -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+
+  55.5% {
+    -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+
+  66.6% {
+    -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+
+  77.7% {
+    -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+
+  88.8% {
+    -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+*/

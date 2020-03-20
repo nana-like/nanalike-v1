@@ -1,0 +1,274 @@
+// ---
+// reset
+// ---
+
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+em,
+img,
+small article,
+aside,
+footer,
+header,
+nav,
+address,
+section,
+main,
+time,
+ol,
+ul,
+li,
+hr,
+strong,
+figure,
+tr,
+th,
+td,
+dl,
+dt,
+dd,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  -webkit-text-size-adjust: none;
+  font-style: normal;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+ul,
+ol,
+li,
+dl {
+  list-style: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  @include font-main;
+  color: inherit;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+a,
+button {
+  @include tap-highlight;
+}
+
+button:disabled,
+button[disabled] {
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+}
+
+hr {
+  display: none;
+}
+
+button {
+  display: block;
+  margin: 0;
+  padding: 0;
+  @include font-main;
+  border: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+i {
+  font-style: normal;
+}
+
+a,
+area,
+button,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: #868e96;
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  text-align: inherit;
+}
+
+input {
+  @include ellipsis;
+  @include font-main;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  border-radius: 0;
+  -webkit-border-radius: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-internal-autofill-selected {
+    // background-color: #fff;
+    transition: background-color 5000s 0s;
+    -webkit-text-fill-color: #101010 !important;
+    // -webkit-transition: background-color 9999s ease-out;
+    // -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  }
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  @include font-main;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+//비밀번호인 경우
+input[type="password"] {
+  letter-spacing: 4px;
+  // font-size: 150%;
+
+  @include placeholder {
+    @include font-main;
+  }
+}
+
+//ios용
+input[type="text"],
+input[type="email"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:disabled,
+input[readonly] {
+  //iOS에서 disabled처리한 input에 기본적으로 적용되는 스타일 제거
+  opacity: 1;
+  -webkit-text-fill-color: inherit;
+}
+
+input[readonly] {
+  color: $c-gray-normal;
+  background-color: #efefef;
+  border-color: #efefef;
+
+  &:hover,
+  &:focus {
+    border-color: #efefef;
+  }
+}
+
+html {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 62.5%; //1em = 10px로 설정
+  font-weight: $fw-m;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+  @include font-main;
+  color: #221714;
+  text-align: left;
+  font-weight: $fw-m;
+  line-height: 1.5;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  position: relative;
+  min-width: $min-width;
+}
+
+a:focus {
+  opacity: 1;
+  outline: 0;
+}

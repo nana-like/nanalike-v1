@@ -1,0 +1,197 @@
+// ---
+// layout - checkout
+// ---
+
+.checkout-info {
+  // 👆 결제 전 상품 정보 확인부
+  $_padding_m: 25px;
+  $_padding_l: 28px;
+
+  padding: 20px;
+  background-color: #f3f3f3;
+
+  &-container {
+    max-width: $max-width-mobile;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+
+    @include res--laptop {
+      max-width: $max-width-laptop-md;
+    }
+  }
+
+
+  &-bottom {
+    padding-bottom: 15px;
+
+    @include res--laptop {
+      padding-bottom: 15px;
+    }
+  }
+
+
+  &-bill {
+    // 👆 금액 확인 부분
+    font-weight: $fw-r;
+    padding-top: 20px;
+    border-top: 1px solid #d5d5d5;
+
+
+    &-list {
+      @include flexbox();
+      @include justify-content(space-between);
+      @include align-items(center);
+      margin-top: 7px;
+      padding: 0 25px;
+
+      @include res--laptop {
+        margin-top: 9px;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .bill-list-name {
+      @include flexbox();
+      @include align-items(center);
+      font-size: 14px;
+      line-height: 1.43;
+      color: #4b4b4b;
+
+      @include res--laptop {
+        font-size: 15px;
+      }
+
+      .btn-delete-reduction {
+        margin-left: 10px;
+
+        @include res--laptop {
+          margin-left: 12px;
+        }
+      }
+    }
+
+    .bill-list-value {
+      font-size: 16px;
+      font-weight: $fw-m;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+      text-align: right;
+      color: #343434;
+
+      @include res--laptop {
+        font-size: 17px;
+      }
+
+      .unit {
+        // 👆 '원' 부분
+        display: inline-block;
+        margin-left: 2px;
+        font-size: 13px;
+        font-weight: $fw-m;
+        color: #5f5f5f;
+
+        @include res--laptop {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.checkout-info-bill-list.-total {
+  // 👆 총 합계 금액 표시부
+  margin-top: 12px;
+  padding: 6px 25px;
+
+  @include res--laptop {
+    margin-top: 15px;
+  }
+
+  .bill-list-name {
+    font-size: 17px;
+    line-height: 1.47;
+    color: $c-black;
+
+    @include res--laptop {
+      font-size: 18px;
+    }
+  }
+
+  .bill-list-value {
+    font-size: 17px;
+    color: $c-pink-hot;
+
+    @include res--laptop {
+      font-size: 19px;
+    }
+  }
+
+  .unit {
+    color: $c-pink-hot;
+  }
+}
+
+
+.checkout-reduction {
+  // 👆 쿠폰이나 포인트를 통해 할인 받으세요! 영역
+  display: block;
+  max-width: $max-width-mobile;
+  margin: 40px auto 0;
+
+  &.-reduction-used {
+    // 🙌 사용했을 때 보이지 않게 처리
+    display: none;
+  }
+
+  @include res--laptop {
+    max-width: $max-width-laptop-md;
+  }
+
+  &-guide {
+    position: relative;
+    padding-bottom: 28px;
+    padding-left: 26px;
+    margin-bottom: 36px;
+    font-size: 14px;
+    font-weight: $fw-m;
+    color: $c-gray-normal;
+    border-bottom: 1px solid #e0e0e0;
+
+    @include res--laptop {
+      font-size: 16px;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 0;
+      @include checkIcon("5f5f5f", #5f5f5f);
+
+      @include res--laptop {
+        top: 3px;
+      }
+    }
+  }
+
+  &-coupon {
+    margin-bottom: 25px;
+  }
+
+
+  .form-btn-wrap {
+    text-align: right;
+  }
+
+  .btn-line-small {
+    display: inline-block;
+    margin-left: 6px;
+  }
+
+}

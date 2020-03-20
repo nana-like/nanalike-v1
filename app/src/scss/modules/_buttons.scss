@@ -1,0 +1,542 @@
+// ---
+// modules - buttons
+// ---
+
+.btn-line {
+  // 👆 라인형태로 된 버튼
+  display: block;
+  min-width: 90px;
+  height: 34px;
+  padding: 0 15px;
+  color: $c-pink;
+  border-radius: 2px;
+  font-size: 13px;
+  font-weight: $fw-m;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.13px;
+  border: 1px solid $c-pink;
+  background-color: #fff;
+  transition: transform 0.25s, background 0.25s;
+
+  &:hover {
+    color: #fff;
+    background-color: $c-pink;
+  }
+
+  //laptop
+  @include res--laptop {
+    min-width: 120px;
+    height: 40px;
+    font-size: 15px;
+    padding: 0 20px;
+  }
+}
+
+.btn-line-on {
+  // 👆 라인 버튼이지만 배경색이 있는 것
+  @extend .btn-line;
+  color: #fff;
+  background-color: $c-pink;
+
+  &:hover {
+    transform: scale(1.1) translateZ(0);
+  }
+}
+
+.btn-modal-okay {
+  // 👆 모달 내 확인 버튼
+  @extend .btn-line;
+  min-width: 90px;
+  color: #898989;
+  border-color: #898989;
+
+  &:hover {
+    background-color: #fff;
+    color: $c-black;
+    border-color: $c-black;
+  }
+
+  //laptop
+  @include res--laptop {
+    min-width: 90px;
+    height: 34px;
+    font-size: 13px;
+    padding: 0 15px;
+  }
+}
+
+.btn-line-small {
+  // 👆 비밀번호 찾기처럼 작은 라인 버튼
+  @extend .btn-modal-okay;
+  min-width: 85px;
+  height: 30px;
+  font-size: 11px;
+  padding: 4px 10px 6px;
+  cursor: pointer;
+
+  //laptop
+  @include res--laptop {
+    min-width: 95px;
+    height: 32px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  &:disabled {
+    color: #d5d5d5;
+    border-color: #d5d5d5;
+    cursor: default;
+  }
+}
+
+.btn-full {
+  // 👆 전체를 차지하는 그라데이션 버튼
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin: 0 auto;
+  border-radius: 2px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: $fw-m;
+  line-height: 1.33;
+  letter-spacing: -0.15px;
+  // transition: color 0.25s;
+  // border: 2px solid transparent;
+  @include horizontal-gradient(#f48d6c, #f47271);
+
+  &:hover {
+    color: $c-pink;
+    border: 2px solid $c-pink;
+    background: #fff;
+  }
+
+  &:disabled,
+  &.-disabled {
+    background: #d6d6d6;
+    color: #fff;
+    cursor: default;
+
+    &:hover {
+      background: #d6d6d6;
+      color: #fff;
+      border-color: transparent;
+    }
+  }
+
+  //laptop
+  @include res--laptop {
+    width: $max-width-mobile;
+    height: 54px;
+    font-size: 17px;
+  }
+}
+
+.btn-text {
+  // 👆 텍스트에 > 가 붙은 버튼
+  display: block;
+  font-size: 15px;
+  font-weight: $fw-m;
+  color: $c-gray-normal;
+  line-height: 1.47;
+  padding-right: 18px;
+  background-size: 10px 12px;
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-image: icon(arrow-right, "5f5f5f");
+
+  &:hover {
+    color: $c-black;
+    background-image: icon(arrow-right, "101010");
+  }
+
+  //laptop
+  @include res--laptop {
+    font-size: 16px;
+  }
+}
+
+.btn-text-bottom {
+  // 👆 텍스트에 ⌄ 가 붙은 버튼
+  @extend .btn-text;
+  background-size: 12px 8px;
+  background-position: 100% 50%;
+  background-image: icon(arrow-bottom, "5f5f5f");
+
+  &:hover {
+    background-image: icon(arrow-bottom, "101010");
+  }
+}
+
+.btn-load-more {
+  // 👆 더 불러오기 버튼
+  @include pointer-auto;
+  padding-right: 20px;
+  min-height: 22px;
+
+  //laptop
+  @include res--laptop {
+    padding-right: 22px;
+  }
+
+  &.-load-all {
+    // 🙌 모든 정보를 다 불러왔을 때
+    position: relative;
+    font-size: 0;
+    padding: 0;
+    width: auto;
+    background: none;
+    @include pointer-none;
+
+    .btn-load-text {
+      font-size: 0;
+
+      &:after {
+        position: absolute;
+        top: 1px;
+        right: 10px;
+        display: block;
+        font-size: 14px;
+        content: "";
+        background-image: icon(check, "afafaf");
+        width: 19px;
+        height: 19px;
+        background-size: 11px;
+        background-position: 49% 50%;
+        background-repeat: no-repeat;
+        border: 1px solid #afafaf;
+        border-radius: 50%;
+      }
+    }
+
+    &:before,
+    &:after {
+      display: inline-block;
+      font-size: 14px;
+      color: #afafaf;
+    }
+
+    &:before {
+      content: "( 모든 정보를 다 불러왔어요";
+    }
+
+    &:after {
+      content: ")";
+      margin-left: 28px;
+    }
+
+    //laptop
+    @include res--laptop {
+
+      &:before,
+      &:after {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.btn-account-withdraw {
+  // 👆 회원탈퇴 전용 버튼
+  margin-top: 55px;
+  position: relative;
+  color: #bebebe;
+  font-size: 13px;
+  font-weight: $fw-m;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #bebebe;
+
+  //laptop
+  @include res--laptop {
+    margin-top: 70px;
+    font-size: 14px;
+  }
+}
+
+.btn-accordion {
+  // 👆 아코디언 버튼 (문의 목록용)
+  width: 16px;
+  height: 16px;
+  background-size: 16px 10px;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-image: icon(arrow-bottom, "4b4b4b");
+
+  //laptop
+  @include res--laptop {
+    width: 18px;
+    height: 18px;
+    background-size: 18px 14px;
+  }
+}
+
+.btn-icon {
+  // 👆 아이콘으로 된 버튼 (좋아요, 공유하기 등)
+  width: 28px;
+  height: 28px;
+
+  @include res--laptop {
+    width: 34px;
+    height: 34px;
+  }
+
+  &.-icon-heart {
+    // 🙌 하트 아이콘
+    position: relative;
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 22px;
+      transition: opacity 0.3s;
+    }
+
+    &:before {
+      opacity: 1;
+      background-image: icon(heart, "555555", "ffffff");
+    }
+
+    &:after {
+      opacity: 0;
+      background-image: icon(heart, "ff5461", "ff5461");
+    }
+
+    &:hover {
+      &:before {
+        background-image: icon(heart, "101010", "fafafa");
+      }
+    }
+
+    &.-icon-loveit {
+
+      &:before {
+        opacity: 0;
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    @include res--laptop {
+
+      &:before,
+      &:after {
+        background-size: 26px;
+      }
+    }
+  }
+
+  &.-icon-share {
+    // 🙌 공유 아이콘
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 22px;
+    background-image: icon(share, "555555");
+
+    &:hover {
+      background-image: icon(share, "101010");
+    }
+
+    @include res--laptop {
+      background-size: 26px;
+    }
+  }
+
+}
+
+.btn-purchase {
+  // 👆 구매하기 버튼 (결제 화면 전용)
+  position: relative;
+  font-size: 13px;
+  width: 66%;
+  height: 36px;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: -0.13px;
+  font-weight: $fw-m;
+  border-radius: 3px;
+  background-color: $c-pink;
+  transition: padding 0.3s, background 0.3s;
+
+  &:after {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    content: '';
+    width: 9px;
+    height: 9px;
+    margin-top: -4px;
+    margin-left: -6px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: icon(arrow-right, "ffffff");
+    transition: opacity 0.2s, margin 0.3s;
+  }
+
+  &:hover {
+    background-color: #ff5461;
+    padding-right: 15px;
+
+    &:after {
+      opacity: 1;
+      margin-left: 25px;
+      animation: bounceToRight 1s 500ms infinite;
+    }
+
+  }
+
+  @include res--laptop {
+    font-size: 15px;
+  }
+}
+
+.btn-purchase-next {
+  // 👆 다음 스텝으로 버튼 (결제 화면 전용)
+  @extend .btn-purchase;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  @include pointer-auto();
+
+
+  @include res--laptop {
+    font-size: 15px;
+  }
+
+  &:hover {
+    padding-right: 5px;
+    background-color: #ff5461;
+
+    &:after {
+      margin-left: 20px;
+    }
+  }
+
+  &:disabled {
+    background: #d6d6d6;
+    color: #fff;
+    border-color: #d6d6d6;
+    cursor: default;
+    @include pointer-none();
+  }
+}
+
+.btn-circle {
+  // 👆 radio-circle과 동일한 외양의 버튼
+
+  display: inline-block;
+  min-width: 80px;
+  height: 32px;
+  padding: 6px 16px 7px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #5f5f5f;
+  font-weight: $fw-m;
+  background-color: #fff;
+  border: 1px solid #bebebe;
+  border-radius: 16px;
+  cursor: pointer;
+  @include ellipsis();
+  margin-right: 10px;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    color: $c-black;
+    border-color: #909090;
+  }
+
+  //laptop
+  @include res--laptop {
+    min-width: 104px;
+    height: 34px;
+    padding: 6px 20px 7px 20px;
+    font-size: 14px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+  }
+
+  &.-active {
+    // 👆 활성화됐을 경우
+    color: $c-pink-hot;
+    border-color: $c-pink-hot;
+  }
+
+  &.btn-add-address {
+    border: solid 1px #cecece;
+    background-color: #eaeaea;
+    padding-left: 30px;
+    background-image: icon(plus, "5f5f5f");
+    background-repeat: no-repeat;
+    background-position: left 12px top 50%;
+    background-size: 13px 13px;
+
+    //laptop
+    @include res--laptop {
+      padding-left: 36px;
+      background-position: left 18px top 50%;
+    }
+
+    &:hover {
+      color: #5f5f5f;
+      border-color: #7b7b7b;
+      background-color: #e0e0e0;
+      background-image: icon(plus, "4b4b4b");
+    }
+  }
+}
+
+.btn-tiny {
+  // 👆 결제 화면의 쿠폰 사용 취소처럼 아주아주 작은 버튼
+  padding: 1px 9px;
+  font-size: 11px;
+  font-weight: $fw-m;
+  letter-spacing: -0.1px;
+  color: $c-gray-normal;
+  border-radius: 2px;
+  border: 1px solid $c-gray-light;
+
+  @include res--laptop {
+    padding: 2px 10px;
+  }
+}
+
+.btn-line-gray {
+  // 👆 라인 버튼이지만 작고 회색인 것 (배송지 관리에서 사용)
+  margin-top: 34px;
+  padding: 6px 11px;
+  font-size: 11px;
+  font-weight: $fw-m;
+  line-height: 1.82;
+  letter-spacing: -0.11px;
+  color: #909090;
+  border-radius: 2px;
+  border: solid 1px #909090;
+
+  &:disabled {
+    color: #d5d5d5;
+    border: solid 1px #d5d5d5;
+    cursor: default;
+  }
+
+  @include res--laptop {
+    margin: 70px auto 0;
+  }
+}

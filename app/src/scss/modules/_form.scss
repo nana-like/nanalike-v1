@@ -1,0 +1,540 @@
+// ---
+// modules - form
+// ---
+
+.form-container {
+  // 👆 내부 폼의 크기를 결정하는 요소
+  position: relative;
+  max-width: $max-width-mobile;
+  margin: 0 auto;
+
+  //laptop
+  @include res--laptop {}
+
+  &.-medium {
+    // 🙌 .-medium 클래스가 추가로 붙는 경우 max-width 값 변경
+
+    //laptop
+    @include res--laptop {
+      max-width: $max-width-laptop-md;
+    }
+  }
+
+  &.-large {
+    // 🙌 .-large 클래스가 추가로 붙는 경우 max-width 값 변경
+    max-width: $max-width-laptop-md;
+
+    //laptop
+    @include res--laptop {
+      max-width: 980px;
+    }
+  }
+
+  .form-item:first-child {
+    margin-top: 0;
+  }
+}
+
+.form-item {
+  // 👆 폼 아이템 영역
+  margin-top: 10px;
+
+  //laptop
+  @include res--laptop {
+    margin-top: 15px;
+  }
+
+}
+
+.form-label {
+  // 👆 폼의 라벨
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: $fw-m;
+  color: $c-black;
+  letter-spacing: -0.25px;
+
+  //laptop
+  @include res--laptop {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  &-guide {
+    position: relative;
+    color: $c-gray-normal;
+    font-weight: $fw-r;
+
+    &:after {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      display: block;
+      top: 1px;
+      right: -12px;
+      content: "*";
+      color: $c-error;
+      transform: scale(1.25);
+    }
+  }
+}
+
+.form-error {
+  // 👆 에러 메시지
+  color: $c-error;
+  font-size: 11px;
+  min-height: 18px;
+  line-height: 1.3;
+  padding-top: 1px;
+  font-weight: $fw-r;
+
+  //laptop
+  @include res--laptop {
+    font-size: 12px;
+    min-height: 20px;
+    line-height: 1.4;
+    padding: 2px;
+  }
+}
+
+.form-input {
+  // 👆 폼의 인풋 태그
+  width: 100%;
+  height: 48px;
+  padding: 13px 15px;
+  border-radius: 2px;
+  border: 1px solid #d0d0d0;
+  background-color: #fff;
+  font-size: 14px;
+  color: $c-black;
+  letter-spacing: 0;
+  line-height: 1.43;
+
+  @include placeholder {
+    color: #bebebe;
+    letter-spacing: -0.2px;
+    line-height: 1.5;
+  }
+
+  //laptop
+  @include res--laptop {
+    height: 54px;
+    font-size: 16px;
+    padding: 15px 18px;
+
+    @include placeholder {
+      font-size: 15px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #898989;
+  }
+}
+
+.input-textarea {
+  height: 300px;
+  resize: none;
+
+  &.-short-textarea {
+    height: 130px;
+  }
+}
+
+.form-input.-error {
+  // 👆 폼에서 에러가 난 경우
+  border-color: $c-error;
+  background-color: #fff8f8;
+  transform-origin: center center;
+  animation-name: shake;
+  animation-duration: 0.9s;
+}
+
+.checkbox-item {
+  // 👆 체크박스 아이템
+  position: relative;
+
+  .form-item+& {
+    // 👆 폼 아이템 바로 다음에 온다면 margin-top 값 갖기
+    margin-top: 10px;
+
+    //laptop
+    @include res--laptop {
+      margin-top: 20px;
+    }
+  }
+}
+
+.checkbox-input {
+  // 👆 체크박스 인풋 (아이콘 부분)
+  position: absolute;
+  left: -9999px;
+  z-index: -1;
+  vertical-align: middle;
+  opacity: 0;
+
+  &+label {
+    display: inline-block;
+    position: relative;
+    line-height: 1.5;
+    font-size: 13px;
+    cursor: pointer;
+    vertical-align: middle;
+    @include select-none;
+    display: inline-block;
+    width: 100%;
+    color: #5f5f5f;
+
+    //laptop
+    @include res--laptop {
+      font-size: 14px;
+    }
+  }
+
+  &+label+.checkbox-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:not(:checked):focus+label {
+    color: $c-gray-dark;
+
+    &:before {
+      border-color: #909090;
+    }
+  }
+
+  &:not(:checked)+label:hover {
+    color: $c-gray-dark;
+
+    &:before {
+      border-color: #909090;
+    }
+  }
+
+  &:checked:focus+label {
+    opacity: 0.8;
+  }
+
+  &:checked+label {
+    color: $c-gray-dark;
+  }
+
+  &+label:before {
+    // 👆 실질 아이콘 형태
+    position: relative;
+    bottom: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    background-image: icon(check, "cecece");
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    content: "";
+
+    //laptop
+    @include res--laptop {
+      margin-right: 8px;
+      width: 18px;
+      height: 18px;
+      background-size: 11px 10px;
+    }
+  }
+
+  &:not(:checked)+label:before {
+    border-color: #cecece;
+  }
+
+  &:checked+label:before {
+    background-color: $c-pink;
+    border-color: $c-pink;
+    background-image: icon(check, "ffffff");
+  }
+}
+
+.form-email-notice {
+  // 👆 유저 이메일 보여줄 때 아래 안내 메시지
+  margin-top: -10px;
+  margin-bottom: 30px;
+  font-size: 11px;
+  color: $c-gray-light;
+  line-height: 1.45;
+}
+
+.form-user-password {
+  // 👆 비밀번호 설정 폼일 경우
+
+  .form-input+.form-input {
+    margin-top: 6px;
+  }
+
+  .btn-change-password {
+    margin-left: auto;
+    margin-bottom: 25px;
+  }
+}
+
+.radio-box-wrap {
+  // 👆 라디오(옵션) 영역
+  margin-bottom: 35px;
+
+  .radio-box {
+    // 👆 개별 라디오(옵션) 영역
+    margin-bottom: 10px;
+    width: 100%;
+    vertical-align: top;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    //laptop
+    @include res--laptop {
+      margin-bottom: 12px;
+    }
+  }
+
+  .radio-input {
+    // 👆 <input type="radio"/>
+    position: absolute;
+    left: -9999px;
+    z-index: -1;
+    vertical-align: middle;
+    opacity: 0;
+  }
+
+  .radio-item {
+    // 👆 실질적인 라디오 UI
+    display: block;
+    padding: 10px 40px 10px 15px;
+    font-size: 14px;
+    font-weight: $fw-m;
+    line-height: 1.43;
+    letter-spacing: -0.2px;
+    color: $c-black;
+    background-color: #f0f0f0;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right 16px top 50%;
+    background-size: 14px 12px;
+
+    &:hover {
+      background-color: #e6e6e6;
+    }
+
+    //laptop
+    @include res--laptop {
+      font-size: 15px;
+      padding: 15px 45px 15px 18px;
+      background-position: right 18px top 50%;
+      background-size: 16px 14px;
+    }
+  }
+
+  .radio-input:checked+.radio-item {
+    // 👆 활성화됐을 경우
+    color: #ff5461;
+    background-color: #fffcfa;
+    border: 2px solid #ff5461;
+    background-image: icon("check", "ff5461");
+  }
+
+  .radio-box.-small {
+    // 👆 두 개씩 표현되는 인라인 블럭일 때
+    display: inline-block;
+    margin-right: 11px;
+    margin-left: 0;
+    width: calc(50% - 7px);
+
+    @include res--laptop {
+      max-width: 230px;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+
+      @include res--laptop {
+        margin-right: 11px;
+      }
+    }
+  }
+}
+
+.-required-form {
+  //🙌 필수 폼일 때
+
+  .form-label-guide:after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.form-number-item {
+  //👆 수량 조절 인풋일 때
+
+  .number-control {
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  .btn-number-control {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background-color: #f6f6f6;
+    border: 1px solid #d5d5d5;
+
+    @include res--laptop {
+      &:hover {
+        background: #eaeaea;
+        border-color: #c7c7c7;
+      }
+    }
+
+    &:before {
+      background-size: 15px 15px;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: 50%;
+    }
+
+    &.-up {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+
+      &:before {
+        background-image: icon(plus, "7b7b7b");
+      }
+    }
+
+    &.-down {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+
+      &:before {
+        background-image: icon(minus, "7b7b7b");
+      }
+    }
+
+    @include res--laptop {
+      width: 54px;
+      height: 54px;
+
+      &:before {
+        background-size: 19px 19px;
+      }
+    }
+  }
+
+  .form-input {
+    width: 104px;
+    height: 48px;
+    border-radius: 0;
+    text-align: center;
+    background-color: #fff;
+    color: $c-black;
+    border-color: #d5d5d5;
+    border-left: 0;
+    border-right: 0;
+    font-size: 15px;
+
+    &:hover,
+    &:focus {
+      border-color: #d5d5d5;
+    }
+
+    &.-error {
+      animation-name: none;
+      border-color: $c-error;
+    }
+
+    @include res--laptop {
+      font-size: 17px;
+      width: 210px;
+      height: 54px;
+    }
+  }
+
+  .form-error {
+    min-height: 0;
+    margin-bottom: 5px;
+  }
+
+  .form-number-info {
+    color: $c-gray-light;
+    font-size: 11px;
+
+    @include res--laptop {
+      font-size: 12px;
+    }
+  }
+}
+
+.form-address {
+  //👆 주소 입력 인풋일 때
+
+  .address-search {
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(space-between);
+  }
+
+  .form-input-address-search,
+  .form-input-address-result {
+    background-color: #fff;
+    border-color: #d0d0d0;
+    color: $c-black;
+
+    &:hover,
+    &:focus {
+      border-color: #d0d0d0;
+    }
+  }
+
+  .btn-address-search {
+    flex-basis: 120px;
+    height: 48px;
+    background-color: #4b4b4b;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: -0.13px;
+    font-weight: $fw-m;
+    margin-left: 7px;
+    border-radius: 2px;
+    border: 1px solid #4b4b4b;
+    @include flex-shrink(0);
+
+    &:hover {
+      background-color: #fff;
+      color: #4b4b4b;
+    }
+
+    @include res--laptop {
+      font-size: 14px;
+      flex-basis: 140px;
+      height: 54px;
+    }
+  }
+
+  .form-input {
+    margin-bottom: 7px;
+  }
+
+}
+
+.form-input-number {
+  @include pointer-none();
+}

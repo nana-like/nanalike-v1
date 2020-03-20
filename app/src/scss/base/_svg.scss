@@ -1,0 +1,50 @@
+// ---
+// SVG
+// ---
+
+@function _buildIcon($icon) {
+  $icon: "#{$icon}";
+  @return $icon;
+}
+
+@function icon($icon-name,
+  $color,
+  $color2: ""
+
+) {
+  $icons: ( //SVG 아이콘 목록
+    // 체크 모양
+    check: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9"><path fill="none" stroke="%23#{$color}" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.5 3.6l3.2 4.3 4.8-6.4"/></svg>',
+    // 뒤로가기 화살표
+    arrow-back: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 20"><g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.9 1.811l-7 8 7 8" stroke="%23#{$color}"/><path stroke="%23#{$color}" d="M1.9 9.811h22"/></g></svg>',
+    // 취소 아이콘
+    cancle: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23#{$color};stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>',
+    // 아래 화살표
+    arrow-bottom: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 13"><path d="M1.6 2.7L9.9 11l8.3-8.3" fill="none" stroke="%23#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    // 오른쪽 방향 화살표
+    arrow-right: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.2 20.6"><path d="M2.4 18.7l8.3-8.3-8.3-8.3" fill="none" stroke="%23#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    // 타이틀 아래 삐죽삐죽 선
+    title-deco-bottom: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 16"><path d="M53.6 4.9l-6.5 6.2-6.5-6.2h-.5l-6.5 6.2-6.5-6.2-6.5 6.2-6.5-6.2-6.5 6.2-6.2-6.2" fill="none" stroke="%23#{$color}" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    // 경고(느낌표)
+    warning: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 14"><path d="M1.5 9l-.2-5.9V1h2.4v2.1L3.4 9H1.5zm-.2 4.2v-2.5h2.2v2.5H1.3z" fill="%23#{$color}"/></svg>',
+    // 아이콘 - 공유
+    share: '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 14 13" xml:space="preserve"><style>.st0{fill:none;stroke:%23#{$color};stroke-width:.7;stroke-miterlimit:10}</style><circle class="st0" cx="3" cy="6.5" r="1.8"/><circle class="st0" cx="11" cy="2.5" r="1.8"/><path class="st0" d="M4.5 7.3l5.2 2.9M4.5 6.1l5.3-2.9"/><circle cx="11" cy="10.5" r="1.8" fill="%23ffffff" stroke="%23#{$color}" stroke-width=".7" stroke-miterlimit="10"/></svg>',
+    // 아이콘 - 하트
+    heart : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13"><path d="M10.08 1.469c-1.4 0-2.6 1.2-3.1 2.5-.5-1.3-1.7-2.5-3.1-2.5-1.8 0-3.2 1.5-3.2 3.2 0 0 0 0 0 0v.1c0 1.6.7 3.1 2 4.1 1.3 1.1 2.7 1.9 4.3 2.6 1.5-.7 3-1.5 4.3-2.6 1.2-1 2-2.5 2-4.1.1-1.8-1.3-3.3-3-3.3h-.2z" fill="%23#{$color2}" stroke="%23#{$color}" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/></svg>',
+    // 아이콘 - 마이너스
+    minus : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13"><path fill="none" stroke="%23#{$color}" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M1.5 6.5h11"/></svg>',
+    // 아이콘 - 플러스
+    plus : '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 14 13" xml:space="preserve"><style>.st0{fill:none;stroke:%23#{$color};stroke-width:.7;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style><path class="st0" d="M1.5 6.5h11M7 12V1"/></svg>',
+    // 아이콘 - 카드
+    creditcard : '<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 64 64" xml:space="preserve"><style>.st0{fill:none;stroke:%23#{$color};stroke-width:3;stroke-miterlimit:10}</style><path class="st0" d="M60 52H4c-1.1 0-2-.9-2-2V14c0-1.1.9-2 2-2h56c1.1 0 2 .9 2 2v36c0 1.1-.9 2-2 2zM2 24h60"/><path fill="none" stroke="%23#{$color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M31 38h22"/><path class="st0" d="M21 42h-9.6c-.6 0-1-.5-1-1v-6c0-.5.4-1 1-1H21c.5 0 1 .5 1 1v6c0 .5-.5 1-1 1z"/></svg>',
+    // 아이콘 - 별
+    star : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.7 71.7"><path d="M35.8 7.3l9.3 18.8 20.7 3-15 14.6 3.5 20.6-18.5-9.7-18.5 9.7 3.5-20.6-15-14.6 20.7-3 9.3-18.8z" fill="%23#{$color}"/></svg>',
+    // 아이콘 - 별 반쪽 (왼쪽)
+    star-left : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="%23#{$color}" d="M32 3.5v47.3l-18.5 9.7L17 39.9 2 25.3l20.7-3.1z"/></svg>',
+    // 아이콘 - 별 반쪽 (오른쪽)
+    star-right : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="%23#{$color}" d="M32 3.5v47.3l18.5 9.7L47 39.9l15-14.6-20.7-3.1z"/></svg>'
+
+  );
+  $icon: _buildIcon(map-get($icons, $icon-name));
+  @return url("data:image/svg+xml;utf8,#{$icon}");
+}
