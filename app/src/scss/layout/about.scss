@@ -1,0 +1,101 @@
+// ---
+// about
+// ---
+
+// 👇 about 영역 전체
+.about {
+  position: relative;
+  width: 100%;
+
+  &__inner {
+    position: relative;
+    width: inherit;
+    padding: 0 $padding-md;
+  }
+
+  // 👇 커다란 소개문
+  &__title {
+    position: absolute;
+    top: 0;
+    right: $padding-md;
+    margin-top: 160px;
+    text-align: right;
+    font-size: 46px;
+    font-weight: $fw-r;
+    line-height: 1.74;
+
+    &-accent {
+      display: inline-block;
+      position: relative;
+      font-weight: $fw-r;
+
+      &:after {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: -12px;
+        display: block;
+        width: 100%;
+        height: 2px;
+        content: '';
+        background-color: $c-black;
+      }
+    }
+  }
+
+  // 👇 단락으로 이뤄진 소개문
+  &__text {
+    margin-top: 70px;
+    font-size: 19px;
+    letter-spacing: -0.2px;
+    line-height: 1.95;
+
+    &-item {
+      margin-top: 40px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// 👇 프로필 영역
+.profile {
+  z-index: 1;
+  top: -100px;
+  position: relative;
+
+  &__photo {
+    position: relative;
+    width: 398px;
+    height: 330px;
+    background: #CABFBD;
+
+    &:after {
+      position: absolute;
+      left: 14px;
+      top: -14px;
+      display: block;
+      width: inherit;
+      height: inherit;
+      content: '';
+      border: 2px solid #ffdb45;
+    }
+  }
+
+
+  &__nickname {
+    display: inline-block;
+    margin-top: 14px;
+    margin-right: 14px;
+    font-size: 38px;
+    @include font-mont;
+  }
+
+  &__name {
+    display: inline-block;
+    font-size: 16px;
+    color: #8b8b8b;
+  }
+}

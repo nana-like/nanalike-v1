@@ -12,3 +12,24 @@
   height: 1px;
   margin: -1px;
 }
+
+.section-connect {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  font-size: 30px;
+  font-weight: $fw-l;
+  line-height: 2.1;
+  letter-spacing: 4.5px;
+  color: #adadad;
+  transform-origin: 100% 100%;
+
+  &.section-connect-1 {
+    bottom: -280px;
+    right: 160px;
+
+    transform: rotate(90deg);
+    text-align: right;
+    // outline: 3px solid red;
+  }
+}
