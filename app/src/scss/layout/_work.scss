@@ -4,6 +4,8 @@
 
 // 👇 work 영역 전체
 .work {
+  position: relative;
+  overflow-x: hidden;
   background-color: $c-gray-bg;
   padding-top: 200px;
 }
@@ -30,7 +32,7 @@
   }
 }
 
-// 👇 skill 섹션 내 나열 영역
+// 👇 skill 영역 내 나열 영역
 .skill-list {
   margin-top: 10px;
 
@@ -80,7 +82,9 @@
 .project {
   &__inner {
     position: relative;
-    margin-top: 180px;
+    max-width: 1600px;
+    margin: 170px auto 0;
+    padding: 0 $padding-md;
   }
 
   // 👇 뚝딱뚝딱 글자들 영역
@@ -110,7 +114,7 @@
     -webkit-text-stroke: 1px #c1c1c1;
   }
 
-  $_position: (
+  $_word-position: (
     1: (
       y: 130px,
       x: 80px
@@ -125,7 +129,7 @@
     )
   );
 
-  @each $key, $value in $_position {
+  @each $key, $value in $_word-position {
     $x: map-get($value, x);
     $y: map-get($value, y);
 
@@ -134,9 +138,17 @@
       left: $x;
     }
   }
+
+  &__comment {
+    margin-top: 6px;
+    color: #8b8b8b;
+    font-size: 12px;
+    text-align: right;
+    font-weight: $fw-b;
+  }
 }
 
-// 👇 project 섹션 내 나열 영역
+// 👇 project 영역 내 나열 영역
 .project-list {
   z-index: 1;
   position: relative;
@@ -214,4 +226,66 @@
       @include font-mont;
     }
   }
+}
+
+// 👇 recent 영역
+.recent {
+  &__inner {
+    position: relative;
+    max-width: 1600px;
+    margin: 208px auto 0;
+    padding-bottom: 200px;
+  }
+
+  &__title {
+    margin-bottom: 102px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #505050;
+    font-weight: $fw-r;
+    text-align: center;
+  }
+
+  &__background-word {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    display: block;
+    font-weight: $fw-b;
+    font-size: 102px;
+    color: rgba(8, 8, 8, 0.06);
+    text-align: right;
+    @include font-mont;
+    @include pointer-none;
+    @include select-none;
+
+    &:first-child {
+      margin-left: -378px;
+    }
+    &:nth-child(2) {
+      margin-top: 110px;
+      margin-left: -528px;
+    }
+
+    &:last-child {
+      text-align: left;
+      margin-left: 150px;
+      margin-top: 316px;
+    }
+  }
+
+  &__btn {
+    margin: 60px auto 0;
+  }
+}
+
+// 👇 모바일 스크린 영역
+.screen {
+  z-index: 1;
+  position: relative;
+  width: 320px;
+  height: 620px;
+  margin: 0 auto;
+  outline: 1px solid #aaa;
+  background-color: #fff;
 }

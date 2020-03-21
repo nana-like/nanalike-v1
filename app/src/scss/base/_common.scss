@@ -2,7 +2,6 @@
 // common
 // ---
 
-
 // 👇 SEO용 텍스트 숨기기
 .blind {
   position: absolute;
@@ -13,24 +12,30 @@
   margin: -1px;
 }
 
+// 👇 섹션별 이음말
 .section-connect {
-  z-index: $z-section-connect;
-  position: absolute;
   display: inline-block;
-  width: 100%;
+  z-index: $z-section-connect;
+  font-size: 80px;
+  transform: rotate(90deg);
+  position: absolute;
   font-size: 30px;
   font-weight: $fw-l;
   line-height: 2.1;
   letter-spacing: 4.5px;
   color: #adadad;
-  transform-origin: 100% 100%;
+  @include pointer-none;
+  @include select-none;
 
   &.section-connect-1 {
-    bottom: -280px;
-    right: 160px;
-
-    transform: rotate(90deg);
-    text-align: right;
+    right: 100px;
+    bottom: 10px;
     outline: 3px solid red;
+  }
+  &.section-connect-2 {
+    left: 50%;
+    top: 24px;
+    margin-left: -105px;
+    outline: 3px solid orange;
   }
 }

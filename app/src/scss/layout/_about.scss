@@ -10,8 +10,9 @@
   &__inner {
     position: relative;
     width: inherit;
-    padding: 0 $padding-md;
-    margin-bottom: 200px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 $padding-md 200px;
   }
 
   // 👇 커다란 소개문
@@ -38,7 +39,7 @@
         display: block;
         width: 100%;
         height: 2px;
-        content: '';
+        content: "";
         background-color: $c-black;
       }
     }
@@ -71,7 +72,7 @@
     position: relative;
     width: 398px;
     height: 330px;
-    background: #CABFBD;
+    background: #cabfbd;
 
     &:after {
       position: absolute;
@@ -80,11 +81,10 @@
       display: block;
       width: inherit;
       height: inherit;
-      content: '';
+      content: "";
       border: 2px solid #ffdb45;
     }
   }
-
 
   &__nickname {
     display: inline-block;

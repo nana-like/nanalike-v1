@@ -2,6 +2,40 @@
 // // modules - buttons
 // // ---
 
+.btn-line {
+  display: block;
+  min-width: 190px;
+  padding: 16px 20px;
+  color: #333;
+  border-radius: 4px;
+  border: solid 1px #171414;
+
+  .btn-text {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: $fw-b;
+  }
+
+  &:after {
+    display: inline-block;
+    content: "";
+    min-width: 70px;
+    height: 1px;
+    vertical-align: middle;
+    margin-top: -6px;
+    margin-left: 11px;
+    background-color: #333;
+  }
+
+  &:hover {
+    color: $c-blue;
+    border-color: $c-blue;
+
+    &:after {
+      background-color: $c-blue;
+    }
+  }
+}
 // .btn-line {
 //   // 👆 라인형태로 된 버튼
 //   display: block;
@@ -411,7 +445,6 @@
 //   max-width: 100%;
 //   margin: 0 auto;
 //   @include pointer-auto();
-
 
 //   @include res--laptop {
 //     font-size: 15px;
