@@ -1,0 +1,44 @@
+// ---
+// footer
+// ---
+
+.footer {
+  margin-bottom: 24px;
+  font-weight: $fw-b;
+  @include font-mono;
+
+  &__inner {
+    position: relative;
+    max-width: 1600px;
+    padding: 0 $padding-md;
+    @include flexbox();
+    @include justify-content(space-between);
+  }
+
+  &__copyright {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    text-align: center;
+    color: #adadad;
+    letter-spacing: 0.04rem;
+  }
+
+  &__madeby {
+    font-size: 13px;
+    color: #474747;
+    text-align: right;
+    letter-spacing: 0.03rem;
+  }
+}
+
+.sns {
+  &__link {
+    display: inline-block;
+    margin-right: 12px;
+    width: 22px;
+    height: 22px;
+    background: #333;
+  }
+}

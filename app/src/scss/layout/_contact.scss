@@ -1,3 +1,46 @@
 // ---
 // contact
 // ---
+
+.contact {
+  &__inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 160px 0 200px;
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 80px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: -0.015rem;
+    font-weight: $fw-r;
+
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 20px;
+      height: 16px;
+      margin-bottom: 2px;
+      margin-right: 16px;
+      background: sandybrown;
+    }
+  }
+
+  &__mail {
+    display: block;
+    text-align: center;
+    font-size: 82px;
+    font-weight: $fw-r;
+    @include font-mont;
+  }
+
+  &__text {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: $fw-l;
+    color: #747474;
+  }
+}

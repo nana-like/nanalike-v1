@@ -1,3 +1,126 @@
 // ---
 // pr
 // ---
+
+.pr {
+  width: 100%;
+  background-color: $c-gray-bg;
+  padding-top: 210px;
+  overflow-x: hidden;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100%;
+    min-height: 180px;
+    // background: greenyellow;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    width: 200%;
+    padding-left: $padding-md;
+    transform: translateX(-25%);
+    margin: 0 auto;
+    font-size: 120px;
+    color: #333;
+    font-weight: $fw-b;
+
+    //TODO: IE처리
+    // color: #fff;
+    // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    //   1px 1px 0 #000;
+
+    color: transparent;
+    -webkit-text-stroke: 2px #666;
+  }
+
+  &__inner {
+    overflow-x: hidden;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__status {
+    margin-top: 10px;
+    font-size: 23px;
+    text-align: right;
+    padding-right: $padding-md;
+    letter-spacing: 2px;
+    color: #333;
+
+    .accent {
+      position: relative;
+      display: inline-block;
+    }
+
+    .accent:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: #ffdb17;
+    }
+  }
+}
+
+.feature {
+  margin-top: 190px;
+  margin-bottom: 160px;
+
+  @include flexbox();
+  @include justify-content(center);
+  @include flex-shrink(0);
+
+  &__title {
+    display: block;
+    margin-right: 182px;
+    font-size: 32px;
+    font-weight: $fw-b;
+    line-height: 1.76;
+    letter-spacing: 2px;
+  }
+
+  &__content {
+    position: relative;
+    min-height: calc(460px - 100px);
+
+    &:before {
+      position: absolute;
+      top: -100px;
+      left: -86px;
+      display: block;
+      content: "";
+      width: 1px;
+      height: 460px;
+      background-color: #8b8b8b;
+    }
+  }
+
+  &__list-item {
+    font-size: 19px;
+    font-weight: $fw-r;
+    line-height: 2.37;
+
+    &:before {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin-bottom: 4px;
+      margin-right: 8px;
+      vertical-align: middle;
+      background-color: $c-black;
+      content: "";
+    }
+  }
+
+  &__btn {
+    margin-top: 47px;
+  }
+}
