@@ -3,26 +3,7 @@
 // ---
 // **** Last Modified : 2018-09-05
 
-
-// 효두 전용 믹스인
-@mixin checkIcon($iconColor:"101010", $borderColor: #101010) {
-  background-image: icon(check, $iconColor);
-  width: 17px;
-  height: 17px;
-  background-size: 9px;
-  background-position: 49.5% 50%;
-  background-repeat: no-repeat;
-  border: 1px solid $borderColor;
-  border-radius: 50%;
-
-  //laptop
-  @include res--laptop {
-    width: 18px;
-    height: 18px;
-    background-size: 10px;
-  }
-}
-
+// 전용 믹스인 - 리스트불릿
 @mixin listBullet($color: #4b4b4b) {
   position: absolute;
   display: block;
@@ -44,7 +25,7 @@
 
 // 폰트
 @mixin font-main {
-  font-family: "Noto Sans KR", AppleGothic, sans-serif, Helvetica;
+  font-family: "Spoqa Han Sans", AppleGothic, sans-serif, Helvetica;
 
 }
 
