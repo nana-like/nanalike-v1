@@ -6,10 +6,10 @@
 // color
 // -------
 $c-black: #141414;
+$c-black-light: #333333;
 $c-gray-dark: #505050;
 
-$c-white-dark: #f6f6f6;
-$c-white-light: #fcfcfc;
+$c-gray-bg: #fafafa;
 
 $c-pink-hot: #ff5461;
 $c-pink: #fa6b76;
@@ -43,15 +43,7 @@ $c-badge: (1: (bg: #9e9e9e,
 // * z-index
 // -------
 $z-header: 200; //헤더
-$z-header-dim: 210; //헤더 Dim (모바일 전용)
-$z-header-nav: 220; //헤더 네비게이션
-$z-burger: 300; //버거 아이콘
-$z-modal: 500; //모달
-$z-loading: 100; //로딩 이미지
-$z-fixed-bar: 50; //결제 화면의 하단 고정 바
-
-$z-header-account-lt: 100;
-$z-header-user-lt: 200;
+$z-section-connect: 100; //섹션 이음말
 
 // -------
 // * path

@@ -1,0 +1,217 @@
+// ---
+// work
+// ---
+
+// 👇 work 영역 전체
+.work {
+  background-color: $c-gray-bg;
+  padding-top: 200px;
+}
+
+// 👇 skill 영역 전체
+.skill {
+  // background: crimson;
+  padding: 0 $padding-md;
+
+  &__inner {
+    @include flexbox();
+    @include justify-content(center);
+  }
+
+  &__title {
+    display: block;
+    margin-right: 200px;
+    color: $c-black-light;
+    font-weight: $fw-r;
+    text-align: right;
+    font-size: 50px;
+    line-height: 1.48;
+    letter-spacing: 6.5px;
+  }
+}
+
+// 👇 skill 섹션 내 나열 영역
+.skill-list {
+  margin-top: 10px;
+
+  &__item {
+    position: relative;
+    font-size: 19px;
+    margin-top: 78px;
+    padding-left: 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: $fw-b;
+    text-transform: uppercase;
+    @include font-mont;
+
+    &:before {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      display: block;
+      content: "";
+      width: 14px;
+      height: 11px;
+      background: seagreen;
+    }
+  }
+
+  &__desc {
+    line-height: 1.68;
+    letter-spacing: -0.19px;
+
+    .small {
+      padding: 0 2px;
+      letter-spacing: 0.05rem;
+      font-size: 65%;
+    }
+  }
+}
+
+// 👇 project 영역 전체
+.project {
+  &__inner {
+    position: relative;
+    margin-top: 180px;
+  }
+
+  // 👇 뚝딱뚝딱 글자들 영역
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 710px;
+    height: 1100px;
+    transform: rotate(-270deg) translateY(-50%);
+    transform-origin: 0 0;
+    @include pointer-none;
+  }
+
+  &__background-word {
+    position: absolute;
+    font-size: 40px;
+    font-weight: $fw-b;
+    letter-spacing: 5.85px;
+
+    //TODO: IE처리
+    // color: #fff;
+    // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    //   1px 1px 0 #000;
+
+    color: transparent;
+    -webkit-text-stroke: 1px #c1c1c1;
+  }
+
+  $_position: (
+    1: (
+      y: 130px,
+      x: 80px
+    ),
+    2: (
+      y: 694px,
+      x: 162px
+    ),
+    3: (
+      y: 370px,
+      x: 520px
+    )
+  );
+
+  @each $key, $value in $_position {
+    $x: map-get($value, x);
+    $y: map-get($value, y);
+
+    &__background-word:nth-child(#{$key}) {
+      top: $y;
+      left: $x;
+    }
+  }
+}
+
+// 👇 project 섹션 내 나열 영역
+.project-list {
+  z-index: 1;
+  position: relative;
+  min-height: 730px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  $_position: (
+    1: (
+      y: 0,
+      x: 220px
+    ),
+    2: (
+      y: 40px,
+      x: 684px
+    ),
+    3: (
+      y: 310px,
+      x: 0
+    ),
+    4: (
+      y: 260px,
+      x: 430px
+    ),
+    5: (
+      y: 240px,
+      x: 930px
+    ),
+    6: (
+      y: 540px,
+      x: 310px
+    ),
+    7: (
+      y: 490px,
+      x: 800px
+    )
+  );
+
+  &__item {
+    position: absolute;
+  }
+
+  @each $key, $value in $_position {
+    $x: map-get($value, x);
+    $y: map-get($value, y);
+
+    &__item:nth-child(#{$key}) {
+      top: $y;
+      left: $x;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 130px;
+    height: 130px;
+    background: rgb(150, 126, 126);
+    border-radius: 8px;
+    box-shadow: 0 20px 30px 0 rgba(65, 58, 58, 0.15);
+  }
+
+  &__tag {
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: $fw-b;
+
+    &-item {
+      margin-right: 2px;
+    }
+
+    &-item:before {
+      display: inline-block;
+      padding-right: 1px;
+      content: "#";
+      @include font-mont;
+    }
+  }
+}
