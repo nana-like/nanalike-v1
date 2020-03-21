@@ -4,5 +4,95 @@
 
 .ability {
   position: relative;
-  padding-top: 230px;
+
+  &__inner {
+    padding-top: 230px;
+  }
+
+  &__title {
+    margin-bottom: 148px;
+    font-size: 52px;
+    font-weight: $fw-r;
+    text-align: center;
+
+    .icon {
+      // font-size: 85%;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.ability-list {
+  // $_var: 730px, 200px, 3; //순서대로 아이템의 너비, 마진값, 아이템 개수
+  // $_var-width: calc(#{nth($_var, 1)} * #{nth($_var, 3)});
+  // $_var-margin: calc(#{nth($_var, 2)} * #{nth($_var, 3)});
+  // $_var-min-width: calc(#{$_var-width} + #{$_var-margin});
+
+  // min-width: calc((730px * 3) + (200px * 2));
+  // width: 100%;
+  // overflow: hidden;
+  // height: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 980px;
+
+  &__item {
+    $_width: 880px;
+    $_margin: 220px;
+
+    width: $_width;
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    &:nth-child(1) {
+      margin-left: calc(-#{$_width} / 2);
+    }
+
+    &:nth-child(2) {
+      margin-left: calc(#{$_width} / 2 + #{$_margin});
+    }
+
+    &:nth-child(3) {
+      margin-left: calc(
+        #{$_width} / 2 + #{$_margin} + #{$_width} + #{$_margin}
+      );
+    }
+  }
+
+  &__screen {
+    width: 100%;
+    height: 520px;
+    padding: 24px;
+    background-color: #2c2c2c;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+  }
+
+  &__name {
+    display: block;
+    margin: 36px 0 14px;
+    font-size: 36px;
+    font-weight: $fw-b;
+    color: #333;
+    letter-spacing: -0.05rem;
+  }
+
+  &__desc {
+    max-width: 90%;
+    font-size: 17px;
+    color: #333;
+    letter-spacing: -0.04rem;
+    word-break: keep-all;
+  }
 }
