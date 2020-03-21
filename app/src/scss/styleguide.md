@@ -42,7 +42,9 @@ by Nana (20-03-20)
   <article class="listcard listcard--opened">
     <h1 class="listcard__title">Nanalike</h1>
     <div class="listcard__content">
-      <p class="listcard__name color-primary">I'm Nana</p>
+      <div class="listcard__text">
+        <p class="listcard__text-item color-primary">I'm Nana</p>
+      </div>
       <button class="listcard__btn btn-small js-req-contact">Say Hello!</button>
     </div>
   </article>
@@ -83,7 +85,8 @@ by Nana (20-03-20)
   ```
 
 - 화면 상에서 보여야 하지만 판독기 사용자에겐 숨겨야 할 때는 `aria-hidden="true"`를 사용합니다.
-- 
+
   ```HTML
   <div class="icon" aria-hidden="true"></div>
   ```
+  
