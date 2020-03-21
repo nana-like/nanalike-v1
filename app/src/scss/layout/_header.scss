@@ -1,0 +1,48 @@
+// ---
+// header
+// ---
+
+.header {
+  z-index: $z-header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1600px;
+
+  &__inner {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    padding: 0 $padding-md;
+    margin-top: 44px;
+    @include flexbox();
+    @include justify-content(space-between);
+  }
+
+  &__title {
+    font-size: 16px;
+    color: $c-black;
+    @include font-mont;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: $padding-md;
+    display: block;
+    width: 44px;
+    height: 44px;
+    background-size: 100%;
+    @include bgi("logo-sm");
+    @include text-hidden;
+    display: none; //TODO: 모션 추가예정
+  }
+
+  &__mail {
+    letter-spacing: 0.015rem;
+    font-size: 14px;
+    color: #333;
+    @include font-mono;
+  }
+}

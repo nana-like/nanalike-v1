@@ -3,7 +3,7 @@
 // ---
 // **** Last Modified : 2018-09-05
 
-// 전용 믹스인 - 리스트불릿
+// 👇 전용 믹스인 - 리스트불릿
 @mixin listBullet($color: #4b4b4b) {
   position: absolute;
   display: block;
@@ -23,11 +23,23 @@
   }
 }
 
-// 폰트
+// 👇 폰트 (Spoqa Han Sans)
 @mixin font-main {
   font-family: "Spoqa Han Sans", AppleGothic, sans-serif, Helvetica;
-
 }
+
+
+// 👇 폰트 (monospace)
+@mixin font-mono {
+  font-family: monospace;
+}
+
+
+// 👇 폰트 (montserrat)
+@mixin font-mont {
+  font-family: "Montserrat", AppleGothic, sans-serif, Helvetica;
+}
+
 
 // 글자 줄임 표시
 @mixin ellipsis($lines: 1) {

@@ -1,39 +1,110 @@
 // ---
-// layout - address
+// visual
 // ---
 
-.address-list {
-  // 👆 주소 칩이 있는 목록
 
-  background-color: #f3f3f3;
-  padding: 20px 20px 12px 20px;
-  margin-bottom: 40px;
+.visual {
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  background-color: rgb(192, 240, 255);
 
-  @include res--laptop {
-    max-width: 980px;
-    padding: 30px 30px 20px 30px;
-    margin: 0 auto 45px;
-  }
-
-  &-title {
-    display: block;
-    margin-bottom: 18px;
-    font-size: 15px;
-    font-weight: $fw-m;
-    color: #131313;
-
-    @include res--laptop {
-      font-size: 17px;
-      margin-bottom: 20px;
-    }
-  }
-
-  &-container {
-    max-width: $max-width-mobile;
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: inherit;
+    height: inherit;
+    max-width: 1600px;
     margin: 0 auto;
+    @include bgi("visual-bg");
+    background-size: cover;
+    background-position: 50%;
+  }
 
-    @include res--laptop {
-      max-width: 100%;
-    }
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(255, 255, 255, 0.4);
+    content: '';
+  }
+
+  &__container {
+    display: block;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    z-index: 1;
+    @include flexbox();
+    @include align-items(center);
+  }
+
+
+  &__content {
+    margin-top: -8vh;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 35px;
+    letter-spacing: 0.7px;
+    font-weight: $fw-r;
+  }
+
+  &__logo {
+    width: 540px;
+    height: 144px;
+    margin: 22px auto 86px;
+
+    //TODO:SVG로 바꿀 것
+    @include bgi("logo-lg");
+    background-size: 100%;
+  }
+
+  &__desc {
+    color: $c-gray-dark;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    @include font-mont;
+  }
+
+  &__hello {
+    position: absolute;
+    bottom: 70px;
+    right: 70px;
+    font-size: 40px;
+    line-height: 1.5;
+
+
+    //TODO:모션 예정
+    display: none;
+  }
+}
+
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: $padding-md;
+  font-size: 13px;
+  padding-left: 20px;
+  padding-bottom: 12px;
+  letter-spacing: 1px;
+  @include font-mono;
+  color: $c-gray-dark;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: '';
+    width: 1px;
+    height: 60px;
+    background-color: $c-gray-dark;
   }
 }

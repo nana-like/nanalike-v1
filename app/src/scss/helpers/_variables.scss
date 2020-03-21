@@ -5,12 +5,8 @@
 // -------
 // color
 // -------
-$c-black: #101010;
-$c-gray-dark: #343434;
-$c-gray: #4b4b4b;
-$c-gray-normal: #5f5f5f;
-$c-gray-light: #909090;
-$c-line: #e6e6e6;
+$c-black: #141414;
+$c-gray-dark: #505050;
 
 $c-white-dark: #f6f6f6;
 $c-white-light: #fcfcfc;
@@ -65,14 +61,14 @@ $path-image: "../images/";
 // -------
 // * font-weight
 // -------
-$fw-m: 500;
+$fw-b: 700;
 $fw-r: 400;
+$fw-l: 300;
 
 // -------
 // * layout
 // -------
 $min-width: 320px;
-$max-width: 1600px;
-$max-width-laptop-lg: 980px;
-$max-width-laptop-md: 640px;
-$max-width-mobile: 460px;
+$max-width: 1920px;
+
+$padding-md: 60px;

@@ -69,7 +69,6 @@ a:visited,
 a:hover,
 a:active {
   text-decoration: none;
-  @include font-main;
   color: inherit;
 }
 
@@ -80,6 +79,7 @@ a:active {
 
 a,
 button {
+  font-family: inherit;
   @include tap-highlight;
 }
 
@@ -198,42 +198,6 @@ textarea {
   }
 }
 
-//비밀번호인 경우
-input[type="password"] {
-  letter-spacing: 4px;
-  // font-size: 150%;
-
-  @include placeholder {
-    @include font-main;
-  }
-}
-
-//ios용
-input[type="text"],
-input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-input:disabled,
-input[readonly] {
-  //iOS에서 disabled처리한 input에 기본적으로 적용되는 스타일 제거
-  opacity: 1;
-  -webkit-text-fill-color: inherit;
-}
-
-input[readonly] {
-  color: $c-gray-normal;
-  background-color: #efefef;
-  border-color: #efefef;
-
-  &:hover,
-  &:focus {
-    border-color: #efefef;
-  }
-}
-
 html {
   position: relative;
   width: 100%;
@@ -246,7 +210,7 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
   font-size: 62.5%; //1em = 10px로 설정
-  font-weight: $fw-m;
+  font-weight: $fw-r;
 }
 
 body {
@@ -255,9 +219,9 @@ body {
   height: 100%;
   overflow-y: auto;
   @include font-main;
-  color: #221714;
+  color: $c-black;
   text-align: left;
-  font-weight: $fw-m;
+  font-weight: $fw-r;
   line-height: 1.5;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
