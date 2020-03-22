@@ -1,7 +1,14 @@
 // ---
 // animation
 // ---
-
+@keyframes scollDown {
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
 
 @keyframes shake {
   // 👆 에러용 애니메이션 (쉐킷!)
@@ -29,7 +36,6 @@
   }
 }
 
-
 @keyframes show-skew {
   // 👆 텍스트가 아래에서 위로 기울어지듯 올라가는 모션
 
@@ -55,7 +61,6 @@
     transform-origin: left center;
   }
 }
-
 
 @keyframes show-copied {
   // 👆 공유하기 모달에서 '복사 완료' 문구 표시
@@ -84,19 +89,19 @@
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1)
+    transform: scale3d(1, 1, 1);
   }
 
   50% {
     -webkit-transform: scale3d(0.93, 0.93, 0.93);
-    transform: scale3d(0.93, 0.93, 0.93)
+    transform: scale3d(0.93, 0.93, 0.93);
   }
 
   100% {
     -webkit-animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
     animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
     -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1)
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -106,39 +111,39 @@
   0% {
     -webkit-transform: scale3d(0, 0, 0);
     transform: scale3d(0, 0, 0);
-    opacity: 0
+    opacity: 0;
   }
 
   20% {
-    opacity: 1
+    opacity: 1;
   }
 
   40% {
     -webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
     animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
     -webkit-transform: scale3d(1.08, 1.08, 1.08);
-    transform: scale3d(1.08, 1.08, 1.08)
+    transform: scale3d(1.08, 1.08, 1.08);
   }
 
   60% {
     -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1)
+    transform: scale3d(1, 1, 1);
   }
 
   80% {
     -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03)
+    transform: scale3d(1.03, 1.03, 1.03);
   }
 
   100% {
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1)
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -166,7 +171,7 @@
     -webkit-transform: perspective(400px) rotateY(-360deg);
     transform: perspective(400px) rotateY(-360deg);
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   80% {
@@ -174,7 +179,7 @@
     -webkit-transform: perspective(400px) rotateY(-180deg);
     transform: perspective(400px) rotateY(-180deg);
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   100% {
@@ -182,10 +187,9 @@
     -webkit-transform: perspective(400px) rotateY(0deg);
     transform: perspective(400px) rotateY(0deg);
     -webkit-animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035)
+    animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
   }
 }
-
 
 @keyframes slideInUp {
   // 👆 모달 등장 모션
@@ -240,9 +244,6 @@
     transform: translateX(2px);
   }
 }
-
-
-
 
 // 여기서부터 미사용 애니메이션
 /*

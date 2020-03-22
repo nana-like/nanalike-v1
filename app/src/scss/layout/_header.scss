@@ -22,7 +22,7 @@
 
     @include res--tablet {
       margin-top: 40px;
-      padding: 0 $padding-sm;
+      padding: 0 15px;
     }
   }
 
@@ -30,25 +30,51 @@
     font-size: 16px;
     color: $c-black;
     @include font-mont;
+    @include res--mobile {
+      font-size: 14px;
+      left: -10px;
+    }
   }
 
   &__logo {
+    z-index: 33;
     position: absolute;
     top: 0;
-    left: $padding-md;
+    left: 60px;
     display: block;
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     background-size: 100%;
     @include bgi("logo-sm");
     @include text-hidden;
-    display: none; //TODO: 모션 추가예정
+
+    @include res--tablet {
+      width: 42px;
+      height: 42px;
+      left: 15px;
+    }
+    @include res--mobile {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   &__mail {
+    display: block;
     letter-spacing: 0.015rem;
     font-size: 14px;
     color: #333;
     @include font-mono;
+    transform-origin: 100% 0%;
+
+    // position: absolute;
+    // right: 0;
+    // font-size: 14px;
+
+    @include res--tablet {
+      font-size: 13px;
+      // position: relative;
+      // right: -10px;
+    }
   }
 }

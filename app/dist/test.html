@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    #visual {
+      background: salmon;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #about {
+      width: 100%;
+      height: 800px;
+      background: lightblue;
+    }
+
+    h1 {
+      z-index: 999;
+      position: fixed;
+      left: 50%;
+      top: 30%;
+    }
+  </style>
+  <body>
+    <div id="visual">
+      <h1 class="js-mail-address">Visual</h1>
+    </div>
+    <div id="about"><h2>About</h2></div>
+  </body>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+  <script src="js/ui.js"></script>
+</html>
