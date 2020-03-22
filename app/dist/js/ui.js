@@ -180,6 +180,16 @@ var sceneProject = new ScrollMagic.Scene({
   .addIndicators({
     name: "1"
   });
+// var sceneProject33 = new ScrollMagic.Scene({
+//   triggerElement: ".project",
+//   duration: "80%",
+//   offset: "-10%"
+// })
+//   // .setTween([tweenStagger, tweenWords])
+//   .addTo(controller)
+//   .addIndicators({
+//     name: "recent"
+//   });
 
 // we'd only like to use iScroll for mobile...
 if (isMobile) {
