@@ -15,7 +15,7 @@
   margin-right: 6px;
   transform: translateY(-50%);
   background-color: $color;
-  content: '';
+  content: "";
 
   //laptop
   @include res--laptop {
@@ -28,18 +28,15 @@
   font-family: "Spoqa Han Sans", AppleGothic, sans-serif, Helvetica;
 }
 
-
 // 👇 폰트 (monospace)
 @mixin font-mono {
   font-family: monospace;
 }
 
-
 // 👇 폰트 (montserrat)
 @mixin font-mont {
   font-family: "Montserrat", AppleGothic, sans-serif, Helvetica;
 }
-
 
 // 글자 줄임 표시
 @mixin ellipsis($lines: 1) {
@@ -47,9 +44,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  @else {
+  } @else {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -82,11 +77,13 @@
   // Firefox 3.6+
   background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
   // Safari 4+, Chrome 1+
-  background-image: -webkit-gradient(linear,
-      left top,
-      right top,
-      color-stop(0%, $from),
-      color-stop($stop, $to));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, $from),
+    color-stop($stop, $to)
+  );
   // Safari 5.1+, Chrome 10+
   background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
   // Opera 11.10+
@@ -276,6 +273,14 @@
   align-self: $align;
 }
 
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
 // pointer-events:auto 처리
 @mixin pointer-auto {
   -moz-pointer-events: auto;
@@ -365,7 +370,6 @@
   -ms-transform-origin: $origin;
   transform-origin: $origin;
 }
-
 
 @mixin center() {
   @include flexbox;

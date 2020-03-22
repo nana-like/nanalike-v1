@@ -58,6 +58,13 @@
     text-align: right;
   }
 
+  @include res--tablet {
+    &.section-connect-3,
+    &.section-connect-4 {
+      text-align: right;
+    }
+  }
+
   &__word {
     position: relative;
     display: inline-block;
@@ -96,6 +103,18 @@
         bottom: 30px;
         right: 0px;
       }
+      .section-connect-3 & {
+        left: -58px;
+        bottom: 100px;
+      }
+      .section-connect-4 & {
+        left: 20px;
+        bottom: -10px;
+      }
     }
   }
+}
+
+.br-tablet {
+  display: none;
 }

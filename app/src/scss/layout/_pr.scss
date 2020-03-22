@@ -6,7 +6,14 @@
   width: 100%;
   background-color: $c-gray-bg;
   padding-top: 210px;
+  padding-bottom: 160px;
   overflow-x: hidden;
+
+  @include res--tablet {
+    padding-top: 180px;
+    padding-bottom: 120px;
+    text-align: center;
+  }
 
   &__container {
     position: relative;
@@ -20,6 +27,11 @@
     @include res--laptopSM {
       font-size: 100px;
       min-height: 160px;
+    }
+
+    @include res--tablet {
+      font-size: 70px;
+      height: auto;
     }
   }
 
@@ -41,6 +53,25 @@
 
     color: transparent;
     -webkit-text-stroke: 2px #666;
+
+    @include res--tablet {
+      display: inline-block;
+      position: relative;
+      padding-left: $padding-sm;
+      transform: translateX(0);
+      left: 0;
+      width: auto;
+      text-align: left;
+
+      &-accent {
+        display: block;
+        color: $c-black;
+        -webkit-text-stroke: 0;
+      }
+      .br-tablet {
+        display: block;
+      }
+    }
   }
 
   &__inner {
@@ -55,6 +86,13 @@
     padding-right: $padding-md;
     letter-spacing: 2px;
     color: #333;
+
+    @include res--tablet {
+      text-align: center;
+      font-size: 21px;
+      margin-top: 26px;
+      padding: 0 $padding-sm;
+    }
 
     .accent {
       position: relative;
@@ -76,11 +114,17 @@
 
 .feature {
   margin-top: 190px;
-  margin-bottom: 160px;
 
   @include flexbox();
   @include justify-content(center);
   @include flex-shrink(0);
+
+  @include res--tablet {
+    margin-top: 100px;
+    padding: 0 $padding-sm;
+    @include align-items(center);
+    @include flex-direction(column);
+  }
 
   &__title {
     display: block;
@@ -93,6 +137,16 @@
     @include res--laptopSM {
       font-size: 30px;
       margin-right: 150px;
+    }
+    @include res--tablet {
+      display: inline-block;
+      width: auto;
+      font-size: 26px;
+      margin-right: 0;
+      margin-top: 30px;
+      margin-bottom: 45px;
+      border: 3px solid #333333;
+      padding: 32px 38px;
     }
   }
 
@@ -109,6 +163,12 @@
       width: 1px;
       height: 460px;
       background-color: #8b8b8b;
+    }
+    @include res--tablet {
+      min-height: auto;
+      &:before {
+        display: none;
+      }
     }
   }
 
@@ -132,9 +192,17 @@
       font-size: 18px;
       line-height: 2.5;
     }
+    @include res--tablet {
+      text-align: left;
+    }
   }
 
   &__btn {
     margin-top: 47px;
+
+    @include res--tablet {
+      margin: 45px auto 0;
+      transform: scale(0.94);
+    }
   }
 }
