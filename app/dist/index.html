@@ -41,7 +41,9 @@
       <div id="size"></div>
       <div id="breakPoint"></div>
     </div>
-    <header class="header">
+
+    <div class="wrap">
+      <header class="header">
   <div class="header__inner">
     <strong class="header__title">Nana’s Web Portfolio</strong>
     <a href="" class="header__logo">nanalike 로고</a>
@@ -63,7 +65,7 @@
     </div>
   </div>
 </section>
-    <section class="about">
+      <section class="about">
   <div class="about__inner">
     <div class="profile">
       <div class="profile__photo"></div>
@@ -80,14 +82,18 @@
     </h2>
     <div class="about__text">
       <p class="about__text-item">
-        VS CODE부터 포토샵과 XD, 노션을 자유롭게 넘나들며<br />
+        VS CODE부터 포토샵과 XD, 노션을 자유롭게 넘나들며<br
+          class="hide-mobile"
+        />
         다양한 것을 하고 있어요. 스타트업에서 3년 정도 일한 경력이 있습니다.
       </p>
       <p class="about__text-item">
         저는 좋아하는 일을 해요. 좋아하니까 즐기게 되고, 더 잘하고
-        싶어집니다.<br />
+        싶어집니다.<br class="hide-mobile" />
         그러다보면 거기에 저만의 특별한 무언가가 담기게 되더라고요.<br />
-        전 그게 세상 어디에도 없는 특별한 ‘나다움’이라고 생각합니다.<br />
+        전 그게 세상 어디에도 없는 특별한 ‘나다움’이라고 생각합니다.<br
+          class="hide-mobile"
+        />
         그래서 저는 무얼 하든 제 ‘다움’을 듬뿍 담아내려고 해요.
       </p>
       <p class="about__text-item">
@@ -161,7 +167,7 @@
   </article>
   <article class="project">
     <div class="project__inner">
-      <h3 class="blind TODO:">작업한 프로젝트 목록</h3>
+      <h3 class="blind">작업한 프로젝트 목록</h3>
       <ul class="project-list">
         <li class="project-list__item">
           <img
@@ -242,7 +248,9 @@
   </article>
   <article class="recent">
     <div class="recent__inner">
-      <h3 class="recent__title">제 최근 작업물을 좀 더 자세히 살펴보세요!</h3>
+      <h3 class="recent__title">
+        제 최근 작업물을 <br class="br-mobile" />좀 더 자세히 살펴보세요!
+      </h3>
       <div class="recent__background">
         <span class="recent__background-word">Real</span>
         <span class="recent__background-word">Project</span>
@@ -260,7 +268,7 @@
   </article>
 </section>
 
-    <section class="ability">
+      <section class="ability">
   <div class="section-connect section-connect-2">
     <span class="section-connect__word">아참, 그리고 -</span>
   </div>
@@ -362,7 +370,7 @@
   </div>
 </section>
 
-    <section class="contact">
+      <section class="contact">
   <div class="contact__inner">
     <h2 class="contact__title">좋아요, 함께 이야기 나눠요!</h2>
     <a href="" class="contact__mail">nykim@nykim.net</a>
@@ -383,7 +391,7 @@
   </div>
 </footer>
 
-
+    </div>
     <style>
       .testor {
         z-index: 999;

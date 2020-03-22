@@ -15,6 +15,11 @@
     text-align: center;
   }
 
+  @include res--mobile {
+    padding-top: 150px;
+    padding-bottom: 80px;
+  }
+
   &__container {
     position: relative;
     width: 100%;
@@ -32,6 +37,9 @@
     @include res--tablet {
       font-size: 70px;
       height: auto;
+    }
+    @include res--mobile {
+      font-size: 42px;
     }
   }
 
@@ -57,8 +65,8 @@
     @include res--tablet {
       display: inline-block;
       position: relative;
-      padding-left: $padding-sm;
       transform: translateX(0);
+      padding-left: 0;
       left: 0;
       width: auto;
       text-align: left;
@@ -71,6 +79,10 @@
       .br-tablet {
         display: block;
       }
+    }
+    @include res--mobile {
+      letter-spacing: 0.02rem;
+      -webkit-text-stroke: 1px #333;
     }
   }
 
@@ -93,6 +105,9 @@
       margin-top: 26px;
       padding: 0 $padding-sm;
     }
+    @include res--mobile {
+      font-size: 15px;
+    }
 
     .accent {
       position: relative;
@@ -108,6 +123,9 @@
       width: 100%;
       height: 4px;
       background-color: #ffdb17;
+      @include res--mobile {
+        height: 3px;
+      }
     }
   }
 }
@@ -148,6 +166,12 @@
       border: 3px solid #333333;
       padding: 32px 38px;
     }
+    @include res--mobile {
+      font-size: 21px;
+      line-height: 1.64;
+      padding: 28px 34px;
+      margin-top: 0px;
+    }
   }
 
   &__content {
@@ -169,6 +193,9 @@
       &:before {
         display: none;
       }
+    }
+    @include res--mobile {
+      width: 90%;
     }
   }
 
@@ -195,6 +222,16 @@
     @include res--tablet {
       text-align: left;
     }
+    @include res--mobile {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      // word-break: keep-all;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__btn {
@@ -202,7 +239,7 @@
 
     @include res--tablet {
       margin: 45px auto 0;
-      transform: scale(0.94);
+      transform: scale(0.84);
     }
   }
 }

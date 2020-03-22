@@ -41,7 +41,7 @@ $mobile: 360px;
 
 // Mobile
 @mixin res--mobile {
-  @media screen and (max-width: #{$tablet}-1) {
+  @media screen and (max-width: #{$tablet - 1}) {
     @content;
   }
 }

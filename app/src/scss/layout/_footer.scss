@@ -21,6 +21,9 @@
       font-size: 12px;
       padding: 0 $padding-sm;
     }
+    @include res--mobile {
+      @include flex-direction(column);
+    }
   }
 
   &__copyright {
@@ -30,6 +33,12 @@
     text-align: center;
     color: #adadad;
     letter-spacing: 0.04rem;
+    @include res--mobile {
+      position: relative;
+      transform: translateX(0);
+      left: 0;
+      order: 1;
+    }
   }
 
   &__madeby {
@@ -37,15 +46,32 @@
     color: #474747;
     text-align: right;
     letter-spacing: 0.03rem;
+    @include res--mobile {
+      text-align: center;
+      letter-spacing: 0.065rem;
+      margin-bottom: 4px;
+    }
   }
 }
 
 .sns {
+  @include res--mobile {
+    text-align: center;
+    margin-bottom: 10px;
+  }
   &__link {
     display: inline-block;
     margin-right: 12px;
     width: 22px;
     height: 22px;
     background: #333;
+    @include res--mobile {
+      width: 25px;
+      height: 25px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

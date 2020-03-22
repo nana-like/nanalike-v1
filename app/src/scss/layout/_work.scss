@@ -12,6 +12,9 @@
   @include res--tablet {
     padding-top: 150px;
   }
+  @include res--mobile {
+    padding-top: 120px;
+  }
 }
 
 // 👇 skill 영역 전체
@@ -50,6 +53,10 @@
       margin-right: 0px;
       margin-bottom: 90px;
     }
+    @include res--mobile {
+      font-size: 40px;
+      letter-spacing: 5px;
+    }
   }
 }
 
@@ -74,6 +81,10 @@
     @include res--tablet {
       font-size: 17px;
       margin-top: 70px;
+    }
+    @include res--mobile {
+      font-size: 16px;
+      word-break: keep-all;
     }
 
     &:first-child {
@@ -127,6 +138,9 @@
     @include res--tablet {
       padding: 0 $padding-sm;
     }
+    @include res--mobile {
+      margin-top: 150px;
+    }
   }
 
   // 👇 뚝딱뚝딱 글자들 영역
@@ -147,6 +161,11 @@
     @include res--tablet {
       width: 900px;
     }
+    @include res--mobile {
+      left: 0;
+      margin-left: 50%;
+      height: 100vw;
+    }
   }
 
   &__background-word {
@@ -165,6 +184,9 @@
 
     @include res--tablet {
       font-size: 30px;
+    }
+    @include res--mobile {
+      font-size: 26px;
     }
   }
 
@@ -198,6 +220,21 @@
     )
   );
 
+  $_word-pos-mobile: (
+    1: (
+      x: 115px,
+      y: 40px
+    ),
+    2: (
+      x: 250px,
+      y: 240px
+    ),
+    3: (
+      x: 170px,
+      y: 560px
+    )
+  );
+
   @each $key, $value in $_word-pos-desktop {
     $x: map-get($value, x);
     $y: map-get($value, y);
@@ -219,6 +256,17 @@
       }
     }
   }
+  @include res--mobile {
+    @each $key, $value in $_word-pos-mobile {
+      $x: map-get($value, x);
+      $y: map-get($value, y);
+
+      &__background-word:nth-child(#{$key}) {
+        top: $x;
+        left: $y;
+      }
+    }
+  }
 
   &__comment {
     margin-top: 6px;
@@ -229,6 +277,12 @@
 
     @include res--tablet {
       margin-top: 24px;
+    }
+    @include res--mobile {
+      margin-top: 30px;
+      font-weight: $fw-r;
+      font-size: 12px;
+      text-align: center;
     }
   }
 }
@@ -345,6 +399,37 @@
     )
   );
 
+  $_pos-mobile: (
+    1: (
+      y: 10px,
+      x: 120px
+    ),
+    2: (
+      y: 120px,
+      x: 70px
+    ),
+    3: (
+      y: 240px,
+      x: 160px
+    ),
+    4: (
+      y: 360px,
+      x: 20px
+    ),
+    5: (
+      y: 480px,
+      x: 140px
+    ),
+    6: (
+      y: 600px,
+      x: 50px
+    ),
+    7: (
+      y: 720px,
+      x: 120px
+    )
+  );
+
   &__item {
     position: absolute;
   }
@@ -391,6 +476,28 @@
     }
   }
 
+  @include res--mobile {
+    @each $key, $value in $_pos-mobile {
+      $x: map-get($value, x);
+      $y: map-get($value, y);
+
+      @if $key % 2 == 0 {
+        &__item:nth-child(#{$key}) {
+          top: $y;
+          left: 50%;
+          right: 0;
+          margin-left: #{$x};
+        }
+      } @else {
+        &__item:nth-child(#{$key}) {
+          top: $y;
+          left: 50%;
+          margin-left: -#{$x};
+        }
+      }
+    }
+  }
+
   &__image {
     display: block;
     width: 130px;
@@ -404,12 +511,17 @@
       height: 120px;
       border-radius: 6px;
     }
+    @include res--mobile {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   &__tag {
     margin-top: 14px;
     font-size: 14px;
     font-weight: $fw-b;
+    width: 100%;
 
     @include res--tablet {
       font-size: 13px;
@@ -417,6 +529,10 @@
 
     &-item {
       margin-right: 2px;
+
+      @include res--mobile {
+        display: block;
+      }
     }
 
     &-item:before {
@@ -440,6 +556,10 @@
       margin: 140px auto 0;
       padding-bottom: 140px;
     }
+    @include res--mobile {
+      margin: 120px auto 0;
+      padding-bottom: 120px;
+    }
   }
 
   &__title {
@@ -452,6 +572,12 @@
     @include res--tablet {
       font-size: 28px;
       margin-bottom: 84px;
+    }
+    @include res--mobile {
+      font-size: 22px;
+      font-weight: $fw-b;
+      margin-bottom: 70px;
+      color: #333;
     }
   }
 
@@ -511,10 +637,25 @@
         transform: rotate(90deg);
       }
     }
+    @include res--mobile {
+      font-size: 65px;
+      &:first-child {
+        margin-top: -40px;
+        margin-left: -200px;
+      }
+      &:nth-child(3) {
+        margin-top: 110px;
+        margin-left: 24px;
+      }
+    }
   }
 
   &__btn {
     margin: 60px auto 0;
+
+    @include res--mobile {
+      margin-top: 50px;
+    }
   }
 }
 
@@ -531,5 +672,9 @@
   @include res--tablet {
     width: 270px;
     height: 523px;
+  }
+  @include res--mobile {
+    width: 208px;
+    height: 403px;
   }
 }

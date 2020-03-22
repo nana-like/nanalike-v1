@@ -112,9 +112,40 @@
         bottom: -10px;
       }
     }
+    @include res--mobile {
+      font-size: 20px;
+      .section-connect-1 & {
+        bottom: 30px;
+        right: -30px;
+      }
+      .section-connect-2 & {
+        top: 24px;
+        margin-left: -84px;
+      }
+      .section-connect-4 & {
+        left: 10px;
+        bottom: 22px;
+      }
+    }
   }
 }
 
 .br-tablet {
   display: none;
+  @include res--tablet {
+    display: block;
+  }
+}
+.br-mobile {
+  display: none;
+  @include res--mobile {
+    display: block;
+  }
+}
+
+.hide-mobile {
+  display: block;
+  @include res--mobile {
+    display: none;
+  }
 }

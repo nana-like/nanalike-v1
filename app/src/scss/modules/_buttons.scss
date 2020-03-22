@@ -39,6 +39,10 @@
   @include res--tablet {
     transform: scale(0.96);
   }
+
+  @include res--tablet {
+    transform: scale(0.86);
+  }
 }
 // .btn-line {
 //   // 👆 라인형태로 된 버튼

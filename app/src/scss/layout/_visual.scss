@@ -54,6 +54,9 @@
     @include res--laptopSM {
       font-size: 30px;
     }
+    @include res--mobile {
+      font-size: 22px;
+    }
   }
 
   &__logo {
@@ -64,6 +67,11 @@
     //TODO:SVG로 바꿀 것
     @include bgi("logo-lg");
     background-size: 100%;
+
+    @include res--mobile {
+      width: 221px;
+      height: 58px;
+    }
   }
 
   &__desc {
@@ -71,6 +79,10 @@
     font-size: 14px;
     letter-spacing: 0.3px;
     @include font-mont;
+
+    @include res--mobile {
+      font-size: 12px;
+    }
   }
 
   &__hello {

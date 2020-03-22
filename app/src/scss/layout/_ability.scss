@@ -9,6 +9,9 @@
     @include res--tablet {
       padding: 180px $padding-sm 160px;
     }
+    @include res--mobile {
+      padding: 190px $padding-sm 130px;
+    }
   }
 
   &__title {
@@ -23,6 +26,10 @@
     @include res--tablet {
       font-size: 42px;
       margin-bottom: 90px;
+    }
+    @include res--mobile {
+      font-size: 27px;
+      margin-bottom: 60px;
     }
 
     .icon {
@@ -92,6 +99,12 @@
     }
   }
 
+  @include res--tablet {
+    &__item {
+      width: 100%;
+    }
+  }
+
   &__screen {
     width: 100%;
     height: $_height;
@@ -100,6 +113,10 @@
     @include res--tablet {
       padding: 16px;
       height: 400px;
+    }
+    @include res--mobile {
+      padding: 14px;
+      height: 240px;
     }
   }
 
@@ -121,6 +138,10 @@
       font-size: 31px;
       margin: 20px 0 4px;
     }
+    @include res--mobile {
+      font-size: 24px;
+      margin: 24px 0 8px;
+    }
   }
 
   &__desc {
@@ -132,6 +153,11 @@
 
     @include res--laptopSM {
       font-size: 16px;
+    }
+    @include res--mobile {
+      font-size: 14px;
+      letter-spacing: 0.02rem;
+      line-height: 1.58;
     }
   }
 }

@@ -10,6 +10,9 @@
     @include res--tablet {
       padding: 120px 0 160px;
     }
+    @include res--mobile {
+      padding: 100px 0 110px;
+    }
   }
 
   &__title {
@@ -22,6 +25,10 @@
     @include res--tablet {
       font-size: 20px;
     }
+    @include res--mobile {
+      font-size: 16px;
+      margin-bottom: 60px;
+    }
 
     &:before {
       display: inline-block;
@@ -31,6 +38,11 @@
       margin-bottom: 2px;
       margin-right: 16px;
       background: sandybrown;
+      @include res--mobile {
+        width: 18px;
+        height: 15px;
+        margin-bottom: -1px;
+      }
     }
   }
 
@@ -43,6 +55,10 @@
     @include res--tablet {
       font-size: 60px;
     }
+    @include res--mobile {
+      font-weight: $fw-b;
+      font-size: 30px;
+    }
   }
 
   &__text {
@@ -54,6 +70,9 @@
     @include res--tablet {
       margin-top: 16px;
       font-size: 14px;
+    }
+    @include res--mobile {
+      font-size: 12px;
     }
   }
 }

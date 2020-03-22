@@ -17,6 +17,9 @@
     @include res--tablet {
       padding: 0 $padding-sm 150px;
     }
+    @include res--mobile {
+      padding: 0 $padding-sm 120px;
+    }
   }
 
   // 👇 커다란 소개문
@@ -38,6 +41,10 @@
       right: $padding-sm;
       font-size: 35px;
     }
+    @include res--mobile {
+      top: 200px;
+      font-size: 28px;
+    }
 
     &-accent {
       display: inline-block;
@@ -54,6 +61,9 @@
         height: 2px;
         content: "";
         background-color: $c-black;
+        @include res--mobile {
+          margin-top: -8px;
+        }
       }
     }
   }
@@ -72,6 +82,10 @@
     @include res--tablet {
       margin-top: 220px;
       font-size: 17px;
+    }
+    @include res--mobile {
+      margin-top: 220px;
+      font-size: 16px;
     }
 
     &-item {
@@ -112,6 +126,10 @@
       height: 348px;
       background: sandybrown;
     }
+    @include res--mobile {
+      width: 100%;
+      background: deepskyblue;
+    }
 
     &:after {
       position: absolute;
@@ -122,12 +140,17 @@
       height: inherit;
       content: "";
       border: 2px solid #ffdb45;
+
+      @include res--mobile {
+        display: none;
+      }
     }
   }
 
   &__nickname {
     display: inline-block;
     @include font-mont;
+    font-weight: $fw-b;
   }
 
   &__name {
