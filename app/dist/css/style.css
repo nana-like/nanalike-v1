@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-22 23:15:10
+ * Last Modified: 2020-03-23 00:08:39
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -1191,7 +1191,7 @@ a:focus {
 		position: absolute;
 		top: 0;
 		right: 60px;
-		margin-top: 160px;
+		margin-top: 120px;
 		text-align: right;
 		font-size: 46px;
 		font-weight: 400;
@@ -1245,7 +1245,7 @@ a:focus {
 
 .about__text {
 		position: relative;
-		margin-top: 70px;
+		margin-top: 100px;
 		font-size: 19px;
 		letter-spacing: -0.2px;
 		line-height: 1.95;
@@ -1259,14 +1259,13 @@ a:focus {
 
 @media screen and (max-width: 979px) {
 		.about__text {
-				margin-top: 220px;
+				margin-top: 180px;
 				font-size: 17px;
 		}
 }
 
 @media screen and (max-width: 639px) {
 		.about__text {
-				margin-top: 220px;
 				font-size: 16px;
 		}
 }
@@ -1289,6 +1288,12 @@ a:focus {
 @media screen and (max-width: 979px) {
 		.profile {
 				font-size: 36px;
+		}
+}
+
+@media screen and (max-width: 639px) {
+		.profile {
+				top: -100px;
 		}
 }
 
