@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
   <title>나나라이크 | 웹 퍼블리셔 포트폴리오</title>
 
   <meta charset="UTF-8" />
@@ -36,15 +36,18 @@
   <link rel="stylesheet" href="./../../css/style.css" />
 </head>
 
-<body>
-  <header class="header">
+  <body>
+    <div class="testor">
+      <div id="size"></div>
+      <div id="breakPoint"></div>
+    </div>
+    <header class="header">
   <div class="header__inner">
     <strong class="header__title">Nana’s Web Portfolio</strong>
     <a href="" class="header__logo">nanalike 로고</a>
     <a href="TODO:추가예정" class="header__mail" aria-label="메일주소">nykim@nykim.net</a>
   </div>
-</header>
-  <section class="visual">
+</header> <section class="visual">
   <div class="visual__inner">
     <div class="visual__background"></div>
     <div class="visual__container">
@@ -60,7 +63,7 @@
     </div>
   </div>
 </section>
-  <section class="about">
+    <section class="about">
   <div class="about__inner">
     <div class="profile">
       <div class="profile__photo"></div>
@@ -103,8 +106,7 @@
     <span class="section-connect__word">그럼, 이쯤에서 -</span>
   </div>
 </section>
-
-  <section class="work">
+ <section class="work">
   <h2 class="blind">제 능력이 궁금하신가요?</h2>
   <article class="skill">
     <div class="skill__inner">
@@ -258,7 +260,7 @@
   </article>
 </section>
 
-  <section class="ability">
+    <section class="ability">
   <div class="section-connect section-connect-2">
     <span class="section-connect__word">아참, 그리고 -</span>
   </div>
@@ -314,8 +316,7 @@
     <span class="section-connect__word">그래서 말이죠 -</span>
   </div>
 </section>
-
-  <section class="pr">
+ <section class="pr">
   <div class="pr__container">
     <h2 class="pr__title">
       함께 일할 멋진
@@ -358,14 +359,13 @@
   </div>
 </section>
 
-  <section class="contact">
+    <section class="contact">
   <div class="contact__inner">
     <h2 class="contact__title">좋아요, 함께 이야기 나눠요!</h2>
     <a href="" class="contact__mail">nykim@nykim.net</a>
     <p class="contact__text">메일을 보내주시면 평일 기준 3일 내로 답장을 드릴게요.</p>
   </div>
-</section>
-  <footer class="footer">
+</section> <footer class="footer">
   <div class="footer__inner">
     <div class="sns">
       <a href="" class="sns__link">
@@ -380,6 +380,49 @@
   </div>
 </footer>
 
-</body>
 
+    <style>
+      .testor {
+        z-index: 999;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        border: 3px solid green;
+        padding: 20px;
+        font-size: 30px;
+      }
+
+      #size {
+        font-size: 80%;
+      }
+    </style>
+
+    <script>
+      var getSize = function() {
+        var size = document.getElementById("size");
+        var bp = document.getElementById("breakPoint");
+        var winW = window.innerWidth;
+        size.innerHTML = winW + "px";
+
+        var getBp = function() {
+          if (winW >= 1600) {
+            bp.innerHTML = "Desktop";
+          } else if (winW < 1600 && winW >= 1200) {
+            bp.innerHTML = "Laptop";
+          } else if (winW < 1200 && winW >= 768) {
+            bp.innerHTML = "Tablet";
+          } else if (winW < 768 && winW >= 360) {
+            bp.innerHTML = "Mobile";
+          } else {
+            bp.innerHTML = "????";
+          }
+        };
+        getBp();
+      };
+
+      window.addEventListener("load", getSize);
+      window.addEventListener("resize", getSize);
+    </script>
+  </body>
 </html>

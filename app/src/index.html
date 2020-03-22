@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
-@@include("html/common/document-head.html")
+  @@include("html/common/document-head.html")
 
-<body>
-  @@include("html/common/header.html")
-  @@include("html/layout/visual.html")
-  @@include("html/layout/about.html")
-  @@include("html/layout/work.html")
-  @@include("html/layout/ability.html")
-  @@include("html/layout/pr.html")
-  @@include("html/layout/contact.html")
-  @@include("html/common/footer.html")
-</body>
+  <body>
+    <div class="testor">
+      <div id="size"></div>
+      <div id="breakPoint"></div>
+    </div>
+    @@include("html/common/header.html") @@include("html/layout/visual.html")
+    @@include("html/layout/about.html") @@include("html/layout/work.html")
+    @@include("html/layout/ability.html") @@include("html/layout/pr.html")
+    @@include("html/layout/contact.html") @@include("html/common/footer.html")
 
+    <style>
+      .testor {
+        z-index: 999;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #fff;
+        border: 3px solid green;
+        padding: 20px;
+        font-size: 30px;
+      }
+
+      #size {
+        font-size: 80%;
+      }
+    </style>
+
+    <script>
+      var getSize = function() {
+        var size = document.getElementById("size");
+        var bp = document.getElementById("breakPoint");
+        var winW = window.innerWidth;
+        size.innerHTML = winW + "px";
+
+        var getBp = function() {
+          if (winW >= 1600) {
+            bp.innerHTML = "Desktop";
+          } else if (winW < 1600 && winW >= 1200) {
+            bp.innerHTML = "Laptop";
+          } else if (winW < 1200 && winW >= 768) {
+            bp.innerHTML = "Tablet";
+          } else if (winW < 768 && winW >= 360) {
+            bp.innerHTML = "Mobile";
+          } else {
+            bp.innerHTML = "????";
+          }
+        };
+        getBp();
+      };
+
+      window.addEventListener("load", getSize);
+      window.addEventListener("resize", getSize);
+    </script>
+  </body>
 </html>
