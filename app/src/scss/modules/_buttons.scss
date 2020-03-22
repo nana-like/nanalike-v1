@@ -35,6 +35,10 @@
       background-color: $c-blue;
     }
   }
+
+  @include res--tablet {
+    transform: scale(0.96);
+  }
 }
 // .btn-line {
 //   // 👆 라인형태로 된 버튼

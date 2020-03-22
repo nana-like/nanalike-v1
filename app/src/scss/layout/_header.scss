@@ -19,6 +19,11 @@
     margin-top: 44px;
     @include flexbox();
     @include justify-content(space-between);
+
+    @include res--tablet {
+      margin-top: 40px;
+      padding: 0 $padding-sm;
+    }
   }
 
   &__title {

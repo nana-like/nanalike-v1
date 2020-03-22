@@ -68,10 +68,6 @@
     font-size: 30px;
     transform: rotate(90deg);
 
-    @include res--laptopSM {
-      font-size: 28px;
-    }
-
     .section-connect-1 & {
       bottom: 70px;
       right: 36px;
@@ -88,6 +84,18 @@
     .section-connect-4 & {
       left: 104px;
       bottom: -14px;
+    }
+
+    @include res--laptopSM {
+      font-size: 28px;
+    }
+
+    @include res--tablet {
+      font-size: 24px;
+      .section-connect-1 & {
+        bottom: 30px;
+        right: 0px;
+      }
     }
   }
 }

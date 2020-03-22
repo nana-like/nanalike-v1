@@ -7,6 +7,9 @@
     max-width: 1600px;
     margin: 0 auto;
     padding: 160px 0 200px;
+    @include res--tablet {
+      padding: 120px 0 160px;
+    }
   }
 
   &__title {
@@ -16,6 +19,9 @@
     font-size: 24px;
     letter-spacing: -0.015rem;
     font-weight: $fw-r;
+    @include res--tablet {
+      font-size: 20px;
+    }
 
     &:before {
       display: inline-block;
@@ -34,6 +40,9 @@
     font-size: 82px;
     font-weight: $fw-r;
     @include font-mont;
+    @include res--tablet {
+      font-size: 60px;
+    }
   }
 
   &__text {
@@ -42,5 +51,9 @@
     font-size: 16px;
     font-weight: $fw-l;
     color: #747474;
+    @include res--tablet {
+      margin-top: 16px;
+      font-size: 14px;
+    }
   }
 }

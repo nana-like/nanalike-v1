@@ -3,31 +3,37 @@
 // ---
 
 .footer {
-  margin-bottom: 24px;
   font-weight: $fw-b;
   @include font-mono;
 
   &__inner {
+    margin-bottom: 24px;
     position: relative;
     max-width: 1600px;
+    font-size: 14px;
     margin: 0 auto;
     padding: 0 $padding-md;
     @include flexbox();
     @include justify-content(space-between);
+
+    @include res--tablet {
+      margin-bottom: 20px;
+      font-size: 12px;
+      padding: 0 $padding-sm;
+    }
   }
 
   &__copyright {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 14px;
     text-align: center;
     color: #adadad;
     letter-spacing: 0.04rem;
   }
 
   &__madeby {
-    font-size: 13px;
+    font-size: 95%;
     color: #474747;
     text-align: right;
     letter-spacing: 0.03rem;

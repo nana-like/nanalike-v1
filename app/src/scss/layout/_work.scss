@@ -8,16 +8,25 @@
   overflow-x: hidden;
   background-color: $c-gray-bg;
   padding-top: 200px;
+
+  @include res--tablet {
+    padding-top: 150px;
+  }
 }
 
 // 👇 skill 영역 전체
 .skill {
-  // background: crimson;
-  padding: 0 $padding-md;
-
   &__inner {
+    padding: 0 $padding-md;
     @include flexbox();
     @include justify-content(center);
+
+    @include res--tablet {
+      padding: 0 $padding-sm;
+      display: block;
+      text-align: center;
+      @include flex-direction(column);
+    }
   }
 
   &__title {
@@ -35,12 +44,23 @@
       font-size: 46px;
       margin-right: 140px;
     }
+    @include res--tablet {
+      font-size: 42px;
+      text-align: center;
+      margin-right: 0px;
+      margin-bottom: 90px;
+    }
   }
 }
 
 // 👇 skill 영역 내 나열 영역
 .skill-list {
   margin-top: 10px;
+
+  @include res--tablet {
+    display: inline-block;
+    text-align: left;
+  }
 
   &__item {
     position: relative;
@@ -50,6 +70,10 @@
 
     @include res--laptopSM {
       font-size: 18px;
+    }
+    @include res--tablet {
+      font-size: 17px;
+      margin-top: 70px;
     }
 
     &:first-child {
@@ -99,6 +123,10 @@
     max-width: 1600px;
     margin: 170px auto 0;
     padding: 0 $padding-md;
+
+    @include res--tablet {
+      padding: 0 $padding-sm;
+    }
   }
 
   // 👇 뚝딱뚝딱 글자들 영역
@@ -111,6 +139,14 @@
     transform: rotate(-270deg) translateY(-50%);
     transform-origin: 0 0;
     @include pointer-none;
+
+    @include res--laptopSM {
+      margin-left: -100px;
+    }
+
+    @include res--tablet {
+      width: 900px;
+    }
   }
 
   &__background-word {
@@ -126,30 +162,61 @@
 
     color: transparent;
     -webkit-text-stroke: 1px #c1c1c1;
+
+    @include res--tablet {
+      font-size: 30px;
+    }
   }
 
-  $_word-position: (
+  $_word-pos-desktop: (
     1: (
-      y: 130px,
-      x: 80px
+      x: 130px,
+      y: 80px
     ),
     2: (
-      y: 694px,
-      x: 162px
+      x: 694px,
+      y: 162px
     ),
     3: (
-      y: 370px,
-      x: 520px
+      x: 370px,
+      y: 520px
     )
   );
 
-  @each $key, $value in $_word-position {
+  $_word-pos-tablet: (
+    1: (
+      x: 220px,
+      y: 40px
+    ),
+    2: (
+      x: 600px,
+      y: 180px
+    ),
+    3: (
+      x: 380px,
+      y: 520px
+    )
+  );
+
+  @each $key, $value in $_word-pos-desktop {
     $x: map-get($value, x);
     $y: map-get($value, y);
 
     &__background-word:nth-child(#{$key}) {
-      top: $y;
-      left: $x;
+      top: $x;
+      left: $y;
+    }
+  }
+
+  @include res--tablet {
+    @each $key, $value in $_word-pos-tablet {
+      $x: map-get($value, x);
+      $y: map-get($value, y);
+
+      &__background-word:nth-child(#{$key}) {
+        top: $x;
+        left: $y;
+      }
     }
   }
 
@@ -159,6 +226,10 @@
     font-size: 12px;
     text-align: right;
     font-weight: $fw-b;
+
+    @include res--tablet {
+      margin-top: 24px;
+    }
   }
 }
 
@@ -166,11 +237,22 @@
 .project-list {
   z-index: 1;
   position: relative;
-  min-height: 730px;
+  height: 730px;
   max-width: 1100px;
   margin: 0 auto;
 
-  $_position_LG: (
+  @include res--laptopSM {
+    width: 810px;
+  }
+
+  @include res--tablet {
+    width: calc(100vw - 60px);
+    height: 900px;
+  }
+
+  $_pos-size: desktop, laptopSM, tablet;
+
+  $_pos-desktop: (
     1: (
       y: 0,
       x: 220px
@@ -201,7 +283,7 @@
     )
   );
 
-  $_position_MD: (
+  $_pos-laptopSM: (
     1: (
       y: 0,
       x: 140px
@@ -232,11 +314,42 @@
     )
   );
 
+  $_pos-tablet: (
+    1: (
+      y: 0,
+      x: 22vw
+    ),
+    2: (
+      y: 120px,
+      x: 10vw
+    ),
+    3: (
+      y: 240px,
+      x: 9vw
+    ),
+    4: (
+      y: 360px,
+      x: 18vw
+    ),
+    5: (
+      y: 480px,
+      x: 24vw
+    ),
+    6: (
+      y: 600px,
+      x: 7vw
+    ),
+    7: (
+      y: 720px,
+      x: 8vw
+    )
+  );
+
   &__item {
     position: absolute;
   }
 
-  @each $key, $value in $_position_LG {
+  @each $key, $value in $_pos-desktop {
     $x: map-get($value, x);
     $y: map-get($value, y);
 
@@ -247,13 +360,33 @@
   }
 
   @include res--laptopSM {
-    @each $key, $value in $_position_MD {
+    @each $key, $value in $_pos-laptopSM {
       $x: map-get($value, x);
       $y: map-get($value, y);
 
       &__item:nth-child(#{$key}) {
         top: $y;
         left: $x;
+      }
+    }
+  }
+
+  @include res--tablet {
+    @each $key, $value in $_pos-tablet {
+      $x: map-get($value, x);
+      $y: map-get($value, y);
+
+      @if $key % 2 == 0 {
+        &__item:nth-child(#{$key}) {
+          top: $y;
+          right: $x;
+          left: auto;
+        }
+      } @else {
+        &__item:nth-child(#{$key}) {
+          top: $y;
+          left: $x;
+        }
       }
     }
   }
@@ -278,6 +411,10 @@
     font-size: 14px;
     font-weight: $fw-b;
 
+    @include res--tablet {
+      font-size: 13px;
+    }
+
     &-item {
       margin-right: 2px;
     }
@@ -298,6 +435,11 @@
     max-width: 1600px;
     margin: 208px auto 0;
     padding-bottom: 200px;
+
+    @include res--tablet {
+      margin: 140px auto 0;
+      padding-bottom: 140px;
+    }
   }
 
   &__title {
@@ -307,6 +449,10 @@
     color: #505050;
     font-weight: $fw-r;
     text-align: center;
+    @include res--tablet {
+      font-size: 28px;
+      margin-bottom: 84px;
+    }
   }
 
   &__background-word {
@@ -348,6 +494,23 @@
         margin-left: -470px;
       }
     }
+
+    @include res--tablet {
+      font-size: 90px;
+      &:first-child {
+        margin-left: -270px;
+        margin-top: -20px;
+        transform: rotate(-90deg);
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        margin-top: 162px;
+        margin-left: 30px;
+        transform: rotate(90deg);
+      }
+    }
   }
 
   &__btn {
@@ -364,4 +527,9 @@
   margin: 0 auto;
   outline: 1px solid #aaa;
   background-color: #fff;
+
+  @include res--tablet {
+    width: 270px;
+    height: 523px;
+  }
 }
