@@ -10,7 +10,7 @@
   &__inner {
     position: relative;
     width: inherit;
-    max-width: 1600px;
+    max-width: $width-desktop;
     margin: 0 auto;
     padding: 0 $padding-md 200px;
   }
@@ -25,6 +25,10 @@
     font-size: 46px;
     font-weight: $fw-r;
     line-height: 1.74;
+
+    @include res--laptopSM {
+      font-size: 40px;
+    }
 
     &-accent {
       display: inline-block;
@@ -52,6 +56,10 @@
     letter-spacing: -0.2px;
     line-height: 1.95;
 
+    @include res--laptopSM {
+      font-size: 18px;
+    }
+
     &-item {
       margin-top: 40px;
 
@@ -73,6 +81,18 @@
     width: 398px;
     height: 330px;
     background: #cabfbd;
+
+    @include res--laptopSM {
+      width: 360px;
+      height: 298px;
+      background: darkkhaki;
+    }
+
+    // @include res--tablet {
+    //   width: 480px;
+    //   height: 397px;
+    //   background: sandybrown;
+    // }
 
     &:after {
       position: absolute;

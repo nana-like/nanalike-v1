@@ -68,6 +68,10 @@
     font-size: 30px;
     transform: rotate(90deg);
 
+    @include res--laptopSM {
+      font-size: 28px;
+    }
+
     .section-connect-1 & {
       bottom: 70px;
       right: 36px;

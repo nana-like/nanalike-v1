@@ -29,6 +29,12 @@
     font-size: 50px;
     line-height: 1.48;
     letter-spacing: 6.5px;
+    @include flex-shrink(0);
+
+    @include res--laptopSM {
+      font-size: 46px;
+      margin-right: 140px;
+    }
   }
 }
 
@@ -41,6 +47,10 @@
     font-size: 19px;
     margin-top: 78px;
     padding-left: 30px;
+
+    @include res--laptopSM {
+      font-size: 18px;
+    }
 
     &:first-child {
       margin-top: 0;
@@ -63,6 +73,10 @@
       width: 14px;
       height: 11px;
       background: seagreen;
+
+      @include res--laptopSM {
+        top: 6px;
+      }
     }
   }
 
@@ -156,7 +170,7 @@
   max-width: 1100px;
   margin: 0 auto;
 
-  $_position: (
+  $_position_LG: (
     1: (
       y: 0,
       x: 220px
@@ -187,17 +201,60 @@
     )
   );
 
+  $_position_MD: (
+    1: (
+      y: 0,
+      x: 140px
+    ),
+    2: (
+      y: 30px,
+      x: 684px
+    ),
+    3: (
+      y: 310px,
+      x: 0
+    ),
+    4: (
+      y: 200px,
+      x: 370px
+    ),
+    5: (
+      y: 290px,
+      x: 670px
+    ),
+    6: (
+      y: 540px,
+      x: 220px
+    ),
+    7: (
+      y: 490px,
+      x: 500px
+    )
+  );
+
   &__item {
     position: absolute;
   }
 
-  @each $key, $value in $_position {
+  @each $key, $value in $_position_LG {
     $x: map-get($value, x);
     $y: map-get($value, y);
 
     &__item:nth-child(#{$key}) {
       top: $y;
       left: $x;
+    }
+  }
+
+  @include res--laptopSM {
+    @each $key, $value in $_position_MD {
+      $x: map-get($value, x);
+      $y: map-get($value, y);
+
+      &__item:nth-child(#{$key}) {
+        top: $y;
+        left: $x;
+      }
     }
   }
 
@@ -208,6 +265,12 @@
     background: rgb(150, 126, 126);
     border-radius: 8px;
     box-shadow: 0 20px 30px 0 rgba(65, 58, 58, 0.15);
+
+    @include res--laptopSM {
+      width: 120px;
+      height: 120px;
+      border-radius: 6px;
+    }
   }
 
   &__tag {
@@ -271,6 +334,19 @@
       text-align: left;
       margin-left: 150px;
       margin-top: 316px;
+    }
+
+    @include res--laptopSM {
+      font-size: 88px;
+      letter-spacing: -1px;
+
+      &:first-child {
+        margin-left: -348px;
+      }
+      &:nth-child(2) {
+        margin-top: 86px;
+        margin-left: -470px;
+      }
     }
   }
 

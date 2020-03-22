@@ -13,9 +13,14 @@
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
+    font-size: 120px;
     height: 100%;
     min-height: 180px;
-    // background: greenyellow;
+
+    @include res--laptopSM {
+      font-size: 100px;
+      min-height: 160px;
+    }
   }
 
   &__title {
@@ -25,7 +30,7 @@
     padding-left: $padding-md;
     transform: translateX(-25%);
     margin: 0 auto;
-    font-size: 120px;
+    font-size: inherit;
     color: #333;
     font-weight: $fw-b;
 
@@ -45,7 +50,6 @@
   }
 
   &__status {
-    margin-top: 10px;
     font-size: 23px;
     text-align: right;
     padding-right: $padding-md;
@@ -85,6 +89,11 @@
     font-weight: $fw-b;
     line-height: 1.76;
     letter-spacing: 2px;
+
+    @include res--laptopSM {
+      font-size: 30px;
+      margin-right: 150px;
+    }
   }
 
   &__content {
@@ -117,6 +126,11 @@
       vertical-align: middle;
       background-color: $c-black;
       content: "";
+    }
+
+    @include res--laptopSM {
+      font-size: 18px;
+      line-height: 2.5;
     }
   }
 

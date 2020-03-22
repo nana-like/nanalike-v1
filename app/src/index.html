@@ -39,14 +39,22 @@
         var getBp = function() {
           if (winW >= 1600) {
             bp.innerHTML = "Desktop";
-          } else if (winW < 1600 && winW >= 1200) {
+            bp.style.color = "red";
+          } else if (winW < 1600 && winW >= 1280) {
             bp.innerHTML = "Laptop";
-          } else if (winW < 1200 && winW >= 768) {
+            bp.style.color = "orange";
+          } else if (winW < 1280 && winW >= 980) {
+            bp.innerHTML = "LaptopSM";
+            bp.style.color = "green";
+          } else if (winW < 980 && winW >= 640) {
             bp.innerHTML = "Tablet";
-          } else if (winW < 768 && winW >= 360) {
+            bp.style.color = "blue";
+          } else if (winW < 640 && winW >= 360) {
             bp.innerHTML = "Mobile";
+            bp.style.color = "black";
           } else {
             bp.innerHTML = "????";
+            bp.style.color = "gray";
           }
         };
         getBp();
