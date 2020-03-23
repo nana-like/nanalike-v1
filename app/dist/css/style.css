@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-23 15:22:04
+ * Last Modified: 2020-03-23 16:29:41
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -2108,6 +2108,7 @@ a:focus {
 
 .ability {
 		position: relative;
+		background-color: #fff;
 }
 
 .ability__inner {
@@ -2166,22 +2167,22 @@ a:focus {
 }
 
 .ability-list__item {
-		width: 860px;
+		width: calc(100vw / 3);
 		position: absolute;
 		top: 0;
 		left: 50%;
 }
 
 .ability-list__item:nth-child(1) {
-		margin-left: calc(-860px / 2);
+		margin-left: calc(-calc(100vw / 3) / 2);
 }
 
 .ability-list__item:nth-child(2) {
-		margin-left: calc(860px / 2 + 220px);
+		margin-left: calc(calc(100vw / 3) / 2 + 220px);
 }
 
 .ability-list__item:nth-child(3) {
-		margin-left: calc( 860px / 2 + 220px + 860px + 220px);
+		margin-left: calc(calc(100vw / 3) / 2 + 220px + calc(100vw / 3) + 220px);
 }
 
 @media screen and (max-width: 979px) {

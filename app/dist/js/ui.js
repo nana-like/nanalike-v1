@@ -144,6 +144,23 @@ var project_tween_words = new TimelineMax()
     x: "110px"
   });
 
+var work_tween_connect = TweenMax.from(
+  ".section-connect-2 .section-connect__word",
+  1,
+  {
+    y: "-100%",
+    alpha: 0,
+    ease: Linear.easeNone
+  }
+);
+
+// ===== (5) 어빌리티 =====
+
+var ability_tween_scroll = TweenMax.to(".ability-list", 1, {
+  x: "-100%",
+  ease: Linear.easeNone
+});
+
 // 💪 (1) 헤더 씬
 var headerScene = new ScrollMagic.Scene({
   triggerHook: 0,
@@ -217,17 +234,51 @@ var projectScene = new ScrollMagic.Scene({
     name: "1"
   });
 
+// 💪 (7) Recent 글자 등장
 var recentWords = document.querySelectorAll(".recent__background-word");
 
 var recentScene = new ScrollMagic.Scene({
   triggerElement: ".recent",
   offset: 50,
-  reverse: false //한 번만 실행
+  reverse: false
 })
   .setClassToggle(".recent__background", "ani-recent-show")
   .addIndicators({
     colorStart: "#F6B352",
     colorTrigger: "#F6B352"
+  });
+
+// 💪 (8) 워크 - 이음말 페이드인
+var workWordScene = new ScrollMagic.Scene({
+  triggerElement: ".ability",
+  duration: "30%",
+  offset: "-100"
+})
+  .setTween(work_tween_connect)
+  .addIndicators({
+    name: "두 번째 이음말"
+  });
+
+// 💪 (9) 어빌리티 - 가로 스크롤
+var abilityScene = new ScrollMagic.Scene({
+  triggerElement: ".ability",
+  triggerHook: 0,
+  duration: "100%"
+})
+  // .setPin(".js-ability")
+  .setTween(ability_tween_scroll)
+  .addIndicators({
+    name: "가로스크롤"
+  });
+var abilityPinScene = new ScrollMagic.Scene({
+  triggerElement: ".ability",
+  triggerHook: 0,
+  // offset: "-100"
+  duration: "100%"
+})
+  .setPin(".ability", { pushFollowers: true })
+  .addIndicators({
+    name: "가로 핀"
   });
 
 controller.addScene([
@@ -237,5 +288,8 @@ controller.addScene([
   aboutProfileScene,
   aboutWordScene,
   projectScene,
-  recentScene
+  recentScene,
+  workWordScene
+  // abilityScene,
+  // abilityPinScene
 ]);

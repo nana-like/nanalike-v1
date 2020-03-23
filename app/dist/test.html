@@ -29,12 +29,52 @@
       left: 50%;
       top: 30%;
     }
+
+    #horizon {
+      background-color: #aaa;
+    }
+
+    .cont {
+      position: relative;
+      min-height: 800px;
+      outline: 3px solid blue;
+    }
+    .item {
+      z-index: 99;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400px;
+      height: 600px;
+      background: #fafafa;
+    }
+
+    .item:nth-child(2) {
+      margin-left: 600px;
+    }
+    .item:nth-child(3) {
+      margin-left: 1200px;
+    }
+
+    #contact {
+      height: 100vh;
+      width: 100%;
+      background: gold;
+    }
   </style>
   <body>
     <div id="visual">
       <h1 class="js-mail-address">Visual</h1>
     </div>
     <div id="about"><h2>About</h2></div>
+    <div id="horizon">
+      <div class="cont">
+        <div class="item">아이템1</div>
+        <div class="item">아이템2</div>
+        <div class="item">아이템3</div>
+      </div>
+    </div>
+    <div id="contact">Hi</div>
   </body>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>

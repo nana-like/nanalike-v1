@@ -4,6 +4,8 @@
 
 .ability {
   position: relative;
+  background-color: #fff;
+
   &__inner {
     padding-top: 230px;
     @include res--tablet {
@@ -58,7 +60,7 @@
   width: 100%;
   min-height: 1000px;
 
-  $_width: 860px;
+  $_width: calc(100vw / 3);
   $_height: 520px;
   $_margin: 220px;
 
@@ -77,9 +79,7 @@
     }
 
     &:nth-child(3) {
-      margin-left: calc(
-        #{$_width} / 2 + #{$_margin} + #{$_width} + #{$_margin}
-      );
+      margin-left: calc(#{$_width} / 2 + #{$_margin} + #{$_width} + #{$_margin});
     }
   }
 
