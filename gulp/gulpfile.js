@@ -131,7 +131,7 @@ gulp.task("browserSync", function() {
 // js 파일 난독화
 gulp.task("combine:js", function() {
   return gulp
-    .src([src + "/js/scrollAnimation.js"])
+    .src([src + "/js/common.js", src + "/js/scrollAnimation.js"])
     .pipe(concat("ui.js")) //하나로 합치기
     .pipe(gulp.dest(dist + "/js"))
     .pipe(uglify())

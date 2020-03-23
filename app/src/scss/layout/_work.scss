@@ -432,6 +432,7 @@
 
   &__item {
     position: absolute;
+    transition: left 0.7s, top 0.7s;
   }
 
   @each $key, $value in $_pos-desktop {
@@ -582,6 +583,8 @@
   }
 
   &__background-word {
+    opacity: 0;
+    // transform: translateX(100%);
     position: absolute;
     top: 250px;
     left: 50%;
@@ -590,16 +593,16 @@
     font-size: 102px;
     color: rgba(8, 8, 8, 0.06);
     text-align: right;
-    @include font-mont;
-    @include pointer-none;
-    @include select-none;
+    // @include font-mont;
+    // @include pointer-none;
+    // @include select-none;
 
     &:first-child {
       margin-left: -378px;
     }
     &:nth-child(2) {
       margin-top: 110px;
-      margin-left: -528px;
+      margin-left: -516px;
     }
 
     &:last-child {
@@ -638,6 +641,7 @@
       }
     }
     @include res--mobile {
+      opacity: 1;
       font-size: 65px;
       &:first-child {
         margin-top: -40px;

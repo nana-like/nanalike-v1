@@ -1,23 +1,3 @@
-// 💪 유동적으로 높이 조정
-var visualEl = document.querySelector("#visual");
-var scrollDownEl = document.querySelector(".js-scroll-down");
-var changeHeight = function() {
-  var winH = window.innerHeight; //윈도 높이
-  // visualEl.style.height = winH + "px";
-
-  scrollDownEl.style.top = winH - 30 + "px";
-};
-
-// window.addEventListener("load", function() {
-//   changeHeight();
-// });
-
-// window.addEventListener("resize", function() {
-//   changeHeight();
-// });
-
-///////////////////
-
 var isMobile = (function(a) {
   return (
     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
@@ -29,49 +9,46 @@ var isMobile = (function(a) {
   );
 })(navigator.userAgent || navigator.vendor || window.opera);
 
+// 💪스크립트 시작
 console.log("=== scrollAnimation.js ===");
 
+// 💪 컨트롤러 추가
 var controller = new ScrollMagic.Controller();
 
-var header_mail_tween = TweenMax.to(".js-mail-address", 0.5, {
+// 💪 트윈 모음
+
+// ===== (1) 헤더 =====
+// 헤더 - 메일주소 오른족으로 회전
+var header_tween_mail = TweenMax.to(".js-mail-address", 0.5, {
   scale: 0.9,
   rotation: 90,
   y: 102,
-  // x: 80,
   alpha: 0.7
 });
 
-var header_title_tween = TweenMax.to(".js-header-title", 0.5, {
+// 헤더 - 타이틀 왼쪽으로 사라짐
+var header_tween_title = TweenMax.to(".js-header-title", 0.5, {
   x: "-100%",
   alpha: 0
 });
 
-var header_logo_tween = TweenMax.from(".js-header-logo", 0.5, {
+// 헤더 - 로고 왼쪽에서 등장함
+var header_tween_logo = TweenMax.from(".js-header-logo", 0.5, {
   x: "-100%",
   alpha: 0
 });
 
-var header_scroll_tween = TweenMax.to(".js-scroll-down", 0.5, {
+// ===== (2) 비주얼 =====
+// 비주얼 - 스크롤 다운 영역 희미해짐
+var visaul_tween_scroll = TweenMax.to(".js-scroll-down", 0.5, {
   alpha: 0
 });
-
-var headerScene = new ScrollMagic.Scene({
-  triggerHook: 0,
-  duration: "30%"
-})
-  .setTween([
-    header_mail_tween,
-    header_title_tween,
-    header_logo_tween,
-    header_scroll_tween
-  ])
-  .addTo(controller)
-  .addIndicators({
-    name: "HEADER"
-  });
-
-var visualFadeTween = TweenMax.to(".js-visual-back", 0.8, { alpha: 0 });
-var visualFadeTween2 = new TimelineMax()
+// 비주얼 - 배경 희미해짐
+var visual_tween_bg = TweenMax.to(".js-visual-back", 0.8, {
+  alpha: 0
+});
+// 비주얼 - 메인 영역 페이드아웃 후 인사말 등장
+var visual_tween_main = new TimelineMax()
   .to(".js-visual-content", 1, {
     alpha: 0,
     delay: 0.4,
@@ -86,37 +63,12 @@ var visualFadeTween2 = new TimelineMax()
     delay: 1
   });
 
-var visualScene1 = new ScrollMagic.Scene({
-  triggerHook: 0,
-  duration: "115%"
-})
-  .setTween([visualFadeTween, visualFadeTween2])
-  .addTo(controller)
-  .addIndicators({
-    name: "1"
-  });
-
-var visualCont = document.querySelector("#visual");
-
-var visualScene2 = new ScrollMagic.Scene({
-  triggerHook: 0,
-  duration: "80%"
-})
-  .setPin("#visual")
-  .addTo(controller)
-  .addIndicators({
-    name: "2"
-  })
-  .on("end", function(e) {
-    console.log("끝!");
-    visualCont.classList.add("fixed");
-  });
-
-var aboutTween = TweenMax.from("#profile", 1, {
+// ===== (3) 어바웃 =====
+var about_tween_profile = TweenMax.from("#profile", 1, {
   y: "50%"
 });
 
-var aboutTween2 = TweenMax.from(
+var about_tween_connect = TweenMax.from(
   ".section-connect-1 .section-connect__word",
   1,
   {
@@ -126,28 +78,8 @@ var aboutTween2 = TweenMax.from(
   }
 );
 
-if (!isMobile) {
-  new ScrollMagic.Scene({
-    triggerElement: "#trigger-2",
-    duration: "100%",
-    offset: "-200%"
-  })
-    .setTween([aboutTween])
-    .addIndicators({
-      name: "인디케이터"
-    })
-    .addTo(controller);
-  new ScrollMagic.Scene({
-    triggerElement: ".work",
-    duration: "30%",
-    offset: "-150%"
-  })
-    .setTween(aboutTween2)
-    .addIndicators()
-    .addTo(controller);
-}
-
-var tweenStagger = TweenMax.staggerFromTo(
+// ===== (4) 워크 =====
+var project_tween_up = TweenMax.staggerFromTo(
   ".project-list__item",
   1,
   {
@@ -158,8 +90,7 @@ var tweenStagger = TweenMax.staggerFromTo(
   },
   0.3
 );
-
-var tweenWords = new TimelineMax()
+var project_tween_words = new TimelineMax()
   .from(".js-proWord-1", 0.8, {
     x: "70px"
   })
@@ -170,71 +101,98 @@ var tweenWords = new TimelineMax()
     x: "110px"
   });
 
-var sceneProject = new ScrollMagic.Scene({
+// 💪 (1) 헤더 씬
+var headerScene = new ScrollMagic.Scene({
+  triggerHook: 0,
+  duration: "30%"
+})
+  .setTween([
+    header_tween_mail,
+    header_tween_title,
+    header_tween_logo,
+    visaul_tween_scroll
+  ])
+  .addIndicators({
+    name: "HEADER"
+  });
+
+// 💪 (2) 비주얼 - 등장씬
+var visualScene = new ScrollMagic.Scene({
+  triggerHook: 0,
+  duration: "115%"
+})
+  .setTween([visual_tween_bg, visual_tween_main])
+  .addIndicators({
+    name: "1"
+  });
+
+// 💪 (3) 비주얼 - 영역 고정씬
+var visualCont = document.querySelector("#visual");
+var visualPinScene = new ScrollMagic.Scene({
+  triggerHook: 0,
+  duration: "80%"
+})
+  .setPin(visualCont)
+  .addIndicators({
+    name: "2"
+  })
+  .on("end", function(e) {
+    console.log("끝!");
+    visualCont.classList.add("fixed");
+  });
+
+// 💪 (4) 어바웃 - 프로필 패럴렉스
+var aboutProfileScene = new ScrollMagic.Scene({
+  triggerElement: "#trigger-2",
+  duration: "70%",
+  offset: "-200%"
+})
+  .setTween([about_tween_profile])
+  .addIndicators({
+    name: "프로필"
+  });
+
+// 💪 (5) 어바웃 - 이음말 페이드인
+var aboutWordScene = new ScrollMagic.Scene({
+  triggerElement: ".work",
+  duration: "30%",
+  offset: "-150%"
+})
+  .setTween(about_tween_connect)
+  .addIndicators({
+    name: "첫 번째 이음말"
+  });
+
+// 💪 (6) 프로젝트 리스트 슈슈슝
+var projectScene = new ScrollMagic.Scene({
   triggerElement: ".project",
   duration: "80%",
   offset: "-10%"
 })
-  .setTween([tweenStagger, tweenWords])
-  .addTo(controller)
+  .setTween([project_tween_up, project_tween_words])
   .addIndicators({
     name: "1"
   });
-// var sceneProject33 = new ScrollMagic.Scene({
-//   triggerElement: ".project",
-//   duration: "80%",
-//   offset: "-10%"
-// })
-//   // .setTween([tweenStagger, tweenWords])
-//   .addTo(controller)
-//   .addIndicators({
-//     name: "recent"
-//   });
 
-// we'd only like to use iScroll for mobile...
-if (isMobile) {
-  // configure iScroll
-  var myScroll = new IScroll("#example-wrapper", {
-    // don't scroll horizontal
-    scrollX: false,
-    // but do scroll vertical
-    scrollY: true,
-    // show scrollbars
-    scrollbars: true,
-    // deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
-    // if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
-    useTransform: false,
-    // deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
-    useTransition: false,
-    // set to highest probing level to get scroll events even during momentum and bounce
-    // requires inclusion of iscroll-probe.js
-    probeType: 3,
-    // pass through clicks inside scroll container
-    click: true
+var recentWords = document.querySelectorAll(".recent__background-word");
+
+var recentScene = new ScrollMagic.Scene({
+  triggerElement: ".recent",
+  offset: 50,
+  reverse: false //한 번만 실행
+})
+  .setClassToggle(".recent__background", "ani-recent-show")
+  .addIndicators({
+    colorStart: "#F6B352",
+    colorTrigger: "#F6B352"
   });
 
-  // overwrite scroll position calculation to use child's offset instead of container's scrollTop();
-  // controller.scrollPos(function() {
-  //   return -myScroll.y;
-  // });
-
-  // thanks to iScroll 5 we now have a real onScroll event (with some performance drawbacks)
-  // myScroll.on("scroll", function() {
-  //   controller.update(true);
-  // });
-
-  // add indicators to scrollcontent so they will be moved with it.
-  // scene.addIndicators({ parent: ".scrollContent" });
-} else {
-  // add indicators (requires plugin)
-  // scene.addIndicators();
-}
-
-// var fixed = document.querySelector(".fixed");
-// fixed.addEventListener("DOMMouseScroll", function() {
-//   var wrap = document.querySelector(".wrap");
-//   var wrapScroll = wrap.scrollTop;
-//   wrap.scrollTop =
-//     wrapScroll -
-//     (event.originalEvent.wheelDelta || event.originalEvent.detail * 30);
-// });
+controller.addScene([
+  headerScene,
+  visualScene,
+  visualPinScene,
+  aboutProfileScene,
+  aboutWordScene,
+  projectScene,
+  recentScene
+]);
