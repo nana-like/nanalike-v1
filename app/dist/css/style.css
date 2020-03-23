@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-23 16:29:41
+ * Last Modified: 2020-03-23 17:27:52
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -398,6 +398,13 @@ a:focus {
 		animation-fill-mode: forwards;
 }
 
+.ani-swing {
+		display: inline-block;
+		transform-origin: 50% 50%;
+		-webkit-animation: swing 1s infinite;
+		animation: swing 1s infinite;
+}
+
 @media screen and (max-width: 639px) {
 		.ani-recent-show .recent__background-word {
 				-webkit-animation: none !important;
@@ -464,6 +471,48 @@ a:focus {
 		100% {
 				opacity: 1;
 				transform: translateX(0);
+		}
+}
+
+@-webkit-keyframes swing {
+		0% {
+				transform: rotate(0deg);
+		}
+		20% {
+				transform: rotate(12deg);
+		}
+		30% {
+				transform: rotate(-12deg);
+		}
+		40% {
+				transform: rotate(12deg);
+		}
+		50% {
+				transform: rotate(-12deg);
+		}
+		70% {
+				transform: rotate(0deg);
+		}
+}
+
+@keyframes swing {
+		0% {
+				transform: rotate(0deg);
+		}
+		20% {
+				transform: rotate(12deg);
+		}
+		30% {
+				transform: rotate(-12deg);
+		}
+		40% {
+				transform: rotate(12deg);
+		}
+		50% {
+				transform: rotate(-12deg);
+		}
+		70% {
+				transform: rotate(0deg);
 		}
 }
 
@@ -2167,30 +2216,31 @@ a:focus {
 }
 
 .ability-list__item {
-		width: calc(100vw / 3);
-		position: absolute;
-		top: 0;
-		left: 50%;
+		position: relative;
+		width: 880px;
+		margin: 0 auto 130px;
+		position: relative;
 }
 
-.ability-list__item:nth-child(1) {
-		margin-left: calc(-calc(100vw / 3) / 2);
+.ability-list__item:last-child {
+		margin-bottom: 420px;
 }
 
-.ability-list__item:nth-child(2) {
-		margin-left: calc(calc(100vw / 3) / 2 + 220px);
+@media screen and (max-width: 1599px) {
+		.ability-list__item {
+				width: 780px;
+		}
 }
 
-.ability-list__item:nth-child(3) {
-		margin-left: calc(calc(100vw / 3) / 2 + 220px + calc(100vw / 3) + 220px);
+@media screen and (max-width: 1279px) {
+		.ability-list__item {
+				width: 680px;
+		}
 }
 
 @media screen and (max-width: 979px) {
 		.ability-list__item {
-				width: calc(100% - 20px);
-				margin-right: auto;
-				position: relative;
-				left: 0;
+				width: calc(100% - 60px);
 		}
 		.ability-list__item:first-child, .ability-list__item:nth-child(2), .ability-list__item:nth-child(3) {
 				margin-left: auto;
@@ -2198,17 +2248,49 @@ a:focus {
 		}
 }
 
-@media screen and (max-width: 979px) {
+@media screen and (max-width: 639px) {
 		.ability-list__item {
 				width: 100%;
 		}
 }
 
+.ability-list__back {
+		z-index: 1;
+		position: absolute;
+		font-size: 78px;
+		font-weight: 700;
+		font-family: "Montserrat", AppleGothic, sans-serif, Helvetica;
+		letter-spacing: -0.02rem;
+		top: 330px;
+		right: -220px;
+		color: transparent;
+		-webkit-text-stroke: 2px #d7d7d7;
+}
+
+@media screen and (max-width: 979px) {
+		.ability-list__back {
+				display: none;
+		}
+}
+
 .ability-list__screen {
-		width: 100%;
-		height: 520px;
+		position: relative;
+		height: 498px;
 		padding: 24px;
 		background-color: #2c2c2c;
+}
+
+@media screen and (max-width: 1599px) {
+		.ability-list__screen {
+				height: 440px;
+				padding: 20px;
+		}
+}
+
+@media screen and (max-width: 1279px) {
+		.ability-list__screen {
+				height: 384px;
+		}
 }
 
 @media screen and (max-width: 979px) {
@@ -2256,7 +2338,7 @@ a:focus {
 }
 
 .ability-list__desc {
-		max-width: 90%;
+		max-width: 85%;
 		font-size: 17px;
 		color: #333;
 		letter-spacing: -0.04rem;

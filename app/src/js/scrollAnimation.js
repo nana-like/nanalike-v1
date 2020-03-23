@@ -113,10 +113,10 @@ var work_tween_connect = TweenMax.from(
 
 // ===== (5) 어빌리티 =====
 
-var ability_tween_scroll = TweenMax.to(".ability-list", 1, {
-  x: "-100%",
-  ease: Linear.easeNone
-});
+// var ability_tween_scroll = TweenMax.to(".ability-list", 1, {
+//   x: "-100%",
+//   ease: Linear.easeNone
+// });
 
 // 💪 (1) 헤더 씬
 var headerScene = new ScrollMagic.Scene({
@@ -212,31 +212,74 @@ var workWordScene = new ScrollMagic.Scene({
   offset: "-100"
 })
   .setTween(work_tween_connect)
+  .setClassToggle(".icon-hello", "ani-swing")
   .addIndicators({
     name: "두 번째 이음말"
   });
 
-// 💪 (9) 어빌리티 - 가로 스크롤
-var abilityScene = new ScrollMagic.Scene({
-  triggerElement: ".ability",
-  triggerHook: 0,
-  duration: "100%"
-})
-  // .setPin(".js-ability")
-  .setTween(ability_tween_scroll)
-  .addIndicators({
-    name: "가로스크롤"
-  });
-var abilityPinScene = new ScrollMagic.Scene({
-  triggerElement: ".ability",
-  triggerHook: 0,
-  // offset: "-100"
-  duration: "100%"
-})
-  .setPin(".ability", { pushFollowers: true })
-  .addIndicators({
-    name: "가로 핀"
-  });
+// 💪 (9) 어빌리티 - 백그라운드 단어 등장
+var revealElements = document.getElementsByClassName("ability-list__item");
+for (var i = 0; i < revealElements.length; i++) {
+  var scene2 = new ScrollMagic.Scene({
+    triggerElement: revealElements[i], //각 요소가 트리거가 됨
+    reverse: false
+  })
+    .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
+    .addTo(controller)
+    .addIndicators({
+      name: "(box) " + (i + 1),
+      colorStart: "#F6B352",
+      colorTrigger: "#F6B352"
+    });
+}
+
+// 💪 (10) 어빌리티 - 백그라운드 패럴렉스
+var abilityWords = document.getElementsByClassName("ability-list__back");
+for (var i = 0; i < abilityWords.length; i++) {
+  var scene2 = new ScrollMagic.Scene({
+    triggerElement: abilityWords[i], //각 요소가 트리거가 됨
+    duration: "100%",
+    offset: "-200%"
+  })
+    .setTween(abilityWords[i], { y: "-100%", ease: Linear.easeNone })
+    .addTo(controller)
+    .addIndicators({
+      name: "HEY",
+      colorStart: "#ff0ff0",
+      colorTrigger: "#F6B352"
+    });
+}
+
+// var abilityScene = new ScrollMagic.Scene({
+//   triggerElement: ".ability",
+//   triggerHook: 0,
+//   duration: "100%"
+// })
+//   .setPin(".js-ability")
+//   .setTween(ability_tween_scroll)
+//   .addIndicators({
+//     name: "가로스크롤"
+//   });
+// var abilityScene = new ScrollMagic.Scene({
+//   triggerElement: ".ability",
+//   triggerHook: 0,
+//   duration: "100%"
+// })
+//   .setPin(".js-ability")
+//   .setTween(ability_tween_scroll)
+//   .addIndicators({
+//     name: "가로스크롤"
+//   });
+// var abilityPinScene = new ScrollMagic.Scene({
+//   triggerElement: ".ability",
+//   triggerHook: 0.2,
+//   offset: "-100",
+//   duration: "100%"
+// })
+//   .setPin(".ability", { pushFollowers: true })
+//   .addIndicators({
+//     name: "가로 핀"
+//   });
 
 controller.addScene([
   headerScene,
@@ -247,6 +290,6 @@ controller.addScene([
   projectScene,
   recentScene,
   workWordScene
-  // abilityScene,
+  // abilityScene
   // abilityPinScene
 ]);

@@ -12,36 +12,11 @@
   margin: -1px;
 }
 
-// 👇 섹션별 이음말
-// .section-connect {
-//   display: inline-block;
-//   z-index: $z-section-connect;
-//   transform: rotate(90deg);
-//   position: absolute;
-//   font-size: 30px;
-//   font-weight: $fw-l;
-//   line-height: 2.1;
-//   letter-spacing: 4.5px;
-//   color: #adadad;
-//   @include pointer-none;
-//   @include select-none;
-
-//   &.section-connect-1 {
-//     right: 100px;
-//     bottom: 10px;
-//     outline: 3px solid red;
-//   }
-//   &.section-connect-2 {
-//     left: 50%;
-//     top: 24px;
-//     margin-left: -105px;
-//     outline: 3px solid orange;
-//   }
-//   &.section-connect-3 {
-//     max-width: 1600px;
-//     margin: 0 auto;
-//     bottom: 0;
-//     outline: 3px solid seagreen;
+// .visible {
+//   .ability-list__back {
+//     transform: translateX(30px);
+//     opacity: 1;
+//     transition: opacity 0.6s, transform 0.5s;
 //   }
 // }
 

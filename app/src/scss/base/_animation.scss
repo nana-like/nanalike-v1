@@ -22,6 +22,12 @@
   }
 }
 
+.ani-swing {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  animation: swing 1s infinite;
+}
+
 @include res--mobile {
   .ani-recent-show {
     .recent__background-word {
@@ -64,6 +70,27 @@
     opacity: 1;
     -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  30% {
+    transform: rotate(-12deg);
+  }
+  40% {
+    transform: rotate(12deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+  70% {
+    transform: rotate(0deg);
   }
 }
 
