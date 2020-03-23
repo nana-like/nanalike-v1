@@ -111,12 +111,23 @@ var work_tween_connect = TweenMax.from(
   }
 );
 
-// ===== (5) 어빌리티 =====
+// ===== (6) PR =====
 
-// var ability_tween_scroll = TweenMax.to(".ability-list", 1, {
-//   x: "-100%",
-//   ease: Linear.easeNone
-// });
+var pr_tween_connect = new TimelineMax()
+  .from(".section-connect-3 .section-connect__word", 1, {
+    y: "-100%",
+    alpha: 0,
+    ease: Linear.easeNone
+  })
+  .from(".section-connect-4 .section-connect__word", 1, {
+    y: "-100%",
+    alpha: 0,
+    ease: Linear.easeNone
+  });
+var pr_tween_scroll = TweenMax.to(".pr__container", 2, {
+  x: "-80%",
+  ease: Linear.easeNone
+});
 
 // 💪 (1) 헤더 씬
 var headerScene = new ScrollMagic.Scene({
@@ -250,6 +261,26 @@ for (var i = 0; i < abilityWords.length; i++) {
     });
 }
 
+// 💪 (11) PR - 이음말
+var prWordScene = new ScrollMagic.Scene({
+  triggerElement: ".pr",
+  duration: "25%",
+  offset: "-250%"
+})
+  .setTween(pr_tween_connect)
+  .addIndicators({
+    name: "세,네 번째 이음말"
+  });
+var prScrollScene = new ScrollMagic.Scene({
+  triggerElement: ".pr",
+  duration: "60%",
+  offset: 120
+})
+  .setTween(pr_tween_scroll)
+  .addIndicators({
+    name: "절 찾냐고염"
+  });
+
 // var abilityScene = new ScrollMagic.Scene({
 //   triggerElement: ".ability",
 //   triggerHook: 0,
@@ -289,7 +320,9 @@ controller.addScene([
   aboutWordScene,
   projectScene,
   recentScene,
-  workWordScene
+  workWordScene,
+  prWordScene,
+  prScrollScene
   // abilityScene
   // abilityPinScene
 ]);

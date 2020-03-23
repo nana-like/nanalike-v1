@@ -3,11 +3,13 @@
 // ---
 
 .footer {
+  position: relative;
+  background-color: #fff;
   font-weight: $fw-b;
   @include font-mono;
 
   &__inner {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
     position: relative;
     max-width: 1600px;
     font-size: 14px;
@@ -17,9 +19,8 @@
     @include justify-content(space-between);
 
     @include res--tablet {
-      margin-bottom: 20px;
       font-size: 12px;
-      padding: 0 $padding-sm;
+      padding: 0 $padding-sm 20px;
     }
     @include res--mobile {
       @include flex-direction(column);
@@ -55,6 +56,7 @@
 }
 
 .sns {
+  margin-bottom: 8px;
   @include res--mobile {
     text-align: center;
     margin-bottom: 10px;

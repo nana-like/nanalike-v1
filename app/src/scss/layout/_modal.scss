@@ -1,0 +1,114 @@
+// ---
+// modal
+// ---
+
+.modal {
+  // 👆 모달 요소
+  z-index: $z-modal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transition-property: opacity, visibility;
+  transition-delay: 100ms;
+}
+
+.modal__dim {
+  // 👆 모달 딤
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.modal__container {
+  // 👆 모달 내 요소들을 정렬하는 컨테이너
+  width: 100%;
+  height: 100%;
+  @include center();
+}
+
+.modal__body {
+  // 👆 흰색의 모달 바탕
+  position: relative;
+  width: calc(100vw - 40px);
+  max-width: 400px;
+  min-height: 188px;
+  padding: 55px 30px 25px;
+  background-color: #ffff;
+  border-radius: 4px;
+  box-shadow: 0 5px 20px 0 rgba(15, 15, 15, 0.2);
+  border: 1px solid #c7c7c7;
+
+  // animation: slideOutDown 0.3s;
+  // animation-fill-mode: forwards;
+
+  //laptop
+  @include res--laptop {
+    padding: 60px 35px 30px;
+  }
+
+  .btn-modal-okay {
+    margin: 30px auto 0;
+
+    //laptop
+    @include res--laptop {
+      margin-top: 35px;
+    }
+  }
+
+  .btn-modal-close {
+    // 👆 모달 닫기 버튼
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    background-size: 16px 14px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    background-image: icon(cancle, "d5d5d5");
+
+    @include res--laptop {
+      background-size: 16px 16px;
+    }
+
+    &:hover {
+      background-image: icon(cancle, "898989");
+    }
+  }
+}
+
+.modal-content {
+  // 👆 모달의 실질 콘텐츠 영역
+  overflow-y: auto;
+  padding-right: 4px;
+  max-height: calc(100vh - 400px);
+
+  //laptop
+  @include res--laptop {
+    max-height: 250px;
+  }
+}
+
+.modal.modal--opened {
+  // 🙌 모달 열렸을 때
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+
+  .share-copied {
+    display: block;
+  }
+
+  .modal-body {
+    animation: slideInUp 0.3s 50ms;
+    animation-fill-mode: backwards;
+  }
+}

@@ -12,13 +12,10 @@
   margin: -1px;
 }
 
-// .visible {
-//   .ability-list__back {
-//     transform: translateX(30px);
-//     opacity: 1;
-//     transition: opacity 0.6s, transform 0.5s;
-//   }
-// }
+.icon-love {
+  display: inline-block;
+  animation: heartbeat 2s infinite;
+}
 
 .section-connect {
   z-index: $z-section-connect;

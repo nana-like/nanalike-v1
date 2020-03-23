@@ -282,7 +282,7 @@
         <div class="screen__shadow"></div>
         <div class="screen__image"></div>
       </div>
-      <button class="recent__btn btn-line">
+      <button class="js-open-popup recent__btn btn-line">
         <span class="btn-text">코드 까보기</span>
       </button>
     </div>
@@ -399,10 +399,15 @@
       <section class="contact">
   <div class="contact__inner">
     <h2 class="contact__title">좋아요, 함께 이야기 나눠요!</h2>
-    <a href="" class="contact__mail">nykim@nykim.net</a>
-    <p class="contact__text">메일을 보내주시면 평일 기준 3일 내로 답장을 드릴게요.</p>
+    <div class="contact__info">
+      <a href="" class="contact__mail">nykim@nykim.net</a>
+      <p class="contact__text">
+        메일을 보내주시면 평일 기준 3일 내로 답장을 드릴게요.
+      </p>
+    </div>
   </div>
-</section> <footer class="footer">
+</section>
+ <footer class="footer">
   <div class="footer__inner">
     <div class="sns">
       <a href="" class="sns__link">
@@ -413,9 +418,26 @@
       </a>
     </div>
     <div class="footer__copyright">&copy; 2020 nanalike</div>
-    <div class="footer__madeby">Made by nana with 💛</div>
+    <div class="footer__madeby">
+      Made by nana with <i class="icon icon-love">💛</i>
+    </div>
   </div>
 </footer>
+
+      <div class="modal">
+  <div class="modal__dim"></div>
+  <div class="modal__container">
+    <div class="modal__body">
+      <div class="modal__content">
+        <p class="modal-text">
+          @@text
+        </p>
+      </div>
+      <button class="btn-modal-okay">확인</button>
+      <button class="btn-modal-close"><span class="blind">닫기</span></button>
+    </div>
+  </div>
+</div>
 
     </div>
     <style>

@@ -3,10 +3,12 @@
 // ---
 
 .contact {
+  background-color: #fff;
   &__inner {
     max-width: 1600px;
     margin: 0 auto;
     padding: 160px 0 200px;
+    text-align: center;
     @include res--tablet {
       padding: 120px 0 160px;
     }
@@ -46,11 +48,17 @@
     }
   }
 
+  &__info {
+    display: inline-block;
+    position: relative;
+  }
+
   &__mail {
     display: block;
     text-align: center;
     font-size: 82px;
     font-weight: $fw-r;
+    transition: all 0.3s;
     @include font-mont;
     @include res--tablet {
       font-size: 60px;
@@ -59,9 +67,16 @@
       font-weight: $fw-b;
       font-size: 30px;
     }
+
+    &:hover {
+      color: #ffba00;
+      transform: scale(0.95);
+    }
   }
 
   &__text {
+    @include pointer-none;
+    @include select-none;
     margin-top: 26px;
     text-align: center;
     font-size: 16px;
@@ -75,4 +90,8 @@
       font-size: 12px;
     }
   }
+}
+
+.contact__mail:hover + .contact__text {
+  animation: ball 1.8s 0.2s;
 }

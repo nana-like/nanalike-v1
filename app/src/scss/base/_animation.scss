@@ -94,91 +94,19 @@
   }
 }
 
-@keyframes shake {
-  // 👆 에러용 애니메이션 (쉐킷!)
-
-  $_shake_size: 3;
-
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-
-  15%,
-  45%,
-  75% {
-    -webkit-transform: translate3d(-#{$_shake_size}px, 0, 0);
-    transform: translate3d(-#{$_shake_size}px, 0, 0);
-  }
-
-  30%,
-  60%,
-  90% {
-    -webkit-transform: translate3d(#{$_shake_size}px, 0, 0);
-    transform: translate3d(#{$_shake_size}px, 0, 0);
-  }
-}
-
-@keyframes show-skew {
-  // 👆 텍스트가 아래에서 위로 기울어지듯 올라가는 모션
-
-  $_skew_size: 10;
-
-  0% {
-    transform: skewY(#{$_skew_size}deg) translateY(110%) translateZ(0);
-    transform-origin: left center;
-  }
-
-  30% {
-    transform: skewY(0) translateY(0) translateZ(0);
-    transform-origin: left center;
-  }
-
-  70% {
-    transform: skewY(0) translateY(0) translateZ(0);
-    transform-origin: left center;
-  }
-
-  100% {
-    transform: skewY(#{$_skew_size}deg) translateY(-200%) translateZ(0);
-    transform-origin: left center;
-  }
-}
-
-@keyframes show-copied {
-  // 👆 공유하기 모달에서 '복사 완료' 문구 표시
-
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 @keyframes pulsate {
   // 👆 로딩 아이콘 pulse하는 모션
 
   0% {
     -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1.3, 1.3, 1.3);
+    transform: scale3d(1.3, 1.3, 1.3);
   }
 
   50% {
-    -webkit-transform: scale3d(0.93, 0.93, 0.93);
-    transform: scale3d(0.93, 0.93, 0.93);
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: cale3d(0.9, 0.9, 0.9);
   }
 
   100% {
@@ -186,6 +114,32 @@
     animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.9);
+  }
+
+  20% {
+    transform: scale(1.2);
+  }
+
+  40% {
+    transform: scale(0.9);
+  }
+
+  60% {
+    transform: scale(1.2);
+  }
+
+  80% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(0.9);
   }
 }
 
@@ -344,8 +298,9 @@
   }
 }
 
-@keyframes jello {
+*/
 
+@keyframes jello {
   from,
   11.1%,
   to {
@@ -388,4 +343,36 @@
     transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
   }
 }
-*/
+
+@keyframes ball {
+  0% {
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  12% {
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -18px, 0);
+  }
+  24% {
+    -webkit-animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+    animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    animation-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  42% {
+    -webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

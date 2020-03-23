@@ -1,45 +1,52 @@
-// // we'd only like to use iScroll for mobile...
-// if (isMobile) {
-//   // configure iScroll
-//   var myScroll = new IScroll(".wrap", {
-//     // don't scroll horizontal
-//     scrollX: false,
-//     // but do scroll vertical
-//     scrollY: true,
-//     // show scrollbars
-//     scrollbars: true,
-//     // deactivating -webkit-transform because pin wouldn't work because of a webkit bug: https://code.google.com/p/chromium/issues/detail?id=20574
-//     // if you dont use pinning, keep "useTransform" set to true, as it is far better in terms of performance.
-//     useTransform: false,
-//     // deativate css-transition to force requestAnimationFrame (implicit with probeType 3)
-//     useTransition: false,
-//     // set to highest probing level to get scroll events even during momentum and bounce
-//     // pass through clicks inside scroll container
-//     click: true
-//   });
+// console.log("팝업연결하기!");
 
-//   // overwrite scroll position calculation to use child's offset instead of container's scrollTop();
-//   controller.scrollPos(function() {
-//     return -myScroll.y;
-//   });
+// var btnPopup = document.querySelector(".js-open-popup");
 
-//   // thanks to iScroll 5 we now have a real onScroll event (with some performance drawbacks)
-//   myScroll.on("scroll", function() {
-//     controller.update(true);
-//   });
+// var clickHandler = function() {
+//   modalEvt.show();
+// };
 
-//   // add indicators to scrollcontent so they will be moved with it.
-//   sceneProject.addIndicators({ parent: ".project" });
-// }
+// var modal = document.querySelector(".modal");
 
-// // var fixed = document.querySelector(".fixed");
-// // fixed.addEventListener("DOMMouseScroll", function() {
-// //   var wrap = document.querySelector(".wrap");
-// //   var wrapScroll = wrap.scrollTop;
-// //   wrap.scrollTop =
-// //     wrapScroll -
-// //     (event.originalEvent.wheelDelta || event.originalEvent.detail * 30);
-// // });
+// var modalEvt = {
+//   show: function() {
+//     console.log("모달 보여짐");
+//     modal.classList.add("modal--opened");
+//   },
+//   hide: function() {
+//     console.log("모달 닫힘");
+//   }
+// };
+
+// btnPopup.addEventListener("click", clickHandler);
+
+var modal = document.querySelector(".modal");
+
+var btnModalClose = modal.querySelector(".btn-modal-close"),
+  btnModalOkay = modal.querySelector(".btn-modal-okay"),
+  modalDim = modal.querySelector(".modal__dim");
+var modalEvt = {
+  open: function(e) {
+    e.preventDefault();
+    modal.classList.add("modal--opened");
+    // 👆 .modal에 .-modal-opened가 붙으면 화면에 보입니다.
+  },
+  close: function() {
+    modal.classList.remove("modal--opened");
+  }
+};
+if (btnModalOkay != null) {
+  btnModalOkay.addEventListener("click", modalEvt.close);
+  // 👆 확인 버튼 클릭 시 모달을 닫습니다.
+}
+btnModalClose.addEventListener("click", modalEvt.close);
+// 👆 닫기 버튼 클릭 시 모달을 닫습니다.
+modalDim.addEventListener("click", modalEvt.close);
+// 👆 딤(검정 배경) 클릭 시 모달을 닫습니다.
+
+// !! 🤓 TEST 🤓 !!
+var btnPopup = document.querySelector(".js-open-popup");
+btnPopup.addEventListener("click", modalEvt.open);
 
 var isMobile = (function(a) {
   return (
@@ -154,12 +161,23 @@ var work_tween_connect = TweenMax.from(
   }
 );
 
-// ===== (5) 어빌리티 =====
+// ===== (6) PR =====
 
-// var ability_tween_scroll = TweenMax.to(".ability-list", 1, {
-//   x: "-100%",
-//   ease: Linear.easeNone
-// });
+var pr_tween_connect = new TimelineMax()
+  .from(".section-connect-3 .section-connect__word", 1, {
+    y: "-100%",
+    alpha: 0,
+    ease: Linear.easeNone
+  })
+  .from(".section-connect-4 .section-connect__word", 1, {
+    y: "-100%",
+    alpha: 0,
+    ease: Linear.easeNone
+  });
+var pr_tween_scroll = TweenMax.to(".pr__container", 2, {
+  x: "-80%",
+  ease: Linear.easeNone
+});
 
 // 💪 (1) 헤더 씬
 var headerScene = new ScrollMagic.Scene({
@@ -293,6 +311,26 @@ for (var i = 0; i < abilityWords.length; i++) {
     });
 }
 
+// 💪 (11) PR - 이음말
+var prWordScene = new ScrollMagic.Scene({
+  triggerElement: ".pr",
+  duration: "25%",
+  offset: "-250%"
+})
+  .setTween(pr_tween_connect)
+  .addIndicators({
+    name: "세,네 번째 이음말"
+  });
+var prScrollScene = new ScrollMagic.Scene({
+  triggerElement: ".pr",
+  duration: "60%",
+  offset: 120
+})
+  .setTween(pr_tween_scroll)
+  .addIndicators({
+    name: "절 찾냐고염"
+  });
+
 // var abilityScene = new ScrollMagic.Scene({
 //   triggerElement: ".ability",
 //   triggerHook: 0,
@@ -332,7 +370,9 @@ controller.addScene([
   aboutWordScene,
   projectScene,
   recentScene,
-  workWordScene
+  workWordScene,
+  prWordScene,
+  prScrollScene
   // abilityScene
   // abilityPinScene
 ]);
