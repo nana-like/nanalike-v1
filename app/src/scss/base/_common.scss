@@ -121,3 +121,9 @@
     display: none;
   }
 }
+
+// 스크롤 막을 때 사용
+.scroll-disabled {
+  height: 100%;
+  overflow: hidden;
+}

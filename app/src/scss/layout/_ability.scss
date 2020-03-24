@@ -128,14 +128,15 @@
       padding: 20px;
     }
     @include res--laptopSM {
+      padding: 18px;
       height: 384px;
     }
     @include res--tablet {
-      padding: 16px;
+      padding: 14px;
       height: 400px;
     }
     @include res--mobile {
-      padding: 14px;
+      padding: 10px;
       height: 240px;
     }
   }

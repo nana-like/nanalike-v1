@@ -15,14 +15,14 @@
     position: relative;
     width: inherit;
     height: inherit;
-    padding: 0 $padding-md;
+    padding-left: $padding-md;
     margin-top: 44px;
     @include flexbox();
     @include justify-content(space-between);
 
     @include res--tablet {
       margin-top: 40px;
-      padding: 0 15px;
+      padding-left: $padding-sm;
     }
   }
 
@@ -61,6 +61,7 @@
 
   &__mail {
     display: block;
+    margin-right: $padding-md;
     letter-spacing: 0.015rem;
     font-size: 14px;
     color: #333;
@@ -73,6 +74,8 @@
 
     @include res--tablet {
       font-size: 13px;
+      margin-left: $padding-sm;
+
       // position: relative;
       // right: -10px;
     }

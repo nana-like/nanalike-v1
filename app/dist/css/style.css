@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-23 21:08:39
+ * Last Modified: 2020-03-24 12:23:30
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -375,6 +375,11 @@ a:focus {
 		.hide-mobile {
 				display: none;
 		}
+}
+
+.scroll-disabled {
+		height: 100%;
+		overflow: hidden;
 }
 
 .ani-recent-show .recent__background-word:nth-child(1) {
@@ -991,7 +996,7 @@ a:focus {
 		position: relative;
 		width: inherit;
 		height: inherit;
-		padding: 0 60px;
+		padding-left: 60px;
 		margin-top: 44px;
 		display: flex;
 		-moz-justify-content: space-between;
@@ -1003,7 +1008,7 @@ a:focus {
 @media screen and (max-width: 979px) {
 		.header__inner {
 				margin-top: 40px;
-				padding: 0 15px;
+				padding-left: 30px;
 		}
 }
 
@@ -1052,6 +1057,7 @@ a:focus {
 
 .header__mail {
 		display: block;
+		margin-right: 60px;
 		letter-spacing: 0.015rem;
 		font-size: 14px;
 		color: #333;
@@ -1062,6 +1068,7 @@ a:focus {
 @media screen and (max-width: 979px) {
 		.header__mail {
 				font-size: 13px;
+				margin-left: 30px;
 		}
 }
 
@@ -2071,6 +2078,17 @@ a:focus {
 		font-size: 102px;
 		color: rgba(8, 8, 8, 0.06);
 		text-align: right;
+		font-family: "Montserrat", AppleGothic, sans-serif, Helvetica;
+		-moz-pointer-events: none;
+		-webkit-pointer-events: none;
+		-o-pointer-events: none;
+		-ms-pointer-events: none;
+		pointer-events: none;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 }
 
 .recent__background-word:first-child {
@@ -2304,20 +2322,21 @@ a:focus {
 
 @media screen and (max-width: 1279px) {
 		.ability-list__screen {
+				padding: 18px;
 				height: 384px;
 		}
 }
 
 @media screen and (max-width: 979px) {
 		.ability-list__screen {
-				padding: 16px;
+				padding: 14px;
 				height: 400px;
 		}
 }
 
 @media screen and (max-width: 639px) {
 		.ability-list__screen {
-				padding: 14px;
+				padding: 10px;
 				height: 240px;
 		}
 }
@@ -2941,63 +2960,44 @@ a:focus {
 .modal__body {
 		position: relative;
 		width: calc(100vw - 40px);
-		max-width: 400px;
+		max-width: 1620px;
 		min-height: 188px;
-		padding: 55px 30px 25px;
+		padding: 60px 20px 20px;
 		background-color: #ffff;
-		border-radius: 4px;
-		box-shadow: 0 5px 20px 0 rgba(15, 15, 15, 0.2);
+		border-radius: 6px;
+		box-shadow: 0 5px 32px 0 rgba(15, 15, 15, 0.15);
 		border: 1px solid #c7c7c7;
 }
 
-@media screen and (max-width: 1599px) {
+@media screen and (max-width: 979px) {
 		.modal__body {
-				padding: 60px 35px 30px;
-		}
-}
-
-.modal__body .btn-modal-okay {
-		margin: 30px auto 0;
-}
-
-@media screen and (max-width: 1599px) {
-		.modal__body .btn-modal-okay {
-				margin-top: 35px;
+				width: calc(100vw - 60px);
+				padding-left: 15px;
+				padding-right: 15px;
 		}
 }
 
 .modal__body .btn-modal-close {
 		position: absolute;
-		top: 20px;
-		right: 20px;
-		width: 18px;
-		height: 18px;
-		background-size: 16px 14px;
+		top: 24px;
+		right: 24px;
+		width: 24px;
+		height: 24px;
+		background-size: 24px 20px;
 		background-repeat: no-repeat;
 		background-position: 100% 0%;
-		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23d5d5d5;stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>');
-}
-
-@media screen and (max-width: 1599px) {
-		.modal__body .btn-modal-close {
-				background-size: 16px 16px;
-		}
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23333333;stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>');
 }
 
 .modal__body .btn-modal-close:hover {
-		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23898989;stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>');
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23ffba00;stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>');
 }
 
-.modal-content {
+.modal__content {
 		overflow-y: auto;
 		padding-right: 4px;
-		max-height: calc(100vh - 400px);
-}
-
-@media screen and (max-width: 1599px) {
-		.modal-content {
-				max-height: 250px;
-		}
+		height: 80vh;
+		max-height: 920px;
 }
 
 .modal.modal--opened {
@@ -3006,15 +3006,16 @@ a:focus {
 		transition-delay: 0s;
 }
 
-.modal.modal--opened .share-copied {
-		display: block;
-}
-
 .modal.modal--opened .modal-body {
 		-webkit-animation: slideInUp 0.3s 50ms;
 		animation: slideInUp 0.3s 50ms;
 		-webkit-animation-fill-mode: backwards;
 		animation-fill-mode: backwards;
+}
+
+.img-codes {
+		display: block;
+		width: 100%;
 }
 
 /*! 
