@@ -89,7 +89,7 @@ headerLogo.addEventListener("click", function(e) {
   controller.scrollTo(0);
 });
 
-var isMobile = (function(a) {
+var isMobile = (function (a) {
   return (
     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
       a
@@ -241,7 +241,7 @@ var visualPinScene = new ScrollMagic.Scene({
   duration: "80%"
 })
   .setPin(visualCont)
-  .on("end", function(e) {
+  .on("end", function (e) {
     visualCont.classList.add("fixed");
   });
 
@@ -313,10 +313,10 @@ var prScrollScene = new ScrollMagic.Scene({
 }).setTween(pr_tween_scroll);
 
 var headerLogo = document.querySelector(".js-header-logo");
-controller.scrollTo(function(newpos) {
+controller.scrollTo(function (newpos) {
   TweenMax.to(window, 0.5, { scrollTo: { y: newpos } });
 });
-headerLogo.addEventListener("click", function(e) {
+headerLogo.addEventListener("click", function (e) {
   e.preventDefault();
   controller.scrollTo(0);
 });
@@ -361,3 +361,12 @@ if (isMobile) {
     prScrollScene
   ]);
 }
+
+
+
+window.addEventListener("load", function () {
+  this.setTimeout(function () {
+    document.body.classList.add("loading--hide");
+  }, 800)
+  controller.scrollTo(0);
+});

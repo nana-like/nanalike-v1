@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-24 12:56:45
+ * Last Modified: 2020-03-24 13:36:06
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -935,6 +935,36 @@ a:focus {
 		}
 }
 
+@-webkit-keyframes fadeInShow {
+		0% {
+				opacity: 0;
+				transform: translateY(100px);
+				-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+				animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		}
+		100% {
+				opacity: 1;
+				transform: translateY(0);
+				-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+				animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		}
+}
+
+@keyframes fadeInShow {
+		0% {
+				opacity: 0;
+				transform: translateY(100px);
+				-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+				animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		}
+		100% {
+				opacity: 1;
+				transform: translateY(0);
+				-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+				animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		}
+}
+
 .btn-line {
 		display: block;
 		min-width: 190px;
@@ -1139,9 +1169,13 @@ a:focus {
 }
 
 .visual__text {
+		opacity: 0;
+		transform: translateY(20px);
 		font-size: 35px;
 		letter-spacing: 0.7px;
 		font-weight: 400;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 1279px) {
@@ -1157,9 +1191,13 @@ a:focus {
 }
 
 .visual__logo {
+		opacity: 0;
+		transform: translateY(20px);
 		width: 540px;
 		height: 144px;
 		margin: 22px auto 86px;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
 		background-image: url(../images/logo-lg.png);
 		background-repeat: no-repeat;
 		background-size: 100%;
@@ -1173,10 +1211,14 @@ a:focus {
 }
 
 .visual__desc {
+		opacity: 0;
+		transform: translateY(20px);
 		color: #505050;
 		font-size: 14px;
 		letter-spacing: 0.3px;
 		font-family: "Montserrat", AppleGothic, sans-serif, Helvetica;
+		-webkit-animation-fill-mode: forwards;
+		animation-fill-mode: forwards;
 }
 
 @media screen and (max-width: 639px) {
