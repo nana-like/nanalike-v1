@@ -83,6 +83,11 @@
     @include bgi("logo-lg");
     background-size: 100%;
 
+    @include res--laptop {
+      width: 490px;
+      height: 130px;
+    }
+
     @include res--mobile {
       width: 244px;
       height: 65px;

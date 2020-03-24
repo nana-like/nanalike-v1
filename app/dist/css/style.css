@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-24 13:36:06
+ * Last Modified: 2020-03-24 13:45:18
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -1201,6 +1201,13 @@ a:focus {
 		background-image: url(../images/logo-lg.png);
 		background-repeat: no-repeat;
 		background-size: 100%;
+}
+
+@media screen and (max-width: 1599px) {
+		.visual__logo {
+				width: 490px;
+				height: 130px;
+		}
 }
 
 @media screen and (max-width: 639px) {
