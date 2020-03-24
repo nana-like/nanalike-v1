@@ -124,17 +124,14 @@
     @include res--laptopSM {
       width: 360px;
       height: 298px;
-      background: darkkhaki;
     }
 
     @include res--tablet {
       width: 420px;
       height: 348px;
-      background: sandybrown;
     }
     @include res--mobile {
       width: 100%;
-      background: deepskyblue;
     }
 
     &:after {

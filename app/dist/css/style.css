@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-24 23:58:31
+ * Last Modified: 2020-03-25 00:11:36
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -1513,7 +1513,6 @@ a:focus {
 		.profile__photo {
 				width: 360px;
 				height: 298px;
-				background: darkkhaki;
 		}
 }
 
@@ -1521,14 +1520,12 @@ a:focus {
 		.profile__photo {
 				width: 420px;
 				height: 348px;
-				background: sandybrown;
 		}
 }
 
 @media screen and (max-width: 639px) {
 		.profile__photo {
 				width: 100%;
-				background: deepskyblue;
 		}
 }
 
