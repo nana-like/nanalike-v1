@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------
- * Last Modified: 2020-03-24 12:23:30
+ * Last Modified: 2020-03-24 12:56:45
  * Author: Nana (nykim@nykim.net)
  * Description: nanalike CSS
  * -----------------------------------------------
@@ -1040,6 +1040,11 @@ a:focus {
 		overflow: hidden;
 }
 
+.header__logo:hover {
+		background-image: url(../images/logo-sm-blue.png);
+		background-repeat: no-repeat;
+}
+
 @media screen and (max-width: 979px) {
 		.header__logo {
 				width: 42px;
@@ -1068,7 +1073,7 @@ a:focus {
 @media screen and (max-width: 979px) {
 		.header__mail {
 				font-size: 13px;
-				margin-left: 30px;
+				margin-right: 30px;
 		}
 }
 
@@ -1113,7 +1118,6 @@ a:focus {
 		min-height: inherit;
 		position: relative;
 		max-width: 1920px;
-		outline: 3px solid red;
 		margin: 0 auto;
 		z-index: 1;
 		display: flex;
@@ -1673,7 +1677,7 @@ a:focus {
 
 @media screen and (max-width: 639px) {
 		.project__inner {
-				margin-top: 150px;
+				margin-top: 100px;
 		}
 }
 
@@ -2991,6 +2995,16 @@ a:focus {
 
 .modal__body .btn-modal-close:hover {
 		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 20"><style>.st2{fill:none;stroke:%23ffba00;stroke-width:1.8;stroke-linecap:round}</style><g><path class="st2" d="M3 2.5l15 15M18 2.5l-15 15"/></g></svg>');
+}
+
+@media screen and (max-width: 639px) {
+		.modal__body .btn-modal-close {
+				width: 20px;
+				height: 20px;
+				background-size: 20px 18px;
+				top: 20px;
+				right: 20px;
+		}
 }
 
 .modal__content {

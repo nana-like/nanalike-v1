@@ -48,6 +48,10 @@
     @include bgi("logo-sm");
     @include text-hidden;
 
+    &:hover {
+      @include bgi("logo-sm-blue");
+    }
+
     @include res--tablet {
       width: 42px;
       height: 42px;
@@ -74,7 +78,7 @@
 
     @include res--tablet {
       font-size: 13px;
-      margin-left: $padding-sm;
+      margin-right: $padding-sm;
 
       // position: relative;
       // right: -10px;

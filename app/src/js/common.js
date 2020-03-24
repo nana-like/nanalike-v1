@@ -1,8 +1,17 @@
 var wrap = document.querySelector(".wrap");
-var header = document.querySelector(".header__inner");
+var header = document.querySelector(".header__inner"),
+  headerLogo = header.querySelector(".js-header-logo");
 var modal = document.querySelector(".modal"),
   btnModalClose = modal.querySelector(".btn-modal-close"),
-  modalDim = modal.querySelector(".modal__dim");
+  modalDim = modal.querySelector(".modal__dim"),
+  modalContent = modal.querySelector(".modal__content");
+
+// 💪
+var setModalHeight = function() {
+  var winH = window.innerHeight; //윈도 높이
+  console.log(winH);
+  modalContent.style.height = (winH * 80) / 100 + "px";
+};
 
 // 💪 해당 브라우저의 스크롤바 너비를 구하는 함수
 var getScrollBarWidth = function() {
@@ -56,6 +65,7 @@ var modalEvt = {
   open: function(e) {
     e.preventDefault();
     preventScroll();
+    setModalHeight();
     modal.classList.add("modal--opened");
   },
   close: function() {
@@ -67,8 +77,14 @@ var modalEvt = {
 btnModalClose.addEventListener("click", modalEvt.close);
 // 👆 닫기 버튼 클릭 시 모달을 닫습니다.
 modalDim.addEventListener("click", modalEvt.close);
+window.addEventListener("resize", setModalHeight);
 // 👆 딤(검정 배경) 클릭 시 모달을 닫습니다.
 
 // !! 🤓
 var btnPopup = document.querySelector(".js-open-popup");
 btnPopup.addEventListener("click", modalEvt.open);
+
+headerLogo.addEventListener("click", function(e) {
+  e.preventDefault();
+  controller.scrollTo(0);
+});

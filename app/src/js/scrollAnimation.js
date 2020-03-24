@@ -64,9 +64,16 @@ var visual_tween_main = new TimelineMax()
   });
 
 // ===== (3) 어바웃 =====
-var about_tween_profile = TweenMax.from("#profile", 1, {
-  y: "50%"
-});
+var about_tween_profile = TweenMax.fromTo(
+  "#profile",
+  1,
+  {
+    y: "50%"
+  },
+  {
+    y: "0%"
+  }
+);
 
 var about_tween_connect = TweenMax.from(
   ".section-connect-1 .section-connect__word",
@@ -79,17 +86,7 @@ var about_tween_connect = TweenMax.from(
 );
 
 // ===== (4) 워크 =====
-var project_tween_up = TweenMax.staggerFromTo(
-  ".project-list__item",
-  1,
-  {
-    y: "100px"
-  },
-  {
-    y: 0
-  },
-  0.3
-);
+
 var project_tween_words = new TimelineMax()
   .from(".js-proWord-1", 0.8, {
     x: "70px"
@@ -133,26 +130,18 @@ var pr_tween_scroll = TweenMax.to(".pr__container", 2, {
 var headerScene = new ScrollMagic.Scene({
   triggerHook: 0,
   duration: "30%"
-})
-  .setTween([
-    header_tween_mail,
-    header_tween_title,
-    header_tween_logo,
-    visaul_tween_scroll
-  ])
-  .addIndicators({
-    name: "HEADER"
-  });
+}).setTween([
+  header_tween_mail,
+  header_tween_title,
+  header_tween_logo,
+  visaul_tween_scroll
+]);
 
 // 💪 (2) 비주얼 - 등장씬
 var visualScene = new ScrollMagic.Scene({
   triggerHook: 0,
   duration: "115%"
-})
-  .setTween([visual_tween_bg, visual_tween_main])
-  .addIndicators({
-    name: "1"
-  });
+}).setTween([visual_tween_bg, visual_tween_main]);
 
 // 💪 (3) 비주얼 - 영역 고정씬
 var visualCont = document.querySelector("#visual");
@@ -161,11 +150,7 @@ var visualPinScene = new ScrollMagic.Scene({
   duration: "80%"
 })
   .setPin(visualCont)
-  .addIndicators({
-    name: "2"
-  })
   .on("end", function(e) {
-    console.log("끝!");
     visualCont.classList.add("fixed");
   });
 
@@ -174,33 +159,14 @@ var aboutProfileScene = new ScrollMagic.Scene({
   triggerElement: "#trigger-2",
   duration: "70%",
   offset: "-200%"
-})
-  .setTween([about_tween_profile])
-  .addIndicators({
-    name: "프로필"
-  });
+}).setTween([about_tween_profile]);
 
 // 💪 (5) 어바웃 - 이음말 페이드인
 var aboutWordScene = new ScrollMagic.Scene({
   triggerElement: ".work",
   duration: "30%",
   offset: "-150%"
-})
-  .setTween(about_tween_connect)
-  .addIndicators({
-    name: "첫 번째 이음말"
-  });
-
-// 💪 (6) 프로젝트 리스트 슈슈슝
-var projectScene = new ScrollMagic.Scene({
-  triggerElement: ".project",
-  duration: "80%",
-  offset: "-10%"
-})
-  .setTween([project_tween_up, project_tween_words])
-  .addIndicators({
-    name: "1"
-  });
+}).setTween(about_tween_connect);
 
 // 💪 (7) Recent 글자 등장
 var recentWords = document.querySelectorAll(".recent__background-word");
@@ -209,12 +175,7 @@ var recentScene = new ScrollMagic.Scene({
   triggerElement: ".recent",
   offset: 50,
   reverse: false
-})
-  .setClassToggle(".recent__background", "ani-recent-show")
-  .addIndicators({
-    colorStart: "#F6B352",
-    colorTrigger: "#F6B352"
-  });
+}).setClassToggle(".recent__background", "ani-recent-show");
 
 // 💪 (8) 워크 - 이음말 페이드인
 var workWordScene = new ScrollMagic.Scene({
@@ -223,10 +184,7 @@ var workWordScene = new ScrollMagic.Scene({
   offset: "-100"
 })
   .setTween(work_tween_connect)
-  .setClassToggle(".icon-hello", "ani-swing")
-  .addIndicators({
-    name: "두 번째 이음말"
-  });
+  .setClassToggle(".icon-hello", "ani-swing");
 
 // 💪 (9) 어빌리티 - 백그라운드 단어 등장
 var revealElements = document.getElementsByClassName("ability-list__item");
@@ -236,12 +194,7 @@ for (var i = 0; i < revealElements.length; i++) {
     reverse: false
   })
     .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
-    .addTo(controller)
-    .addIndicators({
-      name: "(box) " + (i + 1),
-      colorStart: "#F6B352",
-      colorTrigger: "#F6B352"
-    });
+    .addTo(controller);
 }
 
 // 💪 (10) 어빌리티 - 백그라운드 패럴렉스
@@ -253,12 +206,7 @@ for (var i = 0; i < abilityWords.length; i++) {
     offset: "-200%"
   })
     .setTween(abilityWords[i], { y: "-100%", ease: Linear.easeNone })
-    .addTo(controller)
-    .addIndicators({
-      name: "HEY",
-      colorStart: "#ff0ff0",
-      colorTrigger: "#F6B352"
-    });
+    .addTo(controller);
 }
 
 // 💪 (11) PR - 이음말
@@ -266,63 +214,59 @@ var prWordScene = new ScrollMagic.Scene({
   triggerElement: ".pr",
   duration: "25%",
   offset: "-250%"
-})
-  .setTween(pr_tween_connect)
-  .addIndicators({
-    name: "세,네 번째 이음말"
-  });
+}).setTween(pr_tween_connect);
 var prScrollScene = new ScrollMagic.Scene({
   triggerElement: ".pr",
   duration: "60%",
   offset: 120
-})
-  .setTween(pr_tween_scroll)
-  .addIndicators({
-    name: "절 찾냐고염"
-  });
+}).setTween(pr_tween_scroll);
 
-// var abilityScene = new ScrollMagic.Scene({
-//   triggerElement: ".ability",
-//   triggerHook: 0,
-//   duration: "100%"
-// })
-//   .setPin(".js-ability")
-//   .setTween(ability_tween_scroll)
-//   .addIndicators({
-//     name: "가로스크롤"
-//   });
-// var abilityScene = new ScrollMagic.Scene({
-//   triggerElement: ".ability",
-//   triggerHook: 0,
-//   duration: "100%"
-// })
-//   .setPin(".js-ability")
-//   .setTween(ability_tween_scroll)
-//   .addIndicators({
-//     name: "가로스크롤"
-//   });
-// var abilityPinScene = new ScrollMagic.Scene({
-//   triggerElement: ".ability",
-//   triggerHook: 0.2,
-//   offset: "-100",
-//   duration: "100%"
-// })
-//   .setPin(".ability", { pushFollowers: true })
-//   .addIndicators({
-//     name: "가로 핀"
-//   });
+var headerLogo = document.querySelector(".js-header-logo");
+controller.scrollTo(function(newpos) {
+  TweenMax.to(window, 0.5, { scrollTo: { y: newpos } });
+});
+headerLogo.addEventListener("click", function(e) {
+  e.preventDefault();
+  controller.scrollTo(0);
+});
 
-controller.addScene([
-  headerScene,
-  visualScene,
-  visualPinScene,
-  aboutProfileScene,
-  aboutWordScene,
-  projectScene,
-  recentScene,
-  workWordScene,
-  prWordScene,
-  prScrollScene
-  // abilityScene
-  // abilityPinScene
-]);
+if (isMobile) {
+  controller.addScene([
+    headerScene,
+    visualScene,
+    visualPinScene,
+    aboutWordScene,
+    workWordScene,
+    prWordScene
+  ]);
+} else {
+  var project_tween_up = TweenMax.staggerFromTo(
+    ".project-list__item",
+    1,
+    {
+      y: "100px"
+    },
+    {
+      y: 0
+    },
+    0.3
+  );
+  // 💪 (6) 프로젝트 리스트 슈슈슝
+  var projectScene = new ScrollMagic.Scene({
+    triggerElement: ".project",
+    duration: "80%",
+    offset: "-10%"
+  }).setTween([project_tween_up, project_tween_words]);
+  controller.addScene([
+    headerScene,
+    visualScene,
+    visualPinScene,
+    aboutProfileScene,
+    aboutWordScene,
+    projectScene,
+    recentScene,
+    workWordScene,
+    prWordScene,
+    prScrollScene
+  ]);
+}
