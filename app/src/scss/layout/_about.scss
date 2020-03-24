@@ -118,7 +118,8 @@
     position: relative;
     width: 398px;
     height: 330px;
-    background: #cabfbd;
+    @include bgi("profile");
+    background-size: 100%;
 
     @include res--laptopSM {
       width: 360px;

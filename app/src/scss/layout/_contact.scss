@@ -7,7 +7,7 @@
   &__inner {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 160px 0 200px;
+    padding: 160px 0 220px;
     text-align: center;
     @include res--tablet {
       padding: 120px 0 160px;
@@ -38,8 +38,11 @@
       width: 20px;
       height: 16px;
       margin-bottom: 2px;
-      margin-right: 16px;
-      background: sandybrown;
+      margin-right: 14px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: 100% 0%;
+      background-image: icon(check, "333333");
       @include res--mobile {
         width: 18px;
         height: 15px;

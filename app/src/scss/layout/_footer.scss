@@ -9,17 +9,16 @@
   @include font-mono;
 
   &__inner {
-    margin-bottom: 26px;
     position: relative;
     max-width: 1600px;
-    font-size: 14px;
+    font-size: 15px;
     margin: 0 auto;
-    padding: 0 $padding-md;
+    padding: 0 $padding-md 18px;
     @include flexbox();
     @include justify-content(space-between);
 
     @include res--tablet {
-      font-size: 12px;
+      font-size: 14px;
       padding: 0 $padding-sm 20px;
     }
     @include res--mobile {
@@ -30,6 +29,7 @@
   &__copyright {
     position: absolute;
     left: 50%;
+    bottom: 24px;
     transform: translateX(-50%);
     text-align: center;
     color: #adadad;
@@ -43,6 +43,7 @@
   }
 
   &__madeby {
+    margin-bottom: 6px;
     font-size: 95%;
     color: #474747;
     text-align: right;
@@ -56,23 +57,46 @@
 }
 
 .sns {
-  margin-bottom: 8px;
   @include res--mobile {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   &__link {
     display: inline-block;
-    margin-right: 12px;
-    width: 22px;
-    height: 22px;
-    background: #333;
+    margin-right: 22px;
+    cursor: pointer;
+
     @include res--mobile {
       width: 25px;
       height: 25px;
+      margin-right: 19px;
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    &--blog {
+      width: 35px;
+      height: 17px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: icon(sns-blog, "333333");
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    &--github {
+      width: 54px;
+      height: 16px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: icon(sns-github, "333333");
+
+      &:hover {
+        opacity: 0.6;
       }
     }
   }

@@ -9,14 +9,11 @@ var isMobile = (function (a) {
   );
 })(navigator.userAgent || navigator.vendor || window.opera);
 
-// 💪스크립트 시작
-console.log("=== scrollAnimation.js ===");
 
 // 💪 컨트롤러 추가
 var controller = new ScrollMagic.Controller();
 
 // 💪 트윈 모음
-
 // ===== (1) 헤더 =====
 // 헤더 - 메일주소 오른족으로 회전
 var header_tween_mail = TweenMax.to(".js-mail-address", 0.5, {
@@ -126,6 +123,8 @@ var pr_tween_scroll = TweenMax.to(".pr__container", 2, {
   ease: Linear.easeNone
 });
 
+
+
 // 💪 (1) 헤더 씬
 var headerScene = new ScrollMagic.Scene({
   triggerHook: 0,
@@ -220,6 +219,9 @@ var prScrollScene = new ScrollMagic.Scene({
   duration: "60%",
   offset: 120
 }).setTween(pr_tween_scroll);
+// var prScrollScene_mobile = new ScrollMagic.Scene({
+//   triggerElement: ".pr",
+// }).setTween(pr_tween_scroll_mobile);
 
 var headerLogo = document.querySelector(".js-header-logo");
 controller.scrollTo(function (newpos) {
@@ -230,15 +232,38 @@ headerLogo.addEventListener("click", function (e) {
   controller.scrollTo(0);
 });
 
+
+// 💪 반응형(모바일 사이즈인지) 체크
+var isMobileSize = function () {
+  var winW = window.innerWidth;
+  if (winW < 980) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+var prCont = document.querySelector(".pr__container");
+
 if (isMobile) {
+  // var pr_tween_scroll_mobile = TweenMax.to(".pr__container", 2, {
+  //   x: "50%",
+  //   ease: Linear.easeNone
+  // });
+
+
   controller.addScene([
     headerScene,
     visualScene,
     visualPinScene,
     aboutWordScene,
     workWordScene,
-    prWordScene
+    prWordScene,
   ]);
+
+  prCont.classList.add("isMobile");
+
 } else {
   var project_tween_up = TweenMax.staggerFromTo(
     ".project-list__item",
@@ -271,11 +296,33 @@ if (isMobile) {
   ]);
 }
 
-
-
 window.addEventListener("load", function () {
   this.setTimeout(function () {
     document.body.classList.add("loading--hide");
   }, 800)
   controller.scrollTo(0);
+
+
+
+  isMobileSize();
+  if (!isMobileSize()) {
+    prScrollScene.enabled(true);
+
+  } else {
+    prScrollScene.enabled(false);
+
+    prCont.style.transform = "translate(0)";
+  }
+
+});
+window.addEventListener("resize", function () {
+
+  isMobileSize();
+  if (!isMobileSize()) {
+    prScrollScene.enabled(true);
+  } else {
+    prScrollScene.enabled(false);
+    prCont.style.transform = "translate(0)";
+  }
+
 });

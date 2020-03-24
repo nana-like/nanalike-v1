@@ -99,15 +99,19 @@
     text-transform: uppercase;
     @include font-mont;
 
+    // 👇 체크 모양 아이콘
     &:before {
       position: absolute;
-      top: 10px;
+      top: 6px;
       left: 0;
       display: block;
       content: "";
-      width: 14px;
-      height: 11px;
-      background: seagreen;
+      width: 16px;
+      height: 13px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: 100% 0%;
+      background-image: icon(check, "333333");
 
       @include res--laptopSM {
         top: 6px;
@@ -190,6 +194,7 @@
     }
   }
 
+  // 👇 뚝딱뚝딱 단어들 위치
   $_word-pos-desktop: (
     1: (
       x: 130px,
@@ -584,7 +589,6 @@
 
   &__background-word {
     opacity: 0;
-    // transform: translateX(100%);
     position: absolute;
     top: 250px;
     left: 50%;
@@ -598,11 +602,11 @@
     @include select-none;
 
     &:first-child {
-      margin-left: -378px;
+      margin-left: -390px;
     }
     &:nth-child(2) {
       margin-top: 110px;
-      margin-left: -516px;
+      margin-left: -530px;
     }
 
     &:last-child {
@@ -625,40 +629,44 @@
     }
 
     @include res--tablet {
-      font-size: 90px;
+      font-size: 75px;
       &:first-child {
-        margin-left: -270px;
-        margin-top: -20px;
-        transform: rotate(-90deg);
+        margin-left: -300px;
+        margin-top: 20px;
       }
       &:nth-child(2) {
-        display: none;
+        margin-top: 100px;
+        margin-left: -400px;
       }
       &:nth-child(3) {
-        margin-top: 162px;
-        margin-left: 30px;
-        transform: rotate(90deg);
+        margin-top: 330px;
+        margin-left: 120px;
       }
     }
     @include res--mobile {
       opacity: 1;
       font-size: 65px;
       &:first-child {
-        margin-top: -40px;
-        margin-left: -200px;
+        margin-top: 20px;
+        margin-left: -210px;
+        transform: rotate(-90deg);
+      }
+      &:nth-child(2) {
+        display: none;
       }
       &:nth-child(3) {
-        margin-top: 110px;
-        margin-left: 24px;
+        margin-top: 170px;
+        margin-left: 40px;
+        transform: rotate(90deg);
       }
     }
   }
 
   &__btn {
-    margin: 60px auto 0;
+    margin: 10px auto 0;
 
     @include res--mobile {
-      margin-top: 50px;
+      margin-top: 20px;
     }
   }
 }
@@ -667,18 +675,22 @@
 .screen {
   z-index: 1;
   position: relative;
-  width: 320px;
-  height: 620px;
+  top: -20px;
+  left: -54px;
+  width: 590px;
+  height: 800px;
   margin: 0 auto;
-  outline: 1px solid #aaa;
-  background-color: #fff;
+  background-size: 100%;
+  @include bgi("work-screen-shadow");
 
   @include res--tablet {
-    width: 270px;
-    height: 523px;
+    width: 516px;
+    height: 700px;
+    left: -44px;
   }
   @include res--mobile {
-    width: 208px;
-    height: 403px;
+    width: 428px;
+    height: 580px;
+    left: -35px;
   }
 }
