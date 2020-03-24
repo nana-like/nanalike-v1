@@ -338,16 +338,12 @@ var isMobileSize = function () {
 var prCont = document.querySelector(".pr__container");
 
 if (isMobile) {
-  // var pr_tween_scroll_mobile = TweenMax.to(".pr__container", 2, {
-  //   x: "50%",
-  //   ease: Linear.easeNone
-  // });
-
 
   controller.addScene([
     headerScene,
     visualScene,
     visualPinScene,
+    aboutProfileScene,
     aboutWordScene,
     workWordScene,
     prWordScene,
@@ -402,7 +398,11 @@ window.addEventListener("load", function () {
   } else {
     prScrollScene.enabled(false);
 
-    prCont.style.transform = "translate(0)";
+    prCont.style.transform = "translateX(0%)";
+  }
+
+  if (isMobile) {
+    prCont.style.transform = "translateX(50%)";
   }
 
 });
@@ -413,7 +413,11 @@ window.addEventListener("resize", function () {
     prScrollScene.enabled(true);
   } else {
     prScrollScene.enabled(false);
-    prCont.style.transform = "translate(0)";
+    prCont.style.transform = "translateX(0%)";
   }
 
+  if (isMobile) {
+    prCont.style.transform = "translateX(50%)";
+  }
 });
+
