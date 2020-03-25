@@ -292,9 +292,13 @@ if (isMobile) {
   ]);
 }
 
+window.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("scroll-disabled");
+})
 window.addEventListener("load", function () {
   this.setTimeout(function () {
     document.body.classList.add("loading--hide");
+    document.body.classList.remove("scroll-disabled");
   }, 800)
   controller.scrollTo(0);
 

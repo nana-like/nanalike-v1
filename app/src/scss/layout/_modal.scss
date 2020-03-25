@@ -2,8 +2,8 @@
 // modal
 // ---
 
+// 👇 모달 영역 전체
 .modal {
-  // 👆 모달 요소
   z-index: $z-modal;
   position: fixed;
   top: 0;
@@ -12,30 +12,30 @@
   height: 100vh;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
   transition-property: opacity, visibility;
-  transition-delay: 100ms;
+  transition-duration: 400ms, 0s;
 }
 
+// 👇 딤 (검정 배경)
 .modal__dim {
-  // 👆 모달 딤
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  transition: all 0.3s ease;
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+// 👇 모달 내 요소들을 정렬하는 컨테이너
 .modal__container {
-  // 👆 모달 내 요소들을 정렬하는 컨테이너
   width: 100%;
   height: 100%;
   @include center();
 }
 
+// 👇 흰색의 모달 바탕
 .modal__body {
-  // 👆 흰색의 모달 바탕
   position: relative;
   width: calc(100vw - 40px);
   max-width: 1620px;
@@ -45,9 +45,6 @@
   border-radius: 6px;
   box-shadow: 0 5px 32px 0 rgba(15, 15, 15, 0.15);
   border: 1px solid #c7c7c7;
-
-  // animation: slideOutDown 0.3s;
-  // animation-fill-mode: forwards;
 
   @include res--tablet {
     width: calc(100vw - 60px);
@@ -80,31 +77,65 @@
   }
 }
 
+// 👇 모달의 실질 콘텐츠 영역
 .modal__content {
-  // 👆 모달의 실질 콘텐츠 영역
   overflow-y: auto;
   padding-right: 4px;
-  height: 80vh;
+  height: 80vh; // common.js에서 실제 높이를 잡고 있음
   max-height: 920px;
-
-  //laptop
-  @include res--laptop {
-    // max-height: 250px;
-  }
 }
 
+// 👇 모달이 열렸을 때
 .modal.modal--opened {
-  // 🙌 모달 열렸을 때
   opacity: 1;
   visibility: visible;
-  transition-delay: 0s;
+  transition-property: opacity, visibility;
+  transition-duration: 400ms, 0s;
   .modal-body {
     animation: slideInUp 0.3s 50ms;
     animation-fill-mode: backwards;
   }
 }
 
+// 👇 이미지 부분
 .img-codes {
   display: block;
   width: 100%;
+}
+
+// 👇 리얼 코드 부분
+.real-code {
+  width: 100%;
+  padding-top: 140px;
+  text-align: center;
+  background-color: #faf7f4;
+
+  &__text {
+    font-size: 18px;
+
+    @include res--mobile {
+      font-size: 16px;
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    margin: 28px auto 140px;
+    transform: scale(0.9);
+    @include res--mobile {
+      transform: scale(0.84);
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    font-size: 15px;
+    color: #fff;
+    @include font-mono;
+    padding: 11px 0;
+    background-color: $c-black;
+    @include res--mobile {
+      font-size: 13px;
+    }
+  }
 }

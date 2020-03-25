@@ -13,15 +13,16 @@
     max-width: 1600px;
     font-size: 15px;
     margin: 0 auto;
-    padding: 0 $padding-md 18px;
+    padding: 0 $padding-md 22px;
     @include flexbox();
     @include justify-content(space-between);
 
     @include res--tablet {
       font-size: 14px;
-      padding: 0 $padding-sm 20px;
+      padding: 0 $padding-sm 34px;
     }
     @include res--mobile {
+      font-size: 12px;
       @include flex-direction(column);
     }
   }
@@ -29,16 +30,13 @@
   &__copyright {
     position: absolute;
     left: 50%;
-    bottom: 24px;
+    bottom: 22px;
     transform: translateX(-50%);
     text-align: center;
     color: #adadad;
     letter-spacing: 0.04rem;
     @include res--mobile {
-      position: relative;
-      transform: translateX(0);
-      left: 0;
-      order: 1;
+      bottom: 18px;
     }
   }
 
@@ -59,7 +57,8 @@
 .sns {
   @include res--mobile {
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 18px;
+    margin-right: 14px;
   }
   &__link {
     display: inline-block;
