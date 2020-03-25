@@ -1,3 +1,5 @@
+
+// 💪 모바일 판단
 var isMobile = (function (a) {
   return (
     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
@@ -8,6 +10,7 @@ var isMobile = (function (a) {
     )
   );
 })(navigator.userAgent || navigator.vendor || window.opera);
+var prCont = document.querySelector(".pr__container");
 
 
 // 💪 컨트롤러 추가
@@ -219,9 +222,6 @@ var prScrollScene = new ScrollMagic.Scene({
   duration: "60%",
   offset: 120
 }).setTween(pr_tween_scroll);
-// var prScrollScene_mobile = new ScrollMagic.Scene({
-//   triggerElement: ".pr",
-// }).setTween(pr_tween_scroll_mobile);
 
 var headerLogo = document.querySelector(".js-header-logo");
 controller.scrollTo(function (newpos) {
@@ -244,10 +244,9 @@ var isMobileSize = function () {
 }
 
 
-var prCont = document.querySelector(".pr__container");
 
 if (isMobile) {
-
+  // 💪 모바일일 경우의 Scene 관리
   controller.addScene([
     headerScene,
     visualScene,
@@ -257,7 +256,6 @@ if (isMobile) {
     workWordScene,
     prWordScene,
   ]);
-
   prCont.classList.add("isMobile");
 
 } else {
@@ -272,7 +270,6 @@ if (isMobile) {
     },
     0.3
   );
-  // 💪 (6) 프로젝트 리스트 슈슈슝
   var projectScene = new ScrollMagic.Scene({
     triggerElement: ".project",
     duration: "80%",
@@ -292,34 +289,15 @@ if (isMobile) {
   ]);
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-  controller.scrollTo(0);
-})
-window.addEventListener("load", function () {
+var loadingEvt = function () {
   this.setTimeout(function () {
     document.body.classList.add("loading--hide");
-    // document.body.classList.remove("scroll-disabled");
   }, 800)
   controller.scrollTo(0);
+}
 
+var windowLoadEvt = function () {
 
-
-  isMobileSize();
-  if (!isMobileSize()) {
-    prScrollScene.enabled(true);
-
-  } else {
-    prScrollScene.enabled(false);
-
-    prCont.style.transform = "translateX(0%)";
-  }
-
-  if (isMobile) {
-    prCont.style.transform = "translateX(50%)";
-  }
-
-});
-window.addEventListener("resize", function () {
 
   isMobileSize();
   if (!isMobileSize()) {
@@ -332,5 +310,16 @@ window.addEventListener("resize", function () {
   if (isMobile) {
     prCont.style.transform = "translateX(50%)";
   }
-});
+}
 
+var initScroll = function () {
+  loadingEvt();
+  windowLoadEvt();
+}
+
+var resizeEvt = function () {
+  windowLoadEvt();
+}
+
+window.addEventListener("load", initScroll);
+window.addEventListener("resize", resizeEvt);
