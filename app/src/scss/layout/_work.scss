@@ -72,7 +72,7 @@
   &__item {
     position: relative;
     font-size: 19px;
-    margin-top: 78px;
+    margin-top: 70px;
     padding-left: 30px;
 
     @include res--laptopSM {
@@ -80,7 +80,7 @@
     }
     @include res--tablet {
       font-size: 17px;
-      margin-top: 70px;
+      margin-top: 64px;
     }
     @include res--mobile {
       font-size: 16px;
@@ -94,7 +94,7 @@
 
   &__name {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: $fw-b;
     text-transform: uppercase;
     @include font-mont;
@@ -121,6 +121,7 @@
 
   &__desc {
     line-height: 1.68;
+    font-size: 98%;
     letter-spacing: -0.19px;
 
     .small {
@@ -136,7 +137,7 @@
   &__inner {
     position: relative;
     max-width: 1600px;
-    margin: 170px auto 0;
+    margin: 150px auto 0;
     padding: 0 $padding-md;
 
     @include res--tablet {
@@ -177,11 +178,6 @@
     font-size: 40px;
     font-weight: $fw-b;
     letter-spacing: 5.85px;
-
-    //TODO: IE처리
-    // color: #fff;
-    // text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    //   1px 1px 0 #000;
 
     color: transparent;
     -webkit-text-stroke: 1px #c1c1c1;
@@ -308,8 +304,6 @@
     width: calc(100vw - 60px);
     height: 900px;
   }
-
-  $_pos-size: desktop, laptopSM, tablet;
 
   $_pos-desktop: (
     1: (
@@ -555,8 +549,8 @@
   &__inner {
     position: relative;
     max-width: 1600px;
-    margin: 208px auto 0;
-    padding-bottom: 200px;
+    margin: 198px auto 0;
+    padding-bottom: 190px;
 
     @include res--tablet {
       margin: 140px auto 0;
@@ -569,20 +563,21 @@
   }
 
   &__title {
-    margin-bottom: 102px;
+    margin-bottom: 80px;
     font-size: 30px;
     letter-spacing: 1px;
     color: #505050;
     font-weight: $fw-r;
     text-align: center;
+
     @include res--tablet {
       font-size: 28px;
-      margin-bottom: 84px;
+      margin-bottom: 65px;
     }
     @include res--mobile {
       font-size: 22px;
       font-weight: $fw-b;
-      margin-bottom: 70px;
+      margin-bottom: 50px;
       color: #333;
     }
   }
@@ -667,6 +662,35 @@
 
     @include res--mobile {
       margin-top: 20px;
+    }
+  }
+}
+
+// 👇 recent 영역 전용 애니메이션
+.ani-recent-show {
+  .recent__background-word {
+    &:nth-child(1) {
+      animation-name: recentShow1;
+      animation-duration: 1.1s;
+      animation-fill-mode: forwards;
+    }
+    &:nth-child(2) {
+      animation: recentShow1 1.1s;
+      animation-delay: 0.2s;
+      animation-fill-mode: forwards;
+    }
+    &:nth-child(3) {
+      animation: recentShow2 1.1s;
+      animation-delay: 0.4s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@include res--mobile {
+  .ani-recent-show {
+    .recent__background-word {
+      animation: none !important;
     }
   }
 }

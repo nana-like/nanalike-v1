@@ -13,6 +13,7 @@ $c-gray-bg: #fafafa;
 
 $c-blue: #3e87f8;
 $c-yellow: #ffba00;
+
 // -------
 // * z-index
 // -------
@@ -36,8 +37,8 @@ $fw-l: 300;
 // * layout
 // -------
 $min-width: 360px;
-$max-width: 1920px;
 
+$width-max: 2560px;
 $width-desktopLG: 1920px;
 $width-desktop: 1600px;
 $width-laptop: 1280px;

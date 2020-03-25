@@ -153,7 +153,7 @@ var visual_tween_main = new TimelineMax()
 
 // ===== (3) 어바웃 =====
 var about_tween_profile = TweenMax.fromTo(
-  "#profile",
+  ".profile",
   1,
   {
     y: "50%"
@@ -384,12 +384,12 @@ if (isMobile) {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  document.body.classList.add("scroll-disabled");
+  controller.scrollTo(0);
 })
 window.addEventListener("load", function () {
   this.setTimeout(function () {
     document.body.classList.add("loading--hide");
-    document.body.classList.remove("scroll-disabled");
+    // document.body.classList.remove("scroll-disabled");
   }, 800)
   controller.scrollTo(0);
 

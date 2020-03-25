@@ -62,6 +62,7 @@
         height: 2px;
         content: "";
         background-color: $c-black;
+
         @include res--mobile {
           margin-top: -8px;
         }
@@ -76,7 +77,6 @@
     font-size: 19px;
     letter-spacing: -0.2px;
     line-height: 1.95;
-    // margin-top: 100%;
 
     @include res--laptopSM {
       font-size: 18px;
@@ -91,10 +91,10 @@
 
     &-item {
       margin-top: 40px;
+    }
 
-      &:first-child {
-        margin-top: 0;
-      }
+    &-item:first-child {
+      margin-top: 0;
     }
   }
 }

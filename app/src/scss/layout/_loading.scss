@@ -1,0 +1,67 @@
+.loading {
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  background-color: #fcfcfc;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  pointer-events: none;
+  transition: all 1.1s;
+}
+
+.loading__logo {
+  opacity: 1;
+  width: 200px;
+  height: 200px;
+  animation: popIn 0.65s;
+  transition: opacity 0.35s;
+}
+
+.loading--hide .loading__logo {
+  opacity: 0;
+}
+
+.loading--hide .loading {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: 0.4s;
+}
+
+.loading--hide .visual__text {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 1s;
+}
+
+.loading--hide .visual__logo {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 1.4s;
+}
+
+.loading--hide .visual__desc {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 2s;
+}

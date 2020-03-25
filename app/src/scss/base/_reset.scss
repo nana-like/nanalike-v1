@@ -22,28 +22,17 @@ h6,
 p,
 em,
 img,
-small article,
-aside,
+small,
+article,
 footer,
 header,
 nav,
 address,
 section,
-main,
-time,
 ol,
 ul,
 li,
-hr,
-strong,
-figure,
-tr,
-th,
-td,
-dl,
-dt,
-dd,
-fieldset {
+strong {
   margin: 0;
   padding: 0;
   border: 0;
@@ -75,21 +64,15 @@ a:hover,
 a:active {
   outline: 0;
 }
+a:focus {
+  opacity: 1;
+  outline: 0;
+}
 
 a,
 button {
   font-family: inherit;
   @include tap-highlight;
-}
-
-button:disabled,
-button[disabled] {
-  -webkit-tap-highlight-color: transparent;
-  color: inherit;
-}
-
-hr {
-  display: none;
 }
 
 button {
@@ -99,6 +82,7 @@ button {
   @include font-main;
   border: 0;
   -webkit-appearance: none;
+  border-radius: 0;
   -webkit-border-radius: 0;
   background: none;
   cursor: pointer;
@@ -123,78 +107,6 @@ summary,
 textarea {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-caption {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: #868e96;
-  text-align: left;
-  caption-side: bottom;
-}
-
-th {
-  text-align: inherit;
-}
-
-input {
-  @include ellipsis;
-  @include font-main;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  vertical-align: top;
-  border-radius: 0;
-  -webkit-border-radius: 0px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 0;
-  background-color: transparent;
-  border: 1px solid transparent;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active,
-  &:-internal-autofill-selected {
-    // background-color: #fff;
-    transition: background-color 5000s 0s;
-    -webkit-text-fill-color: #101010 !important;
-    // -webkit-transition: background-color 9999s ease-out;
-    // -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-  }
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-textarea {
-  @include font-main;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  &:focus {
-    outline: 0;
-  }
 }
 
 html {
@@ -229,9 +141,4 @@ body {
 
 .wrap {
   position: relative;
-}
-
-a:focus {
-  opacity: 1;
-  outline: 0;
 }

@@ -127,3 +127,14 @@
   height: 100%;
   overflow: hidden;
 }
+
+.fixed {
+  z-index: -99;
+  position: fixed !important;
+}
+
+.ani-swing {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  animation: swing 1s infinite;
+}

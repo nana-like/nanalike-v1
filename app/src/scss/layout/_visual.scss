@@ -2,6 +2,7 @@
 // visual
 // ---
 
+// 👇 visual 영역 전체
 .visual {
   width: 100%;
   height: 100%;
@@ -15,13 +16,14 @@
     width: inherit;
     height: inherit;
     min-height: inherit;
-    max-width: 2560px;
+    max-width: $width-max;
     margin: 0 auto;
-    @include bgi("visual-bg");
     background-size: cover;
     background-position: 50%;
+    @include bgi("visual-bg");
   }
 
+  // 👇 엷은 흰 색 배경
   &__background {
     position: absolute;
     top: 0;
@@ -79,9 +81,11 @@
     margin: 22px auto 86px;
     animation-fill-mode: forwards;
 
-    //TODO:SVG로 바꿀 것
-    @include bgi("logo-lg");
-    background-size: 100%;
+    &-img {
+      display: block;
+      width: 100%;
+      cursor: default;
+    }
 
     @include res--laptop {
       width: 490px;

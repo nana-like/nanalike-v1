@@ -29,7 +29,7 @@ var paths = {
 
 // 타임스탬프용 날짜 생성
 Object.defineProperty(Date.prototype, "YYYYMMDDHHMMSS", {
-  value: function() {
+  value: function () {
     function pad2(n) {
       return (n < 10 ? "0" : "") + n;
     }
@@ -51,13 +51,13 @@ Object.defineProperty(Date.prototype, "YYYYMMDDHHMMSS", {
 
 // SASS 정의
 var sassOptions = {
-  outputStyle: "expanded",
-  // outputStyle: "compressed",
+  // outputStyle: "expanded",
+  outputStyle: "compressed",
   indentType: "tab"
 };
 sass.compiler = require("node-sass");
 
-gulp.task("sass", function() {
+gulp.task("sass", function () {
   var myDate = new Date().YYYYMMDDHHMMSS();
 
   return (
@@ -86,7 +86,7 @@ gulp.task("sass", function() {
 });
 
 // HTML include 정의
-gulp.task("fileinclude", function() {
+gulp.task("fileinclude", function () {
   return gulp
     .src(paths.html)
     .pipe(
@@ -107,7 +107,7 @@ gulp.task("fileinclude", function() {
 });
 
 // 이미지 압축 정의
-gulp.task("imagemin", function() {
+gulp.task("imagemin", function () {
   return gulp
     .src(paths.image)
     .pipe(imagemin())
@@ -115,11 +115,11 @@ gulp.task("imagemin", function() {
 });
 
 // Browser-sync 정의
-gulp.task("reload", function() {
+gulp.task("reload", function () {
   browserSync.reload();
 });
 
-gulp.task("browserSync", function() {
+gulp.task("browserSync", function () {
   return browserSync.init({
     port: PORT,
     server: {
@@ -129,7 +129,7 @@ gulp.task("browserSync", function() {
 });
 
 // js 파일 난독화
-gulp.task("combine:js", function() {
+gulp.task("combine:js", function () {
   return gulp
     .src([src + "/js/common.js", src + "/js/scrollAnimation.js"])
     .pipe(concat("ui.js")) //하나로 합치기
@@ -141,7 +141,7 @@ gulp.task("combine:js", function() {
   // TODO: ****** combine:js 는 수정 예정입니다 😵
 });
 
-gulp.task("watch", function() {
+gulp.task("watch", function () {
   gulp.watch(
     paths.scss,
     {
@@ -175,7 +175,7 @@ gulp.task("watch", function() {
 gulp.task(
   "default",
   ["fileinclude", "imagemin", "sass", "combine:js", "browserSync", "watch"],
-  function() {
+  function () {
     console.log(" ~~~ 👩‍🔧 걸프가 열심히 일하고 있습니다 👨‍🔧 ~~~ ");
   }
 );

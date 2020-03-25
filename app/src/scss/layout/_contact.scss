@@ -2,6 +2,7 @@
 // contact
 // ---
 
+// 👇 contact 영역 전체
 .contact {
   background-color: #fff;
   &__inner {
@@ -75,6 +76,10 @@
       color: #ffba00;
       transform: scale(0.95);
     }
+
+    &:hover + .contact__text {
+      animation: ball 1.8s 0.2s;
+    }
   }
 
   &__text {
@@ -93,8 +98,4 @@
       font-size: 12px;
     }
   }
-}
-
-.contact__mail:hover + .contact__text {
-  animation: ball 1.8s 0.2s;
 }
