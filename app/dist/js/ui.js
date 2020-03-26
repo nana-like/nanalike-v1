@@ -10,7 +10,6 @@ var modal = document.querySelector(".modal"),
 // 💪 모달 높이 지정 함수
 var setModalHeight = function () {
   var winH = window.innerHeight;
-  console.log(winH);
   modalContent.style.height = (winH * 80) / 100 + "px";
 };
 
@@ -73,7 +72,16 @@ var modalEvt = {
   }
 };
 
+var loadingDoneEvt = function () {
+  this.setTimeout(function () {
+    document.body.classList.remove("loading--ongoing");
+    document.body.classList.add("loading--hide");
+  }, 800)
+  controller.scrollTo(0);
+}
+
 var initCommon = function () {
+  loadingDoneEvt();
   btnModalClose.addEventListener("click", modalEvt.close);
   modalDim.addEventListener("click", modalEvt.close);
   window.addEventListener("resize", setModalHeight);
@@ -378,12 +386,6 @@ if (isMobile) {
   ]);
 }
 
-var loadingEvt = function () {
-  this.setTimeout(function () {
-    document.body.classList.add("loading--hide");
-  }, 800)
-  controller.scrollTo(0);
-}
 
 var windowLoadEvt = function () {
 
@@ -402,7 +404,6 @@ var windowLoadEvt = function () {
 }
 
 var initScroll = function () {
-  loadingEvt();
   windowLoadEvt();
 }
 

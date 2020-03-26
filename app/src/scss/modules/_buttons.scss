@@ -45,4 +45,36 @@
   @include res--tablet {
     transform: scale(0.86);
   }
+
+  &:disabled {
+    cursor: default;
+    border-color: #ccc;
+
+    .btn-text {
+      color: #ccc;
+    }
+    &:after {
+      background-color: #ccc;
+    }
+
+    &:hover {
+      color: #ccc;
+      border-color: #ccc;
+
+      &:after {
+        background-color: #ccc;
+      }
+    }
+  }
+}
+
+.resume-temp {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #919191;
+
+  @include res--mobile {
+    margin-top: 4px;
+    transform: scale(0.9);
+  }
 }

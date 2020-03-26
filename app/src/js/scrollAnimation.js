@@ -289,12 +289,6 @@ if (isMobile) {
   ]);
 }
 
-var loadingEvt = function () {
-  this.setTimeout(function () {
-    document.body.classList.add("loading--hide");
-  }, 800)
-  controller.scrollTo(0);
-}
 
 var windowLoadEvt = function () {
 
@@ -313,7 +307,6 @@ var windowLoadEvt = function () {
 }
 
 var initScroll = function () {
-  loadingEvt();
   windowLoadEvt();
 }
 

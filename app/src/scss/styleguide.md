@@ -90,3 +90,12 @@ by Nana (20-03-20)
   <div class="icon" aria-hidden="true"></div>
   ```
   
+
+## RESPONSIVE DESIGN
+
+- 반응형 분기점은 아래와 같습니다.
+  - desktop (1600~)
+  - laptop (1280~1599) \*_기본_
+  - laptopSM (1279~978)
+  - tablet (640~979)
+  - mobile (360~639)

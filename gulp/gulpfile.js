@@ -10,6 +10,7 @@ var sass = require("gulp-sass");
   (imagemin = require("gulp-imagemin")),
   (uglify = require("gulp-uglify")),
   (rename = require("gulp-rename")),
+  (htmlmin = require('gulp-htmlmin')),
   (concat = require("gulp-concat"));
 browserSync = require("browser-sync").create();
 
@@ -63,7 +64,7 @@ gulp.task("sass", function () {
   return (
     gulp
       .src(paths.scss)
-      .pipe(sourcemaps.init())
+      // .pipe(sourcemaps.init())
       .pipe(sass(sassOptions).on("error", sass.logError))
       .pipe(
         autoprefixer({
@@ -128,6 +129,15 @@ gulp.task("browserSync", function () {
   });
 });
 
+
+// html 압축
+gulp.task('minify:html', function () {
+  return gulp
+    .src(dist + "/index.html")
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest(dist));
+});
+
 // js 파일 난독화
 gulp.task("combine:js", function () {
   return gulp
@@ -137,8 +147,6 @@ gulp.task("combine:js", function () {
     .pipe(uglify())
     .pipe(rename("ui.min.js"))
     .pipe(gulp.dest(dist + "/js"));
-
-  // TODO: ****** combine:js 는 수정 예정입니다 😵
 });
 
 gulp.task("watch", function () {
@@ -155,6 +163,13 @@ gulp.task("watch", function () {
       interval: 100
     },
     ["fileinclude", "reload"]
+  );
+  gulp.watch(
+    dist + "/index.html",
+    {
+      interval: 500
+    },
+    ["minify:html"]
   );
   gulp.watch(
     paths.image,
@@ -174,7 +189,7 @@ gulp.task("watch", function () {
 
 gulp.task(
   "default",
-  ["fileinclude", "imagemin", "sass", "combine:js", "browserSync", "watch"],
+  ["fileinclude", "minify:html", "imagemin", "sass", "combine:js", "browserSync", "watch"],
   function () {
     console.log(" ~~~ 👩‍🔧 걸프가 열심히 일하고 있습니다 👨‍🔧 ~~~ ");
   }

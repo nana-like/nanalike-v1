@@ -4,6 +4,13 @@
 
 <body>
 
+  <script>
+    var loadingEvt = function () {
+      document.body.classList.add("loading--ongoing");
+    }
+    window.addEventListener("DOMContentLoaded", loadingEvt);
+  </script>
+
   <div class="wrap">
     @@include("html/common/loading.html")
     @@include("html/common/header.html")
