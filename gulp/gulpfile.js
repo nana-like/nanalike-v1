@@ -8,6 +8,7 @@ var sass = require("gulp-sass");
   (fileinclude = require("gulp-file-include")),
   (autoprefixer = require("gulp-autoprefixer")),
   (imagemin = require("gulp-imagemin")),
+  (webp = require("gulp-webp")),
   (uglify = require("gulp-uglify")),
   (rename = require("gulp-rename")),
   (htmlmin = require('gulp-htmlmin')),
@@ -112,6 +113,14 @@ gulp.task("imagemin", function () {
   return gulp
     .src(paths.image)
     .pipe(imagemin())
+    .pipe(gulp.dest(dist + "/images"));
+});
+
+// WebP 압축
+gulp.task("webp", function () {
+  return gulp
+    .src(paths.image)
+    .pipe(webp())
     .pipe(gulp.dest(dist + "/images"));
 });
 
