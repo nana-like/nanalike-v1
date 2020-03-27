@@ -66,7 +66,10 @@
 
 // 백그라운드 이미지 삽입
 @mixin bgi($imageName, $type: "png") {
-  background-image: url(#{$path-image}#{$imageName}.#{$type});
+  background-image: url(#{$path-image}#{$imageName}.webp);
+  &.no-webp {
+    background-image: url(#{$path-image}#{$imageName}.#{$type});
+  }
   background-repeat: no-repeat;
 }
 

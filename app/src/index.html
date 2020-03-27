@@ -8,11 +8,30 @@
     var loadingEvt = function () {
       document.body.classList.add("loading--ongoing");
 
+      function canUseWebP() {
+        var elem = document.createElement('canvas');
+
+        if (!!(elem.getContext && elem.getContext('2d'))) {
+          // was able or not to get WebP representation
+          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+        }
+
+        // very old browser like IE 8, canvas not supported
+        return false;
+      }
+
+      if (!canUseWebP()) {
+        var bgelements = document.querySelectorAll(".profile__photo, .visual__inner, .screen");
+        bgelements.forEach(function (element) {
+          element.classList.add('no-webp');
+        })
+      }
+
       var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
 
       if ("IntersectionObserver" in window) {
-        var lazyVideoObserver = new IntersectionObserver(function(entries, observer) {
-          entries.forEach(function(video) {
+        var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (video) {
             if (video.isIntersecting) {
               for (var source in video.target.children) {
                 var videoSource = video.target.children[source];
@@ -28,7 +47,7 @@
           });
         });
 
-        lazyVideos.forEach(function(lazyVideo) {
+        lazyVideos.forEach(function (lazyVideo) {
           lazyVideoObserver.observe(lazyVideo);
         });
       }
