@@ -72,13 +72,14 @@
       font-size: 30px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: #ffba00;
       transform: scale(0.95);
-    }
 
-    &:hover + .contact__text {
-      animation: ball 1.8s 0.2s;
+      & + .contact__text {
+        animation: ball 1.8s 0.2s;
+      }
     }
   }
 

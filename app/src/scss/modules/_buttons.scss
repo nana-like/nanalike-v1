@@ -29,7 +29,8 @@
     background-color: #333;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $c-blue;
     border-color: $c-blue;
 

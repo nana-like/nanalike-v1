@@ -52,7 +52,8 @@
       width: 100%;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       .header__logo-svg .path {
         fill: #3e87f8;
       }
@@ -81,6 +82,10 @@
     @include res--tablet {
       font-size: 13px;
       margin-right: $padding-sm;
+    }
+    &:hover,
+    &:focus {
+      color: $c-blue;
     }
   }
 }

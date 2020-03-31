@@ -83,7 +83,8 @@
       background-size: 100%;
       background-image: icon(sns-blog, "333333");
 
-      &:hover {
+      &:hover,
+      &:focus {
         opacity: 0.6;
       }
     }
@@ -95,7 +96,8 @@
       background-size: 100%;
       background-image: icon(sns-github, "333333");
 
-      &:hover {
+      &:hover,
+      &:focus {
         opacity: 0.6;
       }
     }

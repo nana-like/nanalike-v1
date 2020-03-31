@@ -234,6 +234,7 @@
   }
 
   &__btn {
+    display: inline-block;
     margin-top: 47px;
 
     @include res--tablet {
