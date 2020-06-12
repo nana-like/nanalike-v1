@@ -99,7 +99,7 @@
     }
     @include res--tablet {
       font-size: 17px;
-      margin-top: 64px;
+      margin-top: 54px;
     }
     @include res--mobile {
       font-size: 16px;
@@ -163,7 +163,7 @@
       padding: 0 $padding-sm;
     }
     @include res--mobile {
-      margin-top: 100px;
+      margin-top: 80px;
     }
   }
 
@@ -291,7 +291,7 @@
   &__comment {
     margin-top: 6px;
     color: #747474;
-    font-size: 12px;
+    font-size: 13px;
     text-align: right;
     font-weight: $fw-b;
 
