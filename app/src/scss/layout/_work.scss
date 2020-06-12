@@ -7,10 +7,10 @@
   position: relative;
   overflow-x: hidden;
   background-color: $c-gray-bg;
-  padding-top: 200px;
+  padding-top: 160px;
 
   @include res--tablet {
-    padding-top: 150px;
+    padding-top: 140px;
   }
   @include res--mobile {
     padding-top: 120px;
@@ -39,7 +39,7 @@
     font-weight: $fw-r;
     text-align: right;
     font-size: 50px;
-    line-height: 1.48;
+    line-height: 1.6;
     letter-spacing: 6.5px;
     @include flex-shrink(0);
 
@@ -58,6 +58,20 @@
       letter-spacing: 5px;
     }
   }
+
+  &__icon {
+    // display: block;
+    // width: 60px;
+    // margin-top: 60px;
+    // margin-left: auto;
+    // margin-right: 14px;
+    // position: absolute;
+    position: relative;
+    top: 12px;
+    right: 8px;
+    width: 48px;
+    animation: swing 3s infinite;
+  }
 }
 
 // 👇 skill 영역 내 나열 영역
@@ -72,7 +86,8 @@
   &__item {
     position: relative;
     font-size: 19px;
-    margin-top: 70px;
+    margin-top: 56px;
+    line-height: 160%;
     padding-left: 30px;
 
     @include res--laptopSM {
@@ -96,7 +111,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: $fw-b;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     @include font-mont;
 
     // 👇 체크 모양 아이콘

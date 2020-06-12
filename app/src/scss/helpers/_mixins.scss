@@ -44,7 +44,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  } @else {
+  }
+
+  @else {
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -55,7 +57,7 @@
 
 //웹키트 탭 하이라이트 컬러
 @mixin tap-highlight {
-  -webkit-tap-highlight-color: rgba(238, 186, 186, 0.2);
+  -webkit-tap-highlight-color: rgba(186, 224, 238, 0.2);
 }
 
 // 글자 숨기기
@@ -67,9 +69,11 @@
 // 백그라운드 이미지 삽입
 @mixin bgi($imageName, $type: "png") {
   background-image: url(#{$path-image}#{$imageName}.webp);
+
   &.no-webp {
     background-image: url(#{$path-image}#{$imageName}.#{$type});
   }
+
   background-repeat: no-repeat;
 }
 
@@ -80,13 +84,11 @@
   // Firefox 3.6+
   background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
   // Safari 4+, Chrome 1+
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(0%, $from),
-    color-stop($stop, $to)
-  );
+  background-image: -webkit-gradient(linear,
+      left top,
+      right top,
+      color-stop(0%, $from),
+      color-stop($stop, $to));
   // Safari 5.1+, Chrome 10+
   background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
   // Opera 11.10+

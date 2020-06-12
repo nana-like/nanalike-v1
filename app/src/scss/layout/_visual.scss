@@ -66,7 +66,7 @@
     font-weight: $fw-r;
     animation-fill-mode: forwards;
     @include res--laptopSM {
-      font-size: 30px;
+      font-size: 29px;
     }
     @include res--mobile {
       font-size: 22px;
@@ -76,9 +76,10 @@
   &__logo {
     opacity: 0;
     transform: translateY(20px);
-    width: 540px;
-    height: 144px;
-    margin: 22px auto 86px;
+    // width: 540px;
+    // height: 144px;
+    width: 500px;
+    margin: 22px auto 70px;
     animation-fill-mode: forwards;
 
     &-img {
@@ -88,8 +89,10 @@
     }
 
     @include res--laptop {
-      width: 490px;
-      height: 130px;
+      // width: 480px;
+      // height: 130px;
+      width: 400px;
+      margin: 20px auto 60px;
     }
 
     @include res--mobile {
@@ -105,6 +108,7 @@
     font-size: 14px;
     letter-spacing: 0.3px;
     @include font-mont;
+    font-weight: 500;
     animation-fill-mode: forwards;
 
     @include res--mobile {
@@ -120,7 +124,7 @@
     // right: 70px;
     top: 50%;
     left: 50%;
-    width: 380px;
+    width: 410px;
     height: 144px;
     margin-top: -42px;
     margin-left: -190px;
@@ -147,7 +151,7 @@
   font-size: 13px;
   padding-left: 20px;
   letter-spacing: 1px;
-  @include font-mono;
+  @include font-mont;
   color: $c-gray-dark;
 
   .scroll-down__word {

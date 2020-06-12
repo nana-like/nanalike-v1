@@ -76,20 +76,13 @@ by Nana (20-03-20)
 
 ## SEO
 
-- 화면 상에서 숨겨야 하지만 판독기 사용자에게 읽어줘야 할 때는 `.blind` 클래스네임을 지정하거나, `aria-label="{내용}"`을 사용합니다.
+- 화면 상에서 숨겨야 하지만 판독기 사용자에게 읽어줘야 할 때는 해당 텍스트에 `.blind` 클래스네임을 지정합니다. `a` 태그 등, 상호작용 요소(interactive elements)에게는 `aria-label="{내용}"`을 지정해도 됩니다.
   
   ```HTML
   <button><span class="blind">메뉴</span></button>
   <!-- 또는 -->
   <button aria-label="닫기 버튼">X</button>
   ```
-
-- 화면 상에서 보여야 하지만 판독기 사용자에겐 숨겨야 할 때는 `aria-hidden="true"`를 사용합니다.
-
-  ```HTML
-  <div class="icon" aria-hidden="true"></div>
-  ```
-  
 
 ## RESPONSIVE DESIGN
 

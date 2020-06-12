@@ -73,10 +73,13 @@
   &__mail {
     display: block;
     margin-right: $padding-md;
-    letter-spacing: 0.015rem;
-    font-size: 14px;
+    letter-spacing: 0.04em;
+    font-size: 13px;
     color: #333;
-    @include font-mono;
+    will-change: transform;
+    @include font-main;
+    // @include font-mono;
+
     transform-origin: 100% 0%;
 
     @include res--tablet {
