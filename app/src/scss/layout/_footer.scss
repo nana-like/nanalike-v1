@@ -81,13 +81,13 @@
   &__link {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 22px;
+    margin-right: 28px;
     cursor: pointer;
 
     @include res--mobile {
       width: 25px;
       height: 25px;
-      margin-right: 19px;
+      margin-right: 22px;
 
       &:last-child {
         margin-right: 0;

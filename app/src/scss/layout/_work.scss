@@ -582,8 +582,8 @@
   &__inner {
     position: relative;
     max-width: 1600px;
-    margin: 198px auto 0;
-    padding-bottom: 190px;
+    margin: 196px auto 0;
+    padding-bottom: 174px;
     text-align: center;
 
     @include res--tablet {
@@ -597,7 +597,7 @@
   }
 
   &__title {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     font-size: 30px;
     letter-spacing: 1px;
     color: #505050;
@@ -606,7 +606,7 @@
 
     @include res--tablet {
       font-size: 28px;
-      margin-bottom: 65px;
+      // margin-bottom: 65px;
     }
     @include res--mobile {
       font-size: 22px;
@@ -640,7 +640,7 @@
 
     &:last-child {
       text-align: left;
-      margin-left: 150px;
+      margin-left: 130px;
       margin-top: 316px;
     }
 
@@ -701,7 +701,7 @@
   }
 
   .btn-small {
-    margin: 26px auto 0;
+    margin: 36px auto 0;
   }
 }
 
@@ -740,8 +740,8 @@
   position: relative;
   top: -20px;
   left: -54px;
-  width: 590px;
-  height: 800px;
+  width: 580px;
+  height: 790px;
   margin: 0 auto;
   background-size: 100%;
   @include bgi("work-screen-shadow");
