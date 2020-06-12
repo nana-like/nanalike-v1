@@ -108,6 +108,20 @@
       font-size: 15px;
     }
 
+    .icon {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      margin-left: 8px;
+      background-size: 100%;
+      vertical-align: top;
+      @include res--mobile {
+        width: 20px;
+        height: 20px;
+        margin-left: 4px;
+      }
+    }
+
     .accent {
       position: relative;
       display: inline-block;

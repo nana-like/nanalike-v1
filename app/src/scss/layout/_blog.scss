@@ -1,0 +1,107 @@
+// ---
+// blog
+// ---
+
+// 👇 blog 영역
+.blog {
+  position: relative;
+  background-color: #fff;
+
+  &__inner {
+    position: relative;
+    max-width: $width-desktop;
+    margin: 0 auto;
+    padding: 230px $padding-md 200px;
+    @include res--tablet {
+      padding: 180px $padding-sm 160px;
+    }
+    @include res--mobile {
+      padding: 190px $padding-sm 130px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 148px;
+    font-size: 52px;
+    font-weight: $fw-r;
+    text-align: center;
+
+    @include res--laptopSM {
+      font-size: 48px;
+    }
+    @include res--tablet {
+      font-size: 42px;
+      margin-bottom: 90px;
+    }
+    @include res--mobile {
+      font-size: 27px;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.blog-list {
+  position: relative;
+  width: 100%;
+
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-gap: 70px;
+
+  &__item {
+    position: relative;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+  // min-height: 1000px;
+
+  // $_height: 520px;
+  // $_margin: 220px;
+
+  // &__item {
+  //   position: relative;
+  //   width: 890px;
+  //   margin: 0 auto 130px;
+  //   position: relative;
+
+  //   &:last-child {
+  //     margin-bottom: 340px;
+  //   }
+
+  //   @include res--laptop {
+  //     width: 790px;
+  //   }
+  //   @include res--laptopSM {
+  //     width: 720px;
+  //   }
+  // }
+
+  // @include res--tablet {
+  //   &__item {
+  //     width: calc(100% - 60px);
+  //   }
+
+  //   &__item:first-child,
+  //   &__item:nth-child(2),
+  //   &__item:nth-child(3) {
+  //     margin-left: auto;
+  //     margin-bottom: 90px;
+  //   }
+  // }
+
+  // @include res--mobile {
+  //   &__item {
+  //     width: 100%;
+  //   }
+  // }
+}

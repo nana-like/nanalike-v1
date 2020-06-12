@@ -8,13 +8,13 @@
   &__inner {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 160px 0 220px;
+    padding: 140px 0 220px;
     text-align: center;
     @include res--tablet {
       padding: 120px 0 160px;
     }
     @include res--mobile {
-      padding: 100px 0 120px;
+      padding: 90px 0 110px;
     }
   }
 
@@ -30,7 +30,7 @@
     }
     @include res--mobile {
       font-size: 16px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     &:before {
@@ -61,7 +61,7 @@
     display: block;
     text-align: center;
     font-size: 82px;
-    font-weight: $fw-r;
+    font-weight: 500;
     transition: all 0.3s;
     @include font-mont;
     @include res--tablet {
@@ -69,6 +69,7 @@
     }
     @include res--mobile {
       font-weight: $fw-b;
+      letter-spacing: 0.04em;
       font-size: 30px;
     }
 
@@ -92,7 +93,7 @@
     font-weight: $fw-l;
     color: #747474;
     @include res--tablet {
-      margin-top: 16px;
+      // margin-top: 3px;
       font-size: 14px;
     }
     @include res--mobile {

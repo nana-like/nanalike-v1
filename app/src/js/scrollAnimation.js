@@ -181,7 +181,7 @@ var recentScene = new ScrollMagic.Scene({
 
 // 💪 (8) 워크 - 이음말 페이드인
 var workWordScene = new ScrollMagic.Scene({
-  triggerElement: ".ability",
+  triggerElement: ".blog",
   duration: "30%",
   offset: "-100"
 })
@@ -189,27 +189,27 @@ var workWordScene = new ScrollMagic.Scene({
   .setClassToggle(".icon-hello", "ani-swing");
 
 // 💪 (9) 어빌리티 - 백그라운드 단어 등장
-var revealElements = document.getElementsByClassName("ability-list__item");
-for (var i = 0; i < revealElements.length; i++) {
-  var scene2 = new ScrollMagic.Scene({
-    triggerElement: revealElements[i], //각 요소가 트리거가 됨
-    reverse: false
-  })
-    .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
-    .addTo(controller);
-}
+// var revealElements = document.getElementsByClassName("ability-list__item");
+// for (var i = 0; i < revealElements.length; i++) {
+//   var scene2 = new ScrollMagic.Scene({
+//     triggerElement: revealElements[i], //각 요소가 트리거가 됨
+//     reverse: false
+//   })
+//     .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
+//     .addTo(controller);
+// }
 
 // 💪 (10) 어빌리티 - 백그라운드 패럴렉스
-var abilityWords = document.getElementsByClassName("ability-list__back");
-for (var i = 0; i < abilityWords.length; i++) {
-  var scene2 = new ScrollMagic.Scene({
-    triggerElement: abilityWords[i], //각 요소가 트리거가 됨
-    duration: "100%",
-    offset: "-200%"
-  })
-    .setTween(abilityWords[i], { y: "-100%", ease: Linear.easeNone })
-    .addTo(controller);
-}
+// var abilityWords = document.getElementsByClassName("ability-list__back");
+// for (var i = 0; i < abilityWords.length; i++) {
+//   var scene2 = new ScrollMagic.Scene({
+//     triggerElement: abilityWords[i], //각 요소가 트리거가 됨
+//     duration: "100%",
+//     offset: "-200%"
+//   })
+//     .setTween(abilityWords[i], { y: "-100%", ease: Linear.easeNone })
+//     .addTo(controller);
+// }
 
 // 💪 (11) PR - 이음말
 var prWordScene = new ScrollMagic.Scene({

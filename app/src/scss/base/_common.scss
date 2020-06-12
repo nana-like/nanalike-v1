@@ -12,11 +12,6 @@
   margin: -1px;
 }
 
-.icon-love {
-  display: inline-block;
-  animation: heartbeat 2s infinite;
-}
-
 .section-connect {
   z-index: $z-section-connect;
   display: block;
@@ -137,4 +132,16 @@
   display: inline-block;
   transform-origin: 50% 50%;
   animation: swing 1s infinite;
+}
+
+.icon {
+  &--write {
+    @include bgi("deco-write");
+  }
+  &--highfive {
+    @include bgi("deco-highfive");
+  }
+  &--heart {
+    @include bgi("deco-heart");
+  }
 }

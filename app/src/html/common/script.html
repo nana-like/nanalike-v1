@@ -1,10 +1,179 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="./js/jquery.ajax-cross-origin.min.js"></script>
+<script src="./js/jquery.xdomainajax.js"></script> -->
 <script src="js/ui.min.js"></script>
 <script>
   console.log(
     "%c 안녕하세요, 나나입니다 :-)", "background-color:#3e87f8; color: #fff; font-weight:bold; font-size:120%; padding: 4px;");
+</script>
+<!-- <script>
+  //임시 하드코딩
+  const postList = {
+    0: {
+      'show': true, //화면에서 보일지 여부
+      'title': '브라우저의 동작 (3) - 웹 페이지 최적화',
+      'link': 'https://nykim.work/81',
+      'img': 'https://k.kakaocdn.net/dn/d8As2p/btqELSjkU6F/Kd1mNpikGqBWcp8Y5pkfS0/img.png'
+    },
+    1: {
+      'show': true,
+      'title': '브라우저의 동작 (2) - CSS : 내 말대로 꾸며줘!',
+      'link': 'https://nykim.work/79'
+    },
+    2: {
+      'show': true,
+      'title': '브라우저의 동작 (1) - HTML : 내 마크업을 이해해 줘!',
+      'link': 'https://nykim.work/78'
+    },
+    3: {
+      'show': true,
+      'title': '[Vue/Vuex] 뷰 실습 - Todo 웹앱 만들기 (4)',
+      'link': 'https://nykim.work/77'
+    },
+    4: {
+      'show': true,
+      'title': '[Vue/Vuex] 뷰 실습 - Todo 웹앱 만들기 (3)',
+      'link': 'https://nykim.work/76'
+    },
+    5: {
+      'show': true,
+      'title': '[Vue/Vuex] 뷰 실습 - Todo 웹앱 만들기 (2)',
+      'link': 'https://nykim.work/75'
+    },
+    6: {
+      'show': true,
+      'title': '[Vue/Vuex] 뷰 실습 - Todo 웹앱 만들기 (1)',
+      'link': 'https://nykim.work/74'
+    },
+    7: {
+      'show': true,
+      'title': '[Vue] 기초 스터디',
+      'link': 'https://nykim.work/73'
+    },
+    8: {
+      'show': true,
+      'title': '[CSS 방법론] BEM 방식',
+      'link': 'https://nykim.work/15'
+    },
+    9: {
+      'show': true,
+      'title': '[JS] ES6의 변수 선언, const와 let',
+      'link': 'https://nykim.work/72'
+    }
+  }
+</script> -->
+
+<script>
+
+
+  // ****
+
+
+  // var rssURL = "https://nykim.work/rss";
+  $(document).ready(function () {
+
+    var url = "https://nykim.net/tapi/rss";
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'xml',
+    })
+      .done(function (data) {
+
+        // console.log(data);
+
+        // console.dir(xmlDoc);
+
+
+
+        // var blogPosts = {
+
+        // }
+        // var arr = [];
+        // var items = data.getElementsByTagName("item");
+        // for (i = 0; i < items.length; i++) {
+        //   var item = items[i];
+        //   var info = {
+        //     'index': i,
+        //     'title': item.children[0].innerHTML,
+        //     'link': item.children[1].innerHTML,
+        //     'date': item.getElementsByTagName('pubdate')
+        //   }
+        //   arr.push(info);
+        // }
+        // console.dir(items);
+        // console.dir(arr);
+
+
+        // console.dir(xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue);
+        // console.dir(xmlDoc.getElementsByTagName("item")[0]);
+
+        // var b = data.getElementsByTagName("item")[0].childNodes[1].innerHTML;
+        // console.dir(b);
+
+
+
+        $(data).find('channel item').each(function () {
+          var itemTitle = $(this).find('title').text();
+          var permaLink = $(this).find('link').text();
+          var desc = $(this).find('description');
+
+          var pubText = $(this).find('pubDate').text();
+          var pubDate = new Date(pubText);
+          var dateString = pubDate.getFullYear() + '.' + (pubDate.getMonth() + 1) + '.' + pubDate.getDate();
+
+          // console.log(itemTitle);
+          // console.log(permaLink);
+          // console.log(dateString);
+          // console.log(imgSrc[0].innerHTML);
+
+          var doc = new DOMParser().parseFromString($(desc).text(), "text/html");
+          var spans = doc.getElementsByTagName('span');
+          for (let i = 0; i < spans.length; i++) {
+            var e = spans.item(i);
+            if (e.hasAttribute('data-url')) {
+              console.log(e.getAttribute('data-url'));
+              break;
+            }
+          }
+
+
+
+          var listItem = document.createElement("li");
+          listItem.classList.add("blog-list__item");
+
+          var img = document.createElement("img");
+          // img.src = 
+
+          var title = document.createElement("strong");
+          title.innerHTML = itemTitle;
+          title.classList.add("blog-list__title");
+          listItem.appendChild(title);
+
+          var date = document.createElement("p");
+          date.innerHTML = dateString;
+          date.classList.add("blog-list__date");
+          listItem.appendChild(date);
+
+          var blogList = document.querySelector(".blog-list");
+          blogList.appendChild(listItem);
+
+          //   $(".blog-list").append(
+          //   //   $("<li></li>").append(
+          // //   //     $('<a></a>').attr('href', permaLink)
+          // //   //       .text(itemTitle)
+          // //   //   )
+          // //   //     .append(dateString)
+          //   )
+        });
+      })
+      .fail(function () {
+        console.error('데이터 불러오기에 실패했습니다.');
+      });
+  });
 </script>

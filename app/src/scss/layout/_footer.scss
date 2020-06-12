@@ -6,8 +6,8 @@
 .footer {
   position: relative;
   background-color: #fff;
-  font-weight: $fw-b;
-  @include font-mono;
+  font-weight: $fw-r;
+  @include font-mont;
 
   &__inner {
     position: relative;
@@ -16,6 +16,7 @@
     margin: 0 auto;
     padding: 0 $padding-md 22px;
     @include flexbox();
+    @include align-items(center);
     @include justify-content(space-between);
 
     @include res--tablet {
@@ -31,18 +32,19 @@
   &__copyright {
     position: absolute;
     left: 50%;
-    bottom: 22px;
+    // bottom: 22px;
     transform: translateX(-50%);
     text-align: center;
     color: #adadad;
-    letter-spacing: 0.04rem;
+    @include font-main;
+    // letter-spacing: -0.02rem;
     @include res--mobile {
       bottom: 18px;
     }
   }
 
   &__madeby {
-    margin-bottom: 6px;
+    // margin-bottom: 6px;
     font-size: 95%;
     color: #474747;
     text-align: right;
@@ -51,6 +53,21 @@
       text-align: center;
       letter-spacing: 0.065rem;
       margin-bottom: 4px;
+    }
+
+    .icon--heart {
+      display: inline-block;
+      width: 20px;
+      height: 24px;
+      margin: -4px 0 0 4px;
+      vertical-align: middle;
+      background-size: 100%;
+      animation: heartbeat 1.8s infinite;
+      @include res--mobile {
+        width: 14px;
+        height: 16px;
+        margin: -2px 0 0 2px;
+      }
     }
   }
 }
@@ -63,6 +80,7 @@
   }
   &__link {
     display: inline-block;
+    vertical-align: middle;
     margin-right: 22px;
     cursor: pointer;
 

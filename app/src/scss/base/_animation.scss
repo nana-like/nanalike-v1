@@ -89,27 +89,27 @@
 // 👇 두근거리는 애니메이션
 @keyframes heartbeat {
   0% {
-    transform: scale(0.9);
+    transform: scale(1);
   }
 
-  20% {
-    transform: scale(1.2);
+  30% {
+    transform: scale(0.9);
   }
 
   40% {
-    transform: scale(0.9);
+    transform: scale(1.2);
   }
 
   60% {
+    transform: scale(0.9);
+  }
+
+  70% {
     transform: scale(1.2);
   }
 
   80% {
-    transform: scale(0.9);
-  }
-
-  100% {
-    transform: scale(0.9);
+    transform: scale(1);
   }
 }
 

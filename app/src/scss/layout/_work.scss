@@ -70,7 +70,11 @@
     top: 12px;
     right: 8px;
     width: 48px;
-    animation: swing 3s infinite;
+    animation: swing 2.5s infinite;
+    @include res--mobile {
+      width: 32px;
+      top: 8px;
+    }
   }
 }
 
