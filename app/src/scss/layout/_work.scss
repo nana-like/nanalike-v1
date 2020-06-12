@@ -217,7 +217,7 @@
     ),
     3: (
       x: 370px,
-      y: 520px,
+      y: 470px,
     ),
   );
 
@@ -520,6 +520,14 @@
     background: rgb(150, 126, 126);
     border-radius: 8px;
     box-shadow: 0 20px 30px 0 rgba(65, 58, 58, 0.15);
+    cursor: pointer;
+
+    &:hover {
+      will-change: transform;
+      transform: scale(1.05);
+      opacity: 0.9;
+      box-shadow: 0 20px 30px 0 rgba(65, 58, 58, 0.25);
+    }
 
     @include res--laptopSM {
       width: 120px;
@@ -531,6 +539,12 @@
       height: 100px;
     }
   }
+
+  // &__link {
+  //   &:hover source {
+  //     opacity: 0.7;
+  //   }
+  // }
 
   &__tag {
     margin-top: 14px;
@@ -566,6 +580,7 @@
     max-width: 1600px;
     margin: 198px auto 0;
     padding-bottom: 190px;
+    text-align: center;
 
     @include res--tablet {
       margin: 140px auto 0;
@@ -673,11 +688,16 @@
   }
 
   &__btn {
+    display: inline-block;
     margin: 10px auto 0;
 
     @include res--mobile {
       margin-top: 20px;
     }
+  }
+
+  .btn-small {
+    margin: 26px auto 0;
   }
 }
 
@@ -728,8 +748,15 @@
     left: -44px;
   }
   @include res--mobile {
-    width: 428px;
-    height: 580px;
-    left: -35px;
+    // width: 428px;
+    // height: 580px;
+    width: 360px;
+    height: 490px;
+    left: -28px;
+    // max-width: 428px;
+    // width: 100%;
+    // height: auto;
+    // padding-bottom: 140%;
+    // left: -35px;
   }
 }

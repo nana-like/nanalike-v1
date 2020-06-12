@@ -106,7 +106,7 @@
 // 👇 리얼 코드 부분
 .real-code {
   width: 100%;
-  padding-top: 140px;
+  padding-top: 100px;
   text-align: center;
   background-color: #faf7f4;
 
@@ -120,7 +120,7 @@
 
   &__btn {
     display: inline-block;
-    margin: 28px auto 140px;
+    margin: 28px auto 100px;
     transform: scale(0.9);
     @include res--mobile {
       transform: scale(0.84);
@@ -129,10 +129,10 @@
 
   &__footer {
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     color: #fff;
-    @include font-mono;
-    padding: 11px 0;
+    @include font-mont;
+    padding: 14px 0;
     background-color: $c-black;
     @include res--mobile {
       font-size: 13px;
