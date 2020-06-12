@@ -1,0 +1,103 @@
+// ---
+// contact
+// ---
+
+// 👇 contact 영역 전체
+.contact {
+  background-color: #fff;
+  &__inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 140px 0 220px;
+    text-align: center;
+    @include res--tablet {
+      padding: 120px 0 160px;
+    }
+    @include res--mobile {
+      padding: 90px 0 110px;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: -0.015rem;
+    font-weight: $fw-r;
+    @include res--tablet {
+      font-size: 20px;
+    }
+    @include res--mobile {
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    &:before {
+      display: inline-block;
+      content: "";
+      width: 20px;
+      height: 16px;
+      margin-bottom: 2px;
+      margin-right: 14px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: 100% 0%;
+      background-image: icon(check, "333333");
+      @include res--mobile {
+        width: 18px;
+        height: 15px;
+        margin-bottom: -1px;
+      }
+    }
+  }
+
+  &__info {
+    display: inline-block;
+    position: relative;
+  }
+
+  &__mail {
+    display: block;
+    text-align: center;
+    font-size: 82px;
+    font-weight: 500;
+    transition: all 0.3s;
+    @include font-mont;
+    @include res--tablet {
+      font-size: 60px;
+    }
+    @include res--mobile {
+      font-weight: $fw-b;
+      letter-spacing: 0.04em;
+      font-size: 30px;
+    }
+
+    &:hover,
+    &:focus {
+      color: #ffba00;
+      transform: scale(0.95);
+
+      & + .contact__text {
+        animation: ball 1.8s 0.2s;
+      }
+    }
+  }
+
+  &__text {
+    @include pointer-none;
+    @include select-none;
+    margin-top: 26px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: $fw-l;
+    color: #747474;
+    @include res--tablet {
+      // margin-top: 3px;
+      font-size: 14px;
+    }
+    @include res--mobile {
+      font-size: 12px;
+    }
+  }
+}

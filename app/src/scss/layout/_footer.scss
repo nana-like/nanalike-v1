@@ -1,0 +1,123 @@
+// ---
+// footer
+// ---
+
+// 👇 footer 영역 전체
+.footer {
+  position: relative;
+  background-color: #fff;
+  font-weight: $fw-r;
+  @include font-mont;
+
+  &__inner {
+    position: relative;
+    max-width: 1600px;
+    font-size: 15px;
+    margin: 0 auto;
+    padding: 0 $padding-md 22px;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    @include res--tablet {
+      font-size: 14px;
+      padding: 0 $padding-sm 34px;
+    }
+    @include res--mobile {
+      font-size: 12px;
+      @include flex-direction(column);
+    }
+  }
+
+  &__copyright {
+    position: absolute;
+    left: 50%;
+    // bottom: 22px;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #adadad;
+    @include font-main;
+    // letter-spacing: -0.02rem;
+    @include res--mobile {
+      bottom: 18px;
+    }
+  }
+
+  &__madeby {
+    // margin-bottom: 6px;
+    font-size: 95%;
+    color: #474747;
+    text-align: right;
+    letter-spacing: 0.03rem;
+    @include res--mobile {
+      text-align: center;
+      letter-spacing: 0.065rem;
+      margin-bottom: 4px;
+    }
+
+    .icon--heart {
+      display: inline-block;
+      width: 20px;
+      height: 24px;
+      margin: -4px 0 0 4px;
+      vertical-align: middle;
+      background-size: 100%;
+      animation: heartbeat 1.8s infinite;
+      @include res--mobile {
+        width: 14px;
+        height: 16px;
+        margin: -2px 0 0 2px;
+      }
+    }
+  }
+}
+
+.sns {
+  @include res--mobile {
+    text-align: center;
+    margin-bottom: 18px;
+    margin-right: 14px;
+  }
+  &__link {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 28px;
+    cursor: pointer;
+
+    @include res--mobile {
+      width: 25px;
+      height: 25px;
+      margin-right: 22px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &--blog {
+      width: 35px;
+      height: 17px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: icon(sns-blog, "333333");
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+
+    &--github {
+      width: 54px;
+      height: 16px;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-image: icon(sns-github, "333333");
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+  }
+}

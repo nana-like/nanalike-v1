@@ -1,0 +1,265 @@
+// ---
+// visual
+// ---
+
+// 👇 visual 영역 전체
+.visual {
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  min-height: 640px;
+  background-color: rgb(192, 240, 255);
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    max-width: $width-max;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: 50%;
+    @include bgi("visual-bg-3");
+  }
+
+  // 👇 엷은 흰 색 배경
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    background-color: rgba(255, 255, 255, 0.4);
+    content: "";
+  }
+
+  &__container {
+    display: block;
+    width: inherit;
+    height: inherit;
+    min-height: inherit;
+    position: relative;
+    max-width: $width-desktopLG;
+    margin: 0 auto;
+    z-index: 1;
+    @include flexbox();
+    @include align-items(center);
+  }
+
+  &__content {
+    margin-top: -8vh;
+    text-align: center;
+    width: 100%;
+    @include res--mobile {
+      margin-top: -10vh;
+    }
+  }
+
+  &__text {
+    opacity: 0;
+    transform: translateY(20px);
+    font-size: 35px;
+    letter-spacing: 0.7px;
+    font-weight: $fw-r;
+    animation-fill-mode: forwards;
+    @include res--laptopSM {
+      font-size: 29px;
+    }
+    @include res--mobile {
+      font-size: 22px;
+    }
+  }
+
+  &__logo {
+    opacity: 0;
+    transform: translateY(20px);
+    // width: 540px;
+    // height: 144px;
+    width: 500px;
+    margin: 22px auto 70px;
+    animation-fill-mode: forwards;
+
+    &-img {
+      display: block;
+      width: 100%;
+      cursor: default;
+    }
+
+    @include res--laptop {
+      // width: 480px;
+      // height: 130px;
+      width: 400px;
+      margin: 20px auto 60px;
+    }
+
+    @include res--mobile {
+      width: 244px;
+      height: 65px;
+    }
+  }
+
+  &__desc {
+    opacity: 0;
+    transform: translateY(20px);
+    color: $c-gray-dark;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    @include font-mont;
+    font-weight: 500;
+    animation-fill-mode: forwards;
+
+    @include res--mobile {
+      font-size: 12px;
+      letter-spacing: 0;
+      font-weight: $fw-b;
+    }
+  }
+
+  &__hello {
+    position: absolute;
+    // bottom: 70px;
+    // right: 70px;
+    top: 50%;
+    left: 50%;
+    width: 410px;
+    height: 144px;
+    margin-top: -42px;
+    margin-left: -190px;
+    font-size: 48px;
+    line-height: 1.5;
+    text-align: center;
+
+    opacity: 0;
+
+    @include res--mobile {
+      width: 340px;
+      margin-left: -170px;
+      font-size: 32px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.scroll-down {
+  //TODO:모션 예정
+  position: absolute;
+  bottom: 0;
+  left: $padding-md;
+  font-size: 13px;
+  padding-left: 20px;
+  letter-spacing: 1px;
+  @include font-mont;
+  color: $c-gray-dark;
+
+  .scroll-down__word {
+    display: inline-block;
+    position: relative;
+    bottom: 14px;
+
+    @include res--mobile {
+      margin-top: 30px;
+    }
+  }
+
+  @include res--laptopSM {
+    font-size: 12px;
+  }
+
+  @include res--tablet {
+    left: 30px;
+  }
+
+  @include res--mobile {
+    bottom: initial;
+    top: 50%;
+    left: 50%;
+    width: 87px;
+    font-size: 11px;
+    padding-left: 0;
+    padding-bottom: 0;
+    // padding-top: 82px;
+    transform: translateX(-50%);
+    margin-top: 20vh;
+    opacity: 0.8;
+    color: rgba(51, 51, 51, 0.5);
+  }
+
+  // &:before,
+  // &:after {
+  //   display: block;
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   width: 1px;
+  //   height: 60px;
+  //   @include res--mobile {
+  //     // position: relative;
+  //     // margin: 0 auto 12px;
+  //     height: 70px;
+  //     display: block;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 50%;
+  //     transform: translateX(-50%);
+  //   }
+  // }
+  // &:before {
+  //   background-color: $c-gray-dark;
+  // }
+
+  // &:after {
+  //   background-color: red;
+  //   top: -80px;
+  //   @include res--mobile {
+  //     z-index: 1;
+  //   }
+  // }
+}
+
+.scroll-down .lines {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 70px;
+  overflow: hidden;
+  margin-top: 2px;
+
+  @include res--mobile {
+    display: block;
+    width: 87px;
+    margin-top: 0;
+  }
+  .line-1 {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    display: block;
+    width: 1px;
+    height: 70px;
+    background: rgba(51, 51, 51, 0.3);
+    overflow: hidden;
+
+    @include res--mobile {
+      left: 50%;
+    }
+    // animation: scollDown 1s infinite;
+  }
+  .line-2 {
+    position: absolute;
+    top: -70px;
+    left: 0%;
+    display: block;
+    width: 1px;
+    height: 70px;
+    background: rgba(51, 51, 51, 0.4);
+    overflow: hidden;
+    animation: scollDown 2s infinite;
+    @include res--mobile {
+      left: 50%;
+    }
+  }
+}

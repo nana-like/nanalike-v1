@@ -1,0 +1,3 @@
+user-agent: *
+disallow: /videos/
+Sitemap: https://nykim.net/system/sitemap.xml
