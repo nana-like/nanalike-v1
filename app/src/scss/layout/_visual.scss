@@ -20,7 +20,7 @@
     margin: 0 auto;
     background-size: cover;
     background-position: 50%;
-    @include bgi("visual-bg-3");
+    @include bgi("visual-bg-3", "jpg");
   }
 
   // 👇 엷은 흰 색 배경

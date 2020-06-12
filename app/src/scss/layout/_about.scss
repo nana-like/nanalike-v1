@@ -118,7 +118,7 @@
     position: relative;
     width: 398px;
     height: 330px;
-    @include bgi("profile-v2");
+    @include bgi("profile-v2", "jpg");
     background-position: 20% 50%;
     background-size: 110%;
 
