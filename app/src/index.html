@@ -5,54 +5,7 @@
 <body>
 
   <script>
-    var loadingEvt = function () {
-      document.body.classList.add("loading--ongoing");
-
-      function canUseWebP() {
-        var elem = document.createElement('canvas');
-
-        if (!!(elem.getContext && elem.getContext('2d'))) {
-          // was able or not to get WebP representation
-          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-        }
-
-        // very old browser like IE 8, canvas not supported
-        return false;
-      }
-
-      if (!canUseWebP()) {
-        var bgelements = document.querySelectorAll(".profile__photo, .visual__inner, .screen, .icon");
-        bgelements.forEach(function (element) {
-          element.classList.add('no-webp');
-        })
-      }
-
-      var lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
-
-      if ("IntersectionObserver" in window) {
-        var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
-          entries.forEach(function (video) {
-            if (video.isIntersecting) {
-              for (var source in video.target.children) {
-                var videoSource = video.target.children[source];
-                if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-                  videoSource.src = videoSource.dataset.src;
-                }
-              }
-
-              video.target.load();
-              video.target.classList.remove("lazy");
-              lazyVideoObserver.unobserve(video.target);
-            }
-          });
-        });
-
-        lazyVideos.forEach(function (lazyVideo) {
-          lazyVideoObserver.observe(lazyVideo);
-        });
-      }
-    }
-    window.addEventListener("DOMContentLoaded", loadingEvt);
+    var loadingEvt = function () { var e; (document.body.classList.add("loading--ongoing"), (e = document.createElement("canvas")).getContext && e.getContext("2d") && 0 == e.toDataURL("image/webp").indexOf("data:image/webp")) || document.querySelectorAll(".profile__photo, .visual__inner, .screen, .icon").forEach(function (e) { e.classList.add("no-webp") }); var t = [].slice.call(document.querySelectorAll("video.lazy")); if ("IntersectionObserver" in window) { var n = new IntersectionObserver(function (e, t) { e.forEach(function (e) { if (e.isIntersecting) { for (var t in e.target.children) { var a = e.target.children[t]; "string" == typeof a.tagName && "SOURCE" === a.tagName && (a.src = a.dataset.src) } e.target.load(), e.target.classList.remove("lazy"), n.unobserve(e.target) } }) }); t.forEach(function (e) { n.observe(e) }) } }; window.addEventListener("DOMContentLoaded", loadingEvt);
   </script>
 
   <div class="wrap">
