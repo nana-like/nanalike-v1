@@ -283,7 +283,7 @@ var workWordScene = new ScrollMagic.Scene({
   offset: "-100"
 })
   .setTween(work_tween_connect)
-  .setClassToggle(".icon-hello", "ani-swing");
+// .setClassToggle(".icon-hello", "ani-swing");
 
 // 💪 (9) 어빌리티 - 백그라운드 단어 등장
 // var revealElements = document.getElementsByClassName("ability-list__item");

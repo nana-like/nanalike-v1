@@ -90,6 +90,7 @@
     margin-top: 26px;
     text-align: center;
     font-size: 16px;
+    line-height: 170%;
     font-weight: $fw-l;
     color: #747474;
     @include res--tablet {
@@ -97,7 +98,7 @@
       font-size: 14px;
     }
     @include res--mobile {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
 }
