@@ -24,6 +24,7 @@ $(document).ready(function () {
 
         var doc = new DOMParser().parseFromString($(this).find('description').text(), "text/html");
         var imgs = doc.getElementsByTagName('img');
+        if (imgs.length === 0) return;
 
         var listItem = document.createElement("li");
         listItem.classList.add("blog-list__item");
@@ -35,7 +36,7 @@ $(document).ready(function () {
 
         var img = document.createElement("div");
         // img.src = doc.getElementsByTagName('img')[0].src;
-        img.style.backgroundImage = `url('${doc.getElementsByTagName('img')[0].src}')`;
+        img.style.backgroundImage = `url('${imgs[0].src}')`;
         img.classList.add("blog-list__img");
         link.appendChild(img);
 
